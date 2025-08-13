@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:fruits_commerce_app/core/routes/routes.dart';
+import 'package:fruits_commerce_app/features/onboarding/presentation/views/screens/onboarding_screen.dart';
 import 'package:fruits_commerce_app/features/splash/presentation/views/screens/splash_screen.dart';
 
 class AppRouter
@@ -15,6 +16,8 @@ class AppRouter
     {
       case Routes.splashScreen:
         return _buildScreen(widget: SplashScreen());
+      case Routes.onBoardingScreen:
+        return _buildScreen(widget: OnBoardingScreen());
 
 
       default:

@@ -12,7 +12,6 @@ class AppDarkTheme
   {
 
     return ThemeData(
-      colorScheme: AppColors.darkColorScheme,
       useMaterial3: true,
 
 

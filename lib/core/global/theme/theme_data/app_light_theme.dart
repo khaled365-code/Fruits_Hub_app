@@ -9,15 +9,14 @@ class AppLightTheme
 
 
 
-  static ThemeData getAppLightTheme()
+  static ThemeData getAppLightTheme({required int themeValue})
   {
 
     return ThemeData(
     useMaterial3: true,
-    colorScheme: AppColors.lightColorScheme,
     elevatedButtonTheme: _getElevatedButtonTheme(),
-    inputDecorationTheme: _getInputDecorationTheme(),
-    textTheme: _getTextTheme(scheme: AppColors.lightColorScheme)
+    inputDecorationTheme: _getInputDecorationTheme(themeValue),
+    textTheme: _getTextTheme(themeValue)
 
     );
 
@@ -25,11 +24,11 @@ class AppLightTheme
 
   }
 
-  static _getElevatedButtonTheme() 
+  static _getElevatedButtonTheme()
   {
     return ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        fixedSize: Size(double.infinity, 54),
+        backgroundColor: AppColors.primaryColor,
         elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
@@ -39,30 +38,35 @@ class AppLightTheme
     
   }
 
-  static _getInputDecorationTheme()
+  static _getInputDecorationTheme(int themeValue)
   {
 
     return InputDecorationTheme(
-      enabledBorder: _buildOutlineInputBorder(),
-      focusedBorder: _buildOutlineInputBorder(),
-      errorBorder: _buildOutlineInputBorder(),
+      enabledBorder: _buildOutlineInputBorder(themeValue),
+      focusedBorder: _buildOutlineInputBorder(themeValue),
+      errorBorder: _buildOutlineInputBorder(themeValue),
       filled: true,
-    );
-
-  }
-
-  static _buildOutlineInputBorder()
-  {
-    return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(4),
-      borderSide: BorderSide(
-        width: 1
+      fillColor: AppColors.inputDecorationColors[themeValue],
+      hintStyle: _getTextTheme(themeValue).labelLarge.copyWith(
+        color: AppColors.c949D9E
       )
     );
 
   }
 
-  static _getTextTheme({required ColorScheme scheme})
+  static _buildOutlineInputBorder(int themeValue)
+  {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(4),
+      borderSide: BorderSide(
+        width: 1,
+        color: themeValue==1?AppColors.cE6E9EA:Colors.transparent
+      )
+    );
+
+  }
+
+  static _getTextTheme(int themeValue)
   {
 
     return  TextTheme(
@@ -71,18 +75,17 @@ class AppLightTheme
         fontSize: 28,
         fontWeight: FontWeight.bold, // bold28
         fontFamily: 'Cairo',
-        color: scheme.onSurface
       ),
       displayMedium: TextStyle(
         fontSize: 26,
         fontWeight: FontWeight.normal, // regular26
-        fontFamily: 'Cairo', color: scheme.onSurface
+        fontFamily: 'Cairo',
 
       ),
       displaySmall: TextStyle(
         fontSize: 23,
         fontWeight: FontWeight.bold, // bold23
-        fontFamily: 'Cairo', color: scheme.onSurface
+        fontFamily: 'Cairo',
 
 
       ),
@@ -92,21 +95,20 @@ class AppLightTheme
         fontSize: 22,
         fontWeight: FontWeight.normal, // regular22
           fontFamily: 'Cairo',
-          color: scheme.onSurface
+
 
       ),
       headlineMedium: TextStyle(
         fontSize: 19,
         fontWeight: FontWeight.bold, // bold19
           fontFamily: 'Cairo',
-          color: scheme.onSurface
+
 
       ),
       headlineSmall: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.bold, // bold16
           fontFamily: 'Cairo',
-          color: scheme.onSurface
 
 
       ),
@@ -116,7 +118,7 @@ class AppLightTheme
         fontSize: 16,
         fontWeight: FontWeight.w600, // semiBold16
           fontFamily: 'Cairo',
-          color: scheme.onSurface
+
 
 
       ),
@@ -124,16 +126,12 @@ class AppLightTheme
         fontSize: 15,
         fontWeight: FontWeight.w500, // medium15
           fontFamily: 'Cairo',
-          color: scheme.onSurface
-
 
       ),
       titleSmall: TextStyle(
         fontSize: 13,
         fontWeight: FontWeight.w600, // semiBold13
           fontFamily: 'Cairo',
-          color: scheme.onSurface
-
 
       ),
 
@@ -142,24 +140,18 @@ class AppLightTheme
         fontSize: 16,
         fontWeight: FontWeight.normal, // regular16
           fontFamily: 'Cairo',
-          color: scheme.onSurface
-
 
       ),
       bodyMedium: TextStyle(
         fontSize: 13,
         fontWeight: FontWeight.normal, // regular13
           fontFamily: 'Cairo',
-          color: scheme.onSurface
-
 
       ),
       bodySmall: TextStyle(
         fontSize: 11,
         fontWeight: FontWeight.normal, // regular11
           fontFamily: 'Cairo',
-          color: scheme.onSurface
-
 
       ),
 
@@ -167,20 +159,18 @@ class AppLightTheme
       labelLarge: TextStyle(
         fontSize: 13,
         fontWeight: FontWeight.bold, // bold13
-          fontFamily: 'Cairo',color: scheme.onPrimary
-
+          fontFamily: 'Cairo',
 
       ),
       labelMedium: TextStyle(
         fontSize: 11,
         fontWeight: FontWeight.w600, // semiBold11
-          fontFamily: 'Cairo',color: scheme.onPrimary
-
+          fontFamily: 'Cairo',
       ),
       labelSmall: TextStyle(
         fontSize: 11,
         fontWeight: FontWeight.normal, // regular11 (optional duplicate)
-          fontFamily: 'Cairo',color: scheme.onPrimary
+          fontFamily: 'Cairo',
       ),
     );
 
