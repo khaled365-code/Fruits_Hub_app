@@ -44,10 +44,11 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
 
-  void delaySplashScreen() async
+  void delaySplashScreen()
   {
-    await Future.delayed(Duration(seconds: 5),(){
-      navigate(route: Routes.onBoardingScreen, context: context,replaced: true);
+     Future.delayed(Duration(seconds: 5),(){
+      navigate(route: Routes.onBoardingScreen,
+          context: context,replaced: true);
     });
 
   }

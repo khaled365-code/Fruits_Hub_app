@@ -8,6 +8,7 @@ void main() async
   WidgetsFlutterBinding.ensureInitialized();
   setUpLocator();
   runApp(const FruitsShopApp());
+
 }
 
 

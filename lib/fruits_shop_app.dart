@@ -14,13 +14,13 @@ class FruitsShopApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(375, 812),
-      child: BlocProvider(
-        create: (context) => locator<ThemeCubit>(),
-        child: BlocBuilder<ThemeCubit,int>(
-          builder: (context, state) {
-            return MaterialApp(
+    return BlocProvider(
+      create: (context) => locator<ThemeCubit>(),
+      child: BlocBuilder<ThemeCubit,int>(
+        builder: (context, state) {
+          return ScreenUtilInit(
+            designSize: const Size(375, 812),
+            builder: (context, child) => MaterialApp(
               locale: Locale('ar'),
               localizationsDelegates: const
               [
@@ -43,9 +43,9 @@ class FruitsShopApp extends StatelessWidget {
               theme: AppLightTheme.getAppLightTheme(themeValue: state),
               title: 'Fruits Hub',
               onGenerateRoute: AppRouter.onGenerateRoutes,
-            );
-          },
-        ),
+            ),
+          );
+        },
       ),
     );
   }

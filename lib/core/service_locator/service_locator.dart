@@ -10,7 +10,7 @@ setUpLocator()
 {
 
 
-  locator.registerFactory<ThemeCubit>(() => ThemeCubit(),);
+  locator.registerLazySingleton<ThemeCubit>(() => ThemeCubit(),);
 
 
 
