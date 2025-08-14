@@ -13,6 +13,7 @@ class AppLightTheme
   {
 
     return ThemeData(
+    fontFamily: 'Cairo',
     useMaterial3: true,
     elevatedButtonTheme: _getElevatedButtonTheme(),
     inputDecorationTheme: _getInputDecorationTheme(themeValue),

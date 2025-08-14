@@ -18,6 +18,7 @@ class PageViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     var themeCubit = ThemeCubit.get(context);
     return SingleChildScrollView(
+
       child: Column(
         children: [
           Stack(
@@ -74,7 +75,7 @@ class PageViewItem extends StatelessWidget {
                     )),
                     TextSpan(text: ' ',style: Theme.of(context).textTheme.displaySmall),
                     TextSpan(text: 'Fruit',style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                      color: AppColors.cF4A91F
+                      color: AppColors.secondaryColor
                     )),
                     TextSpan(text: 'HUB',style: Theme.of(context).textTheme.displaySmall?.copyWith(
                       color: AppColors.primaryColor

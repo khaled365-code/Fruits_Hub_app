@@ -24,15 +24,15 @@ abstract class AppColors {
 
 
   static List<Color> inputDecorationColors = [
-    Color(0xff666666).withOpacity(0.2), // dark mode
+    Color(0xff666666).withValues(alpha: 0.2), // dark mode
     Color(0xffE6E9EA), // light mode
   ];
 
-  static const Color cF4A91F=Color(0xffF4A91F);
+  static const Color primaryColor=Color(0xff1B5E37);
+
+  static const Color secondaryColor=Color(0xffF4A91F);
 
   static const Color c4E5556=Color(0xff4E5556);
-
-  static const Color primaryColor=Color(0xff1B5E37);
 
   static const Color c5DB957=Color(0xff5DB957);
 
