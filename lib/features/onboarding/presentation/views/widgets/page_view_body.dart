@@ -66,16 +66,17 @@ class _PageViewBodyState extends State<PageViewBody> {
             ),)
         ),
         SpaceWidget(height: 29,),
-        currentPageIndex==1?
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: SharedButton(btnText: 'ابدأ الان', onPressedBtn: (){}),
-        ):
-        SizedBox.shrink(),
-
-        currentPageIndex==1?
-        SpaceWidget(height: 43,):
-        SizedBox.shrink()
+        Visibility(
+          visible: currentPageIndex==1,
+          maintainSize: true,
+          maintainAnimation: true,
+          maintainState: true,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            child: SharedButton(btnText: 'ابدأ الان', onPressedBtn: (){}),
+          ),
+        ),
+        SpaceWidget(height: 43,),
 
       ],
     );
