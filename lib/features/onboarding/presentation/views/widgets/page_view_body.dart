@@ -1,9 +1,7 @@
 
-
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
 import 'package:fruits_commerce_app/core/widgets/shared_button.dart';
 import 'package:fruits_commerce_app/core/widgets/space_widget.dart';
 import 'package:fruits_commerce_app/features/onboarding/presentation/views/widgets/dot_indicator_widget.dart';
@@ -41,43 +39,54 @@ class _PageViewBodyState extends State<PageViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
+    return  Stack(
       children: [
-        Expanded(
-          child: PageView.builder(
-            itemCount: 2,
-            controller: pageController,
-            itemBuilder: (context, index) => PageViewItem(currentPageIndex: currentPageIndex,),),),
-        SpaceWidget(height: 64,),
-        currentPageIndex==0?
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(2, (index)=> index==1?
-            const DotIndicatorWidget(notActive: true,) : Padding(
-              padding:  EdgeInsetsDirectional.only(end: 10.w),
-              child:  DotIndicatorWidget(),
-            ))
-        ):
-        Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(2, (index)=> Padding(
-              padding:  EdgeInsetsDirectional.only(end: 10.w),
-              child: const DotIndicatorWidget(),
-            ),)
-        ),
-        SpaceWidget(height: 29,),
-        Visibility(
-          visible: currentPageIndex==1,
-          maintainSize: true,
-          maintainAnimation: true,
-          maintainState: true,
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
-            child: SharedButton(btnText: 'ابدأ الان', onPressedBtn: (){}),
-          ),
-        ),
-        SpaceWidget(height: 43,),
+        Column(
+          children: [
+            Expanded(
+              child: PageView.builder(
+                itemCount: 2,
+                controller: pageController,
+                itemBuilder: (context, index) => PageViewItem(currentPageIndex: currentPageIndex,),),),
+            SpaceWidget(height: 64,),
+            currentPageIndex==0?
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(2, (index)=> index==1?
+                const DotIndicatorWidget(notActive: true,) : Padding(
+                  padding:  EdgeInsetsDirectional.only(end: 10.w),
+                  child:  DotIndicatorWidget(),
+                ))
+            ):
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(2, (index)=> Padding(
+                  padding:  EdgeInsetsDirectional.only(end: 10.w),
+                  child: const DotIndicatorWidget(),
+                ),)
+            ),
+            SpaceWidget(height: 29,),
+            Visibility(
+              visible: currentPageIndex==1,
+              maintainSize: true,
+              maintainAnimation: true,
+              maintainState: true,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                child: SharedButton(btnText: 'ابدأ الان', onPressedBtn: (){}),
+              ),
+            ),
+            SpaceWidget(height: 43,),
 
+          ],
+        ),
+        currentPageIndex==0?
+        Padding(
+          padding: EdgeInsetsDirectional.only(start: 20.w,top: 39.h),
+          child: Text('تخط',style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              color: AppColors.c949D9E
+          ),),):
+        SizedBox.shrink(),
       ],
     );
   }

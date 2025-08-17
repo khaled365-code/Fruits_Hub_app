@@ -1,8 +1,6 @@
 
 
-
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
@@ -18,7 +16,6 @@ class PageViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     var themeCubit = ThemeCubit.get(context);
     return SingleChildScrollView(
-
       child: Column(
         children: [
           Stack(
@@ -35,9 +32,7 @@ class PageViewItem extends StatelessWidget {
                   child: SvgPicture.asset(
                     width: MediaQuery.sizeOf(context).width,
                       ImageConstants.onBoardSecBackIcon)),
-      
-      
-      
+
               currentPageIndex==0?
               PositionedDirectional(
                   top: 182.h,
@@ -49,18 +44,7 @@ class PageViewItem extends StatelessWidget {
                 start: 75.w,
                 end: 75.w,
                 child: SvgPicture.asset(ImageConstants.anasIcon),),
-      
-      
-              currentPageIndex==0?
-              Padding(
-                  padding: EdgeInsetsDirectional.only(start: 20.w,top: 39.h),
-                  child: Text('تخط',style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: AppColors.c949D9E
-                  ),)):
-              SizedBox.shrink(),
-      
-      
-      
+
             ],
           ),
           SpaceWidget(height: 64,),
