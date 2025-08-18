@@ -5,7 +5,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruits_commerce_app/core/global/common_functions.dart';
+import 'package:fruits_commerce_app/core/global/constants/app_constants.dart';
 import 'package:fruits_commerce_app/core/routes/routes.dart';
+import 'package:fruits_commerce_app/core/services/cache_service.dart';
 import 'package:fruits_commerce_app/core/utils/app_assets.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -44,12 +46,16 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
 
-  void delaySplashScreen()
+  Future<void> delaySplashScreen() async
   {
-     Future.delayed(Duration(seconds: 5),(){
-      navigate(route: Routes.onBoardingScreen,
-          context: context,replaced: true);
+     await Future.delayed(Duration(seconds: 5),()
+     {
+       CacheService().getBool(key: AppConstants.onBoardIsOpened)==true?
+       navigate(route: Routes.loginScreen, context: context):
+       navigate(route: Routes.onBoardingScreen, context: context);
     });
+
+
 
   }
 }

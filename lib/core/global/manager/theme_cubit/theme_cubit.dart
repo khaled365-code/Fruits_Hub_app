@@ -15,7 +15,6 @@ class ThemeCubit extends Cubit<int> {
         currentTheme=newTheme;
         emit(newTheme);
       }
-
   }
 
 

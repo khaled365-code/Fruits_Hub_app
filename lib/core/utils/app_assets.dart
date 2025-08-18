@@ -24,6 +24,11 @@ class ImageConstants
   static const String onBoardSecBackIcon='assets/icons/onboard_sec_back_icon.svg';
   static const String fruitsDishIcon='assets/icons/fruits_dish_icon.svg';
   static const String anasIcon='assets/icons/anas_icon.svg';
+  static const String arrowBackIcon='assets/icons/arrow_back_icon.svg';
+  static const String passwordEyeIcon='assets/icons/password_eye_icon.svg';
+  static const String googleIcon='assets/icons/google_icon.svg';
+  static const String appleIcon='assets/icons/apple_icon.svg';
+  static const String facebookIcon='assets/icons/facebook_icon.svg';
 
 
 

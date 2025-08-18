@@ -2,9 +2,10 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
 
-class AppLightTheme
+abstract class AppLightTheme
 {
 
 
@@ -13,11 +14,13 @@ class AppLightTheme
   {
 
     return ThemeData(
+    scaffoldBackgroundColor: AppColors.backgroundColors[themeValue],
     fontFamily: 'Cairo',
     useMaterial3: true,
     elevatedButtonTheme: _getElevatedButtonTheme(),
     inputDecorationTheme: _getInputDecorationTheme(themeValue),
-    textTheme: _getTextTheme(themeValue)
+    textTheme: _getTextTheme(themeValue),
+    appBarTheme: _buildAppBarTheme(themeValue)
 
     );
 
@@ -145,7 +148,7 @@ class AppLightTheme
       ),
       bodyMedium: TextStyle(
         fontSize: 13,
-        fontWeight: FontWeight.normal, // regular13
+        fontWeight: FontWeight.w400, // regular13
           fontFamily: 'Cairo',
 
       ),
@@ -175,6 +178,20 @@ class AppLightTheme
       ),
     );
 
+
+  }
+
+  static AppBarTheme _buildAppBarTheme(int themeValue)
+  {
+    return AppBarTheme(
+      backgroundColor: AppColors.backgroundColors[themeValue],
+      centerTitle: true,
+      elevation: 0,
+      surfaceTintColor: Colors.transparent,
+      systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor: AppColors.backgroundColors[themeValue]
+      )
+    );
 
   }
 
