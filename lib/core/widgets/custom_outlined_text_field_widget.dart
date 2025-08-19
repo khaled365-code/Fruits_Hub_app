@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
 
-class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({super.key,required this.hintText,required this.controller,this.contentPadding, this.validator, this.textFormatterList,  this.minLines,  this.maxLines,  this.maxLength, required this.keyBoardType, this.onFieldSubmitted, required this.inputDataStyle, this.textInputAction,this.obSecureText=false, this.suffix, this.prefix});
+class CustomOutlinedTextField extends StatelessWidget {
+  const CustomOutlinedTextField({super.key,required this.hintText,required this.controller,this.contentPadding, this.validator, this.textFormatterList,  this.minLines,  this.maxLines,  this.maxLength, required this.keyBoardType, this.onFieldSubmitted, required this.inputDataStyle, this.textInputAction,this.obSecureText=false, this.suffix, this.prefix});
 
   final String hintText;
   final TextEditingController controller;

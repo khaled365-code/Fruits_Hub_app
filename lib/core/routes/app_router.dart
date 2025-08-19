@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_commerce_app/core/routes/routes.dart';
 import 'package:fruits_commerce_app/features/auth/presentation/views/screens/login_screen.dart';
+import 'package:fruits_commerce_app/features/auth/presentation/views/screens/signup_screen.dart';
 import 'package:fruits_commerce_app/features/onboarding/presentation/views/screens/onboarding_screen.dart';
 import 'package:fruits_commerce_app/features/splash/presentation/views/screens/splash_screen.dart';
 
@@ -21,6 +22,8 @@ class AppRouter
         return _buildScreen(widget: OnBoardingScreen());
       case Routes.loginScreen:
         return _buildScreen(widget: LoginScreen());
+      case Routes.signUpScreen:
+        return _buildScreen(widget: SignUpScreen());
 
 
       default:

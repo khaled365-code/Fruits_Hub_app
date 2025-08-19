@@ -14,6 +14,7 @@ abstract class AppLightTheme
   {
 
     return ThemeData(
+    colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
     scaffoldBackgroundColor: AppColors.backgroundColors[themeValue],
     fontFamily: 'Cairo',
     useMaterial3: true,
