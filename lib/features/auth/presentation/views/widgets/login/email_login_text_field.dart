@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruits_commerce_app/core/global/constants/app_constants.dart';
 import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
 import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
 import 'package:fruits_commerce_app/core/service_locator/service_locator.dart';
@@ -20,12 +21,6 @@ class EmailLoginTextField extends StatelessWidget {
       contentPadding: EdgeInsetsDirectional.only(start: 20.w,top: 15.h,bottom: 17.h),
       controller: TextEditingController(),
       keyBoardType: TextInputType.emailAddress,
-      inputDataStyle: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w600, // semiBold16
-          fontFamily: 'Cairo',
-          color: AppColors.textColors[locator<ThemeCubit>().currentTheme]
-      ),
     );
   }
 }

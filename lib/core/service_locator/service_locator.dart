@@ -10,7 +10,6 @@ final locator=GetIt.instance;
 setUpLocator()
 {
 
-  locator.registerLazySingleton<CacheService>(() => CacheService(),);
   locator.registerLazySingleton<ThemeCubit>(() => ThemeCubit(),);
 
 

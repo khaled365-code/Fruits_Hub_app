@@ -21,7 +21,7 @@ class LoginOptionContainer extends StatelessWidget {
       height: 56.h,
       width: MediaQuery.sizeOf(context).width,
       decoration: ShapeDecoration(
-          color: AppColors.backgroundColors[locator<ThemeCubit>().currentTheme],
+          color: AppColors.backgroundColors[ThemeCubit().currentTheme],
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16.r),
             side: BorderSide(

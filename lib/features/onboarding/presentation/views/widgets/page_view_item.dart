@@ -14,7 +14,7 @@ class PageViewItem extends StatelessWidget {
   final int currentPageIndex;
   @override
   Widget build(BuildContext context) {
-    var themeCubit = ThemeCubit.get(context);
+
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -55,7 +55,7 @@ class PageViewItem extends StatelessWidget {
               RichText(text: TextSpan(
                   children: [
                     TextSpan(text: 'مرحبًا بك في',style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                      color: AppColors.textColors[themeCubit.currentTheme]
+                      color: AppColors.textColors[ThemeCubit().currentTheme]
                     )),
                     TextSpan(text: ' ',style: Theme.of(context).textTheme.displaySmall),
                     TextSpan(text: 'Fruit',style: Theme.of(context).textTheme.displaySmall?.copyWith(
@@ -84,7 +84,7 @@ class PageViewItem extends StatelessWidget {
             children:
             [
               Text('ابحث وتسوق',style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                  color: AppColors.textColors[themeCubit.currentTheme]
+                  color: AppColors.textColors[ThemeCubit().currentTheme]
               ),),
               SpaceWidget(height: 24,),
               Padding(

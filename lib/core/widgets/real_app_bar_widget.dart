@@ -6,13 +6,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
 import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
-import 'package:fruits_commerce_app/core/service_locator/service_locator.dart';
 import 'package:fruits_commerce_app/core/utils/app_assets.dart';
 
 class RealAppBarWidget extends StatelessWidget {
-  const RealAppBarWidget({super.key,required this.title});
+  const RealAppBarWidget({super.key,required this.title,this.canBack=true});
 
   final String title;
+  final bool canBack;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class RealAppBarWidget extends StatelessWidget {
         GestureDetector(
           onTap: ()
           {
-            Navigator.pop(context);
+           canBack? Navigator.pop(context):null;
           },
           child: Container(
             width: 44.w,
@@ -41,7 +41,7 @@ class RealAppBarWidget extends StatelessWidget {
         Spacer(),
         Text(
           title,style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-            color: AppColors.textColors[locator<ThemeCubit>().currentTheme]
+            color: AppColors.textColors[ThemeCubit().currentTheme]
         ),),
         Spacer(flex: 2,),
       ],

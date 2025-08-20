@@ -14,7 +14,7 @@ abstract class AppLightTheme
   {
 
     return ThemeData(
-    colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
+    colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
     scaffoldBackgroundColor: AppColors.backgroundColors[themeValue],
     fontFamily: 'Cairo',
     useMaterial3: true,
@@ -65,7 +65,7 @@ abstract class AppLightTheme
       borderRadius: BorderRadius.circular(4),
       borderSide: BorderSide(
         width: 1,
-        color: themeValue==1?AppColors.cE6E9EA:Colors.transparent
+        color: themeValue==1?AppColors.cE6E9EA:AppColors.c1e1e1e
       )
     );
 
@@ -79,103 +79,70 @@ abstract class AppLightTheme
       displayLarge: TextStyle(
         fontSize: 28,
         fontWeight: FontWeight.bold, // bold28
-        fontFamily: 'Cairo',
       ),
       displayMedium: TextStyle(
         fontSize: 26,
         fontWeight: FontWeight.normal, // regular26
-        fontFamily: 'Cairo',
-
       ),
       displaySmall: TextStyle(
         fontSize: 23,
         fontWeight: FontWeight.bold, // bold23
-        fontFamily: 'Cairo',
-
-
-      ),
+         ),
 
       // Section / Page titles
       headlineLarge: TextStyle(
         fontSize: 22,
         fontWeight: FontWeight.normal, // regular22
-          fontFamily: 'Cairo',
-
-
       ),
       headlineMedium: TextStyle(
         fontSize: 19,
         fontWeight: FontWeight.bold, // bold19
-          fontFamily: 'Cairo',
-
-
       ),
       headlineSmall: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.bold, // bold16
-          fontFamily: 'Cairo',
-
-
       ),
 
       // Subtitles / AppBar text
       titleLarge: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.w600, // semiBold16
-          fontFamily: 'Cairo',
-
-
-
       ),
       titleMedium: TextStyle(
         fontSize: 15,
         fontWeight: FontWeight.w500, // medium15
-          fontFamily: 'Cairo',
-
       ),
       titleSmall: TextStyle(
         fontSize: 13,
         fontWeight: FontWeight.w600, // semiBold13
-          fontFamily: 'Cairo',
-
       ),
 
       // Body text
       bodyLarge: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.normal, // regular16
-          fontFamily: 'Cairo',
-
       ),
       bodyMedium: TextStyle(
         fontSize: 13,
         fontWeight: FontWeight.w400, // regular13
-          fontFamily: 'Cairo',
-
       ),
       bodySmall: TextStyle(
         fontSize: 11,
         fontWeight: FontWeight.normal, // regular11
-          fontFamily: 'Cairo',
-
       ),
 
       // Labels / Buttons
       labelLarge: TextStyle(
         fontSize: 13,
         fontWeight: FontWeight.bold, // bold13
-          fontFamily: 'Cairo',
-
       ),
       labelMedium: TextStyle(
         fontSize: 11,
         fontWeight: FontWeight.w600, // semiBold11
-          fontFamily: 'Cairo',
       ),
       labelSmall: TextStyle(
         fontSize: 11,
         fontWeight: FontWeight.normal, // regular11 (optional duplicate)
-          fontFamily: 'Cairo',
       ),
     );
 
@@ -190,7 +157,7 @@ abstract class AppLightTheme
       elevation: 0,
       surfaceTintColor: Colors.transparent,
       systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor: AppColors.backgroundColors[themeValue]
+          statusBarColor: AppColors.backgroundColors[1]
       )
     );
 

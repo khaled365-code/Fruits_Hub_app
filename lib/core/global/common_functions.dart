@@ -2,19 +2,14 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
-import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
-import 'package:fruits_commerce_app/core/service_locator/service_locator.dart';
-import 'package:fruits_commerce_app/core/utils/app_assets.dart';
 
-navigate({required String route,required BuildContext context,bool replaced=false})
+
+navigate({required String route,required BuildContext context,bool replaced=false,Object? args})
 {
 
   replaced==true?
-      Navigator.pushReplacementNamed(context, route):
-      Navigator.pushNamed(context, route);
+      Navigator.pushReplacementNamed(context, route,arguments: args):
+      Navigator.pushNamed(context, route,arguments: args);
 
 }
 

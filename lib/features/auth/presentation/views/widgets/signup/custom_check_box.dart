@@ -34,7 +34,7 @@ class _CustomCheckBoxState extends State<CustomCheckBox> {
         width: 24.w,
         height: 24.h,
         decoration: ShapeDecoration(
-          color: isActive==true? AppColors.primaryColor: AppColors.backgroundColors[locator<ThemeCubit>().currentTheme],
+          color: isActive==true? AppColors.primaryColor: AppColors.backgroundColors[ThemeCubit().currentTheme],
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.r),
               side: isActive==false? BorderSide(

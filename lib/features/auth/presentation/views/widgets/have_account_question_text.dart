@@ -2,9 +2,7 @@
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:fruits_commerce_app/core/global/common_functions.dart';
 import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
-import 'package:fruits_commerce_app/core/routes/routes.dart';
 
 class HaveAccountQuestionText extends StatelessWidget {
   const HaveAccountQuestionText({

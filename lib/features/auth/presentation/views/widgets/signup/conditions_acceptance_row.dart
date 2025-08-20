@@ -30,12 +30,12 @@ class ConditionsAcceptanceRow extends StatelessWidget {
                   color: AppColors.c949D9E
                 ),),
                 TextSpan(text:' الشروط',style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                  color: AppColors.c2D9F5D
+                  color: AppColors.lightPrimaryColor
                 ))
               ]
             ),),
             Text('والأحكام الخاصة بنا',style: Theme.of(context).textTheme.titleSmall?.copyWith(
-              color: AppColors.c2D9F5D
+              color: AppColors.lightPrimaryColor
             ),)
           ],
         )

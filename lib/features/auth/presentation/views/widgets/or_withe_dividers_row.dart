@@ -17,7 +17,7 @@ class OrWithDividersRow extends StatelessWidget {
       [
         Expanded(
           child: Divider(
-            thickness: 2,
+            thickness: 3,
             color: AppColors.cf2f3f3,
           ),
         ),
@@ -29,7 +29,7 @@ class OrWithDividersRow extends StatelessWidget {
         ),
         Expanded(
           child: Divider(
-            thickness: 2,
+            thickness: 3,
             color: AppColors.cf2f3f3,
           ),
         ),

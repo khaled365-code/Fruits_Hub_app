@@ -1,20 +1,15 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruits_commerce_app/core/global/common_functions.dart';
-import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
 import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
 import 'package:fruits_commerce_app/core/routes/routes.dart';
-import 'package:fruits_commerce_app/core/service_locator/service_locator.dart';
 import 'package:fruits_commerce_app/core/utils/app_assets.dart';
 import 'package:fruits_commerce_app/core/widgets/custom_app_bar.dart';
 import 'package:fruits_commerce_app/core/widgets/real_app_bar_widget.dart';
 import 'package:fruits_commerce_app/core/widgets/shared_button.dart';
 import 'package:fruits_commerce_app/core/widgets/space_widget.dart';
-import 'package:fruits_commerce_app/core/widgets/custom_outlined_text_field_widget.dart';
 import 'package:fruits_commerce_app/features/auth/data/models/login_options_model.dart';
 import 'package:fruits_commerce_app/features/auth/presentation/views/widgets/have_account_question_text.dart';
 import 'package:fruits_commerce_app/features/auth/presentation/views/widgets/login/email_login_text_field.dart';
@@ -46,7 +41,7 @@ class LoginScreen extends StatelessWidget {
               child: Column(
                 children:
                 [
-                  RealAppBarWidget(title: 'تسجيل دخول',),
+                  RealAppBarWidget(title: 'تسجيل دخول',canBack: false,),
                   SpaceWidget(height: 24,),
                   EmailLoginTextField(),
                   SpaceWidget(height: 16,),
@@ -57,7 +52,7 @@ class LoginScreen extends StatelessWidget {
                     children: [
                       Text(
                         'نسيت كلمة المرور؟',style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                        color: AppColors.c2D9F5D
+                        color: AppColors.lightPrimaryColor
                       ),),
                     ],
                   ),
@@ -67,13 +62,13 @@ class LoginScreen extends StatelessWidget {
                   HaveAccountQuestionText(
                     onSecondTextPressed: ()
                     {
-                      navigate(route: Routes.signUpScreen, context: context);
+                      navigate(route: Routes.signUpScreen, context: context,);
                     },
                     firstText: 'لا تمتلك حساب؟',
                     secondText: 'قم بإنشاء حساب',),
                   SpaceWidget(height: 49,),
                   OrWithDividersRow(),
-                  SpaceWidget(height: 31,),
+                  SpaceWidget(height: 21,),
                   ...List.generate(3,(index)=>Padding(
                     padding: index==1? EdgeInsetsDirectional.symmetric(vertical: 16.h):EdgeInsets.zero,
                     child: LoginOptionContainer(

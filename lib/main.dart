@@ -8,7 +8,7 @@ void main() async
 {
   WidgetsFlutterBinding.ensureInitialized();
   setUpLocator();
-  await locator<CacheService>().init();
+  await CacheService().init();
   runApp(const FruitsShopApp());
 
 }
