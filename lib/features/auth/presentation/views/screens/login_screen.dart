@@ -50,10 +50,16 @@ class LoginScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(
-                        'نسيت كلمة المرور؟',style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                        color: AppColors.lightPrimaryColor
-                      ),),
+                      GestureDetector(
+                        onTap:()
+                        {
+                          navigate(route: Routes.forgetPassScreen, context: context,);
+                        },
+                        child: Text(
+                          'نسيت كلمة المرور؟',style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                          color: AppColors.lightPrimaryColor
+                        ),),
+                      ),
                     ],
                   ),
                   SpaceWidget(height: 33,),

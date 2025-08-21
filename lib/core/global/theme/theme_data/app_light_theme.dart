@@ -21,7 +21,8 @@ abstract class AppLightTheme
     elevatedButtonTheme: _getElevatedButtonTheme(),
     inputDecorationTheme: _getInputDecorationTheme(themeValue),
     textTheme: _getTextTheme(themeValue),
-    appBarTheme: _buildAppBarTheme(themeValue)
+    appBarTheme: _buildAppBarTheme(themeValue),
+    //dialogTheme: _getDialogTheme()
 
     );
 

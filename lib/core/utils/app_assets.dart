@@ -30,6 +30,7 @@ class ImageConstants
   static const String appleIcon='assets/icons/apple_icon.svg';
   static const String facebookIcon='assets/icons/facebook_icon.svg';
   static const String checkTrueIcon='assets/icons/check_true_icon.svg';
+  static const String checkBigTrueIcon='assets/icons/check_big_true_icon.svg';
 
 
 

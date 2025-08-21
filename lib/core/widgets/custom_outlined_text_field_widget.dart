@@ -7,7 +7,7 @@ import 'package:fruits_commerce_app/core/global/constants/app_constants.dart';
 import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
 
 class CustomOutlinedTextField extends StatelessWidget {
-  const CustomOutlinedTextField({super.key,required this.hintText,required this.controller,this.contentPadding, this.validator, this.textFormatterList,  this.minLines,this.maxLength, required this.keyBoardType, this.onFieldSubmitted, this.inputDataStyle, this.textInputAction,this.obSecureText=false, this.suffix, this.prefix});
+  const CustomOutlinedTextField({super.key,required this.hintText,required this.controller,this.contentPadding, this.validator, this.textFormatterList,  this.minLines,this.maxLength, required this.keyBoardType, this.onFieldSubmitted, this.inputDataStyle, this.textInputAction,this.obSecureText=false, this.suffix, this.prefix, this.textAlign,this.textDirection});
 
   final String hintText;
   final TextEditingController controller;
@@ -22,11 +22,15 @@ class CustomOutlinedTextField extends StatelessWidget {
   final bool obSecureText;
   final Widget? suffix;
   final Widget? prefix;
+  final TextAlign? textAlign;
+  final TextDirection? textDirection;
 
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+    textDirection: textDirection,
+    textAlign: textAlign??TextAlign.start,
     minLines: minLines,
     enabled: true,
     maxLength: maxLength,
