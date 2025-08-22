@@ -53,15 +53,12 @@ class _OtpContainersRowState extends State<OtpContainersRow> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Pinput(
-        focusedPinTheme: focusedPinTheme,
-        defaultPinTheme: defaultPinTheme,
-        onCompleted: (pin) => print(pin),
-        ),
-      ],
+    return Pinput(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    focusedPinTheme: focusedPinTheme,
+    defaultPinTheme: defaultPinTheme,
+    onCompleted: (pin) => print(pin),
     );
   }
 }
+

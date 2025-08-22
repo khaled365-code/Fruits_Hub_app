@@ -22,6 +22,7 @@ class ConditionsAcceptanceRow extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children:
           [
+
             RichText(
               text: TextSpan(
               children:
@@ -45,3 +46,4 @@ class ConditionsAcceptanceRow extends StatelessWidget {
     );
   }
 }
+

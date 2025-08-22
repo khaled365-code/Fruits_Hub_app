@@ -28,7 +28,7 @@ class SignUpScreen extends StatelessWidget {
 
             SliverToBoxAdapter(
               child: Padding(
-                padding: EdgeInsetsDirectional.only(start: 16.w,end: 17.w),
+                padding: EdgeInsetsDirectional.only(start: 16.w,end: 16.w),
                 child: Column(
                   children:
                   [

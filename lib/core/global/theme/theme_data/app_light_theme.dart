@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
 import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
 
 abstract class AppLightTheme
@@ -22,7 +23,7 @@ abstract class AppLightTheme
     inputDecorationTheme: _getInputDecorationTheme(themeValue),
     textTheme: _getTextTheme(themeValue),
     appBarTheme: _buildAppBarTheme(themeValue),
-    //dialogTheme: _getDialogTheme()
+    dialogTheme: _getDialogTheme(themeValue),
 
     );
 
@@ -160,6 +161,21 @@ abstract class AppLightTheme
       systemOverlayStyle: SystemUiOverlayStyle(
           statusBarColor: AppColors.backgroundColors[1]
       )
+    );
+
+  }
+
+  static _getDialogTheme(int themeValue)
+  {
+
+    return DialogThemeData(
+
+      backgroundColor: AppColors.backgroundColors[themeValue],
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(4),
+      ),
+      surfaceTintColor: Colors.transparent,
+      elevation: 0,
     );
 
   }
