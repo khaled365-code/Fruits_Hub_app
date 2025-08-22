@@ -15,14 +15,12 @@ abstract class AppConstants
   );
 
 
+}
 
-
-
-
-
-
-
-
-
-
+enum RequestsStates
+{
+  initial,
+  loading,
+  success,
+  error
 }

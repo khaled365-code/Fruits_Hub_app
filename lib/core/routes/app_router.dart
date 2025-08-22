@@ -2,7 +2,10 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_commerce_app/core/routes/routes.dart';
+import 'package:fruits_commerce_app/core/service_locator/service_locator.dart';
+import 'package:fruits_commerce_app/features/auth/presentation/view_models/login_bloc/login_bloc.dart';
 import 'package:fruits_commerce_app/features/auth/presentation/views/screens/forget_password_screen.dart';
 import 'package:fruits_commerce_app/features/auth/presentation/views/screens/login_screen.dart';
 import 'package:fruits_commerce_app/features/auth/presentation/views/screens/otp_screen.dart';
@@ -24,7 +27,9 @@ class AppRouter
       case Routes.onBoardingScreen:
         return _buildScreen(widget: OnBoardingScreen());
       case Routes.loginScreen:
-        return _buildScreen(widget: LoginScreen());
+        return _buildScreen(widget: BlocProvider(
+            create: (context) => locator<LoginBloc>(),
+            child: LoginScreen()));
       case Routes.signUpScreen:
         return _buildScreen(widget: SignUpScreen());
       case Routes.forgetPassScreen:

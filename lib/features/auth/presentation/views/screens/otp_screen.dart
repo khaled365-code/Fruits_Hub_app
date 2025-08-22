@@ -23,33 +23,35 @@ class OtpScreen extends StatelessWidget {
       body: CustomScrollView(
         slivers:
         [
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsetsDirectional.only(start: 17.w,end: 16.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children:
-                [
-                  RealAppBarWidget(title: 'التحقق من الرمز',),
-                  SpaceWidget(height: 24,),
-                  Text('أدخل الرمز الذي أرسلناه إلى عنوان بريد التالي Maxxx@email.com',style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    color: AppColors.c616A6B
-                  ),),
-                  SpaceWidget(height: 29,),
-                  OtpContainersRow(),
-                  SpaceWidget(height: 29,),
-                  SharedButton(
-                      btnText: 'تحقق من الرمز',
-                      onPressedBtn: (){
-                        navigate(route: Routes.resetPasswordScreen, context: context);
-                      }),
-                  SpaceWidget(height: 24,),
-                  Center(
-                    child: Text('إعادة إرسال الرمز',style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      color: AppColors.lightPrimaryColor
+          Form(
+            child: SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsetsDirectional.only(start: 17.w,end: 16.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children:
+                  [
+                    RealAppBarWidget(title: 'التحقق من الرمز',),
+                    SpaceWidget(height: 24,),
+                    Text('أدخل الرمز الذي أرسلناه إلى عنوان بريد التالي Maxxx@email.com',style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      color: AppColors.c616A6B
                     ),),
-                  )
-                ],
+                    SpaceWidget(height: 29,),
+                    OtpContainersRow(),
+                    SpaceWidget(height: 29,),
+                    SharedButton(
+                        btnText: 'تحقق من الرمز',
+                        onPressedBtn: (){
+                          navigate(route: Routes.resetPasswordScreen, context: context);
+                        }),
+                    SpaceWidget(height: 24,),
+                    Center(
+                      child: Text('إعادة إرسال الرمز',style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: AppColors.lightPrimaryColor
+                      ),),
+                    )
+                  ],
+                ),
               ),
             ),
           )
