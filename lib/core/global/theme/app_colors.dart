@@ -57,5 +57,7 @@ abstract class AppColors {
 
   static const Color c616A6B=Color(0xff616A6B);
 
+  static const Color cC9CECF=Color(0xffC9CECF);
+
 
 }

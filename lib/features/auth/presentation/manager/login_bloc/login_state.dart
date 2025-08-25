@@ -3,14 +3,14 @@ part of 'login_bloc.dart';
 
 class LoginState extends Equatable {
 
-  final RequestsStates requestState;
+  final RequestStates requestState;
 
 
-  const LoginState({this.requestState=RequestsStates.initial});
+  const LoginState({this.requestState=RequestStates.initial});
 
 
 
-  LoginState copyWith({RequestsStates? requestState})
+  LoginState copyWith({RequestStates? requestState})
   {
     return LoginState(
       requestState: requestState??this.requestState

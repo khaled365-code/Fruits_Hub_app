@@ -17,7 +17,7 @@ abstract class AppConstants
 
 }
 
-enum RequestsStates
+enum RequestStates
 {
   initial,
   loading,

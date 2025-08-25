@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fruits_commerce_app/core/global/constants/app_constants.dart';
 import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
 import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
 
@@ -24,6 +25,8 @@ abstract class AppLightTheme
     textTheme: _getTextTheme(themeValue),
     appBarTheme: _buildAppBarTheme(themeValue),
     dialogTheme: _getDialogTheme(themeValue),
+    snackBarTheme: _buildSnackBarTheme(),
+    progressIndicatorTheme: _getProgressIndicatorThemeData()
 
     );
 
@@ -51,7 +54,12 @@ abstract class AppLightTheme
     return InputDecorationTheme(
       enabledBorder: _buildOutlineInputBorder(themeValue),
       focusedBorder: _buildOutlineInputBorder(themeValue),
-      errorBorder: _buildOutlineInputBorder(themeValue),
+      errorBorder: _buildOutlineErrorBorder(themeValue),
+      focusedErrorBorder: _buildOutlineErrorBorder(themeValue),
+      errorStyle: TextStyle(
+        fontSize: 13,
+        fontFamily: 'Cairo'
+      ),
       filled: true,
       fillColor: AppColors.inputDecorationColors[themeValue],
       hintStyle: _getTextTheme(themeValue).labelLarge.copyWith(
@@ -177,6 +185,43 @@ abstract class AppLightTheme
       surfaceTintColor: Colors.transparent,
       elevation: 0,
     );
+
+  }
+
+  static _buildOutlineErrorBorder(int themeValue)
+  {
+
+    return OutlineInputBorder(
+        borderRadius: BorderRadius.circular(4),
+        borderSide: BorderSide(
+            width: 1,
+            color: Colors.red
+        )
+    );
+  }
+
+  static _buildSnackBarTheme()
+  {
+
+    return SnackBarThemeData(
+      insetPadding: EdgeInsets.symmetric(horizontal: 16),
+      elevation: 0,
+      behavior: SnackBarBehavior.floating,
+      showCloseIcon: true,
+      closeIconColor: Colors.white,
+      backgroundColor: AppColors.primaryColor,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(4),
+      )
+    );
+  }
+
+  static _getProgressIndicatorThemeData()
+  {
+    return ProgressIndicatorThemeData(
+     color: AppColors.primaryColor,
+    );
+
 
   }
 

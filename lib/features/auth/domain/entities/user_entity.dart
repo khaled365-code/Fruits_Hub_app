@@ -8,7 +8,9 @@ class USerEntity
   final String userId;
 
 
-  const USerEntity(this.name,this.email,this.userId);
+  const USerEntity({required this.name,required this.email,required this.userId});
+
+
 
 
 }

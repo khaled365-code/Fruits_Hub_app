@@ -13,7 +13,7 @@ import 'package:fruits_commerce_app/core/widgets/real_app_bar_widget.dart';
 import 'package:fruits_commerce_app/core/widgets/shared_button.dart';
 import 'package:fruits_commerce_app/core/widgets/space_widget.dart';
 import 'package:fruits_commerce_app/features/auth/data/models/login_options_model.dart';
-import 'package:fruits_commerce_app/features/auth/presentation/view_models/login_bloc/login_bloc.dart';
+import 'package:fruits_commerce_app/features/auth/presentation/manager/login_bloc/login_bloc.dart';
 import 'package:fruits_commerce_app/features/auth/presentation/views/widgets/have_account_question_text.dart';
 import 'package:fruits_commerce_app/features/auth/presentation/views/widgets/login/email_login_text_field.dart';
 import 'package:fruits_commerce_app/features/auth/presentation/views/widgets/login/login_option_container.dart';
@@ -46,13 +46,13 @@ class LoginScreen extends StatelessWidget {
                 listener: (context, state)
                 {
 
-                  if(state.requestState==RequestsStates.success)
+                  if(state.requestState==RequestStates.success)
                     {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Done')));
+                      buildSnackBarMessage(text: 'Done', context: context);
                    }
-                  if (state.requestState==RequestsStates.error)
+                  if (state.requestState==RequestStates.error)
                     {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error')));
+                      buildSnackBarMessage(text: 'Error', context: context);
                     }
 
                 },
@@ -88,7 +88,7 @@ class LoginScreen extends StatelessWidget {
                         ],
                       ),
                       SpaceWidget(height: 33,),
-                      state.requestState==RequestsStates.loading?
+                      state.requestState==RequestStates.loading?
                       CircularProgressIndicator():    
                       SharedButton(btnText: 'تسجيل دخول', onPressedBtn: ()
                       {

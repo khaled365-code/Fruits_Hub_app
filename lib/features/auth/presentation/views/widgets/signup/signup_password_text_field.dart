@@ -10,22 +10,49 @@ import 'package:fruits_commerce_app/core/service_locator/service_locator.dart';
 import 'package:fruits_commerce_app/core/utils/app_assets.dart';
 import 'package:fruits_commerce_app/core/widgets/custom_outlined_text_field_widget.dart';
 
-class PasswordSignUpTextField extends StatelessWidget {
+class PasswordSignUpTextField extends StatefulWidget {
   const PasswordSignUpTextField({
-    super.key,
+    super.key, required this.controller,
   });
 
+  final TextEditingController controller;
+
+  @override
+  State<PasswordSignUpTextField> createState() => _PasswordSignUpTextFieldState();
+}
+
+class _PasswordSignUpTextFieldState extends State<PasswordSignUpTextField> {
+
+  bool securedText=false;
   @override
   Widget build(BuildContext context) {
     return CustomOutlinedTextField(
-      obSecureText: true,
+      validator: (value)
+      {
+        if(value!.isEmpty)
+          {
+            return 'كلمة المرور مطلوبة';
+          }
+        else
+          {
+            return null;
+          }
+      },
+      obSecureText: securedText,
       hintText: 'كلمة المرور',
       contentPadding: EdgeInsetsDirectional.only(start: 20.w,top: 15.h,bottom: 17.h,),
-      controller: TextEditingController(),
+      controller: widget.controller,
       keyBoardType: TextInputType.text,
       suffix: Padding(
         padding: EdgeInsetsDirectional.only(end: 31.w),
-        child: SvgPicture.asset(ImageConstants.passwordEyeIcon),
+        child: GestureDetector(
+          onTap: ()
+          {
+            setState(() {
+              securedText=!securedText;
+            });
+          },
+            child: securedText ? SvgPicture.asset(ImageConstants.securedEyePasswordIcon,colorFilter: ColorFilter.mode(AppColors.cC9CECF, BlendMode.srcIn),) : SvgPicture.asset(ImageConstants.passwordEyeIcon)),
       ),
     );
   }
