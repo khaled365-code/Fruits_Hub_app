@@ -1,4 +1,4 @@
-part of 'signup_cubit.dart';
+ part of 'signup_cubit.dart';
 
 @immutable
 final class SignupState extends Equatable
