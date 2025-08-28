@@ -206,9 +206,9 @@ abstract class AppLightTheme
     return SnackBarThemeData(
       insetPadding: EdgeInsets.symmetric(horizontal: 16),
       elevation: 0,
-      behavior: SnackBarBehavior.floating,
       showCloseIcon: true,
       closeIconColor: Colors.white,
+      behavior: SnackBarBehavior.floating,
       backgroundColor: AppColors.primaryColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(4),

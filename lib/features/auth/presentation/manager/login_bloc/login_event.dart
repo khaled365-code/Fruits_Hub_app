@@ -17,7 +17,11 @@ final class LoginUsingEmailAndPasswordEvent extends LoginEvent
   @override
   List<Object?> get props => [email,password];
 
+}
 
-
+final class ChangeValidationModeEvent extends LoginEvent
+{
+  @override
+  List<Object?> get props => [];
 
 }

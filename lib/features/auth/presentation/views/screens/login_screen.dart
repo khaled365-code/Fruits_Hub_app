@@ -9,6 +9,7 @@ import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
 import 'package:fruits_commerce_app/core/routes/routes.dart';
 import 'package:fruits_commerce_app/core/utils/app_assets.dart';
 import 'package:fruits_commerce_app/core/widgets/custom_app_bar.dart';
+import 'package:fruits_commerce_app/core/widgets/custom_progress_hud_widget.dart';
 import 'package:fruits_commerce_app/core/widgets/real_app_bar_widget.dart';
 import 'package:fruits_commerce_app/core/widgets/shared_button.dart';
 import 'package:fruits_commerce_app/core/widgets/space_widget.dart';
@@ -35,97 +36,103 @@ class LoginScreen extends StatelessWidget {
     LoginBloc loginBloc=context.read<LoginBloc>();
     return Scaffold(
       appBar: buildCommonAppBar(),
-      body: CustomScrollView(
-        slivers:
-        [
+      body: BlocConsumer<LoginBloc, LoginState>(
+        listener: (context, state) {
+          if(state.requestState==RequestStates.success)
+          {
+            buildSnackBarMessage(text: 'تم تسجيل الدخول بنجاح', context: context);
+          }
+          if (state.requestState==RequestStates.error)
+          {
+            buildSnackBarMessage(text: state.errorMessage!, context: context,errorMessage: true);
+          }
+        },
+  builder: (context, state) {
+    return CustomProgressHudWidget(
+        isLoading: state.requestState==RequestStates.loading?true:false,
+        child: CustomScrollView(
+          slivers:
+          [
 
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsetsDirectional.only(start: 16.w,end: 17.w),
-              child: BlocConsumer<LoginBloc, LoginState>(
-                listener: (context, state)
-                {
-
-                  if(state.requestState==RequestStates.success)
-                    {
-                      buildSnackBarMessage(text: 'Done', context: context);
-                   }
-                  if (state.requestState==RequestStates.error)
-                    {
-                      buildSnackBarMessage(text: 'Error', context: context);
-                    }
-
-                },
-           builder: (context, state) {
-           return BlocBuilder<LoginBloc,LoginState>(
-                builder: (context, state) {
-                  return Column(
-                    children:
-                    [
-                      RealAppBarWidget(title: 'تسجيل دخول',canBack: false,),
-                      SpaceWidget(height: 24,),
-                      EmailLoginTextField(
-                      emailController:loginBloc.emailController
-                      ),
-                      SpaceWidget(height: 16,),
-                      PasswordLoginTextField(
-                      passwordController:loginBloc.passwordController
-                      ),
-                      SpaceWidget(height: 16,),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          GestureDetector(
-                            onTap:()
-                            {
-                              navigate(route: Routes.forgetPassScreen, context: context,);
-                            },
-                            child: Text(
-                              'نسيت كلمة المرور؟',style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                                color: AppColors.lightPrimaryColor
-                            ),),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsetsDirectional.only(start: 16.w,end: 17.w),
+                child: Form(
+                  key: loginBloc.loginFormKey,
+                  autovalidateMode: state.loginValidateMode,
+                  child: Column(
+                        children:
+                        [
+                          RealAppBarWidget(title: 'تسجيل دخول',canBack: false,),
+                          SpaceWidget(height: 24,),
+                          EmailLoginTextField(
+                          emailController:loginBloc.emailController
                           ),
+                          SpaceWidget(height: 16,),
+                          PasswordLoginTextField(
+                          passwordController:loginBloc.passwordController
+                          ),
+                          SpaceWidget(height: 16,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              GestureDetector(
+                                onTap:()
+                                {
+                                  navigate(route: Routes.forgetPassScreen, context: context,);
+                                },
+                                child: Text(
+                                  'نسيت كلمة المرور؟',style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                                    color: AppColors.lightPrimaryColor
+                                ),),
+                              ),
+                            ],
+                          ),
+                          SpaceWidget(height: 33,),
+                          SharedButton(btnText: 'تسجيل دخول', onPressedBtn: ()
+                          {
+                            if(loginBloc.loginFormKey.currentState!.validate())
+                              {
+                                loginBloc.loginFormKey.currentState!.save();
+                                loginBloc..add(LoginUsingEmailAndPasswordEvent(
+                                    loginBloc.emailController.text,
+                                    loginBloc.passwordController.text));
+                              }
+                            else
+                              {
+                                loginBloc..add(ChangeValidationModeEvent());
+                              }
+                          }),
+                          SpaceWidget(height: 33,),
+                          HaveAccountQuestionText(
+                            onSecondTextPressed: ()
+                            {
+                              navigate(route: Routes.signUpScreen, context: context,);
+                            },
+                            firstText: 'لا تمتلك حساب؟',
+                            secondText: 'قم بإنشاء حساب',),
+                          SpaceWidget(height: 49,),
+                          OrWithDividersRow(),
+                          SpaceWidget(height: 21,),
+                          ...List.generate(3,(index)=>Padding(
+                            padding: index==1? EdgeInsetsDirectional.symmetric(vertical: 16.h):EdgeInsets.zero,
+                            child: LoginOptionContainer(
+                              loginIcon: loginOptionsDataList[index].loginIcon,
+                              loginOptionText: loginOptionsDataList[index].loginOptionText,
+                            ),
+                          ),)
+
                         ],
                       ),
-                      SpaceWidget(height: 33,),
-                      state.requestState==RequestStates.loading?
-                      CircularProgressIndicator():    
-                      SharedButton(btnText: 'تسجيل دخول', onPressedBtn: ()
-                      {
-                        loginBloc..add(LoginUsingEmailAndPasswordEvent(
-                            loginBloc.emailController.text,
-                            loginBloc.passwordController.text));
-                      }),
-                      SpaceWidget(height: 33,),
-                      HaveAccountQuestionText(
-                        onSecondTextPressed: ()
-                        {
-                          navigate(route: Routes.signUpScreen, context: context,);
-                        },
-                        firstText: 'لا تمتلك حساب؟',
-                        secondText: 'قم بإنشاء حساب',),
-                      SpaceWidget(height: 49,),
-                      OrWithDividersRow(),
-                      SpaceWidget(height: 21,),
-                      ...List.generate(3,(index)=>Padding(
-                        padding: index==1? EdgeInsetsDirectional.symmetric(vertical: 16.h):EdgeInsets.zero,
-                        child: LoginOptionContainer(
-                          loginIcon: loginOptionsDataList[index].loginIcon,
-                          loginOptionText: loginOptionsDataList[index].loginOptionText,
-                        ),
-                      ),)
+                ),
+              ),
+            )
 
-                    ],
-                  );
-                },
-              );
+          ],
+        ),
+      );
   },
 ),
-            ),
-          )
-
-        ],
-      ),
     );
   }
 }

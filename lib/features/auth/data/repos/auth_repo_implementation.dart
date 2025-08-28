@@ -34,6 +34,19 @@ class AuthRepoImplementation extends AuthRepo
     }
   }
 
+  @override
+  Future<Either<Failure, USerEntity>> signInUsingEmailAndPassword({required String email, required String password}) async {
+    try {
+      User user = await firebaseAuthService.signInUsingEmailAndPassword(
+          email: email, password: password);
+      UserModel userModel = UserModel.fromFirebaseAuth(user);
+      return Right(userModel);
+    } catch (e)
+    {
+      log('Exception in AuthRepoImpl.signInUsingEmailAndPassword is : ${e.toString()}');
+       return Left(Failure.handleFailures(e));
+    }
+  }
 
 }
 

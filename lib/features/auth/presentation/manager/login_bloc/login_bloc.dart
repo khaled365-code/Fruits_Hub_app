@@ -3,6 +3,8 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_commerce_app/core/global/constants/app_constants.dart';
+import 'package:fruits_commerce_app/features/auth/domain/entities/user_entity.dart';
+import 'package:fruits_commerce_app/features/auth/domain/repos/auth_repo.dart';
 import 'package:meta/meta.dart';
 
 
@@ -14,29 +16,28 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   static get(BuildContext context)=>BlocProvider.of(context);
 
-  AutovalidateMode loginValidateMode=AutovalidateMode.disabled;
   GlobalKey<FormState> loginFormKey=GlobalKey();
   TextEditingController emailController=TextEditingController();
   TextEditingController passwordController=TextEditingController();
 
-  LoginBloc() : super(LoginState()) {
+  final AuthRepo authRepo;
+
+
+  LoginBloc({required this.authRepo}) : super(LoginState()) {
     on<LoginEvent>((event, emit) async
     {
       if(event is LoginUsingEmailAndPasswordEvent)
         {
           emit(state.copyWith(requestState: RequestStates.loading));
-          await Future.delayed(Duration(seconds:10),(){
-            if(event.email=='khaled.mohamed.dev.tech@gmail.com' && event.password=='khaled123')
-            {
-              emit(state.copyWith(requestState: RequestStates.success));
-            }
-            else
-            {
-              emit(state.copyWith(requestState: RequestStates.error));
-            }
-          });
-
-
+          var result=await authRepo.signInUsingEmailAndPassword(email: event.email, password: event.password);;
+          result.fold(
+          (failure) => emit(state.copyWith(errorMessage: failure.callBack,requestState: RequestStates.error)),
+          (userEntity) => emit(state.copyWith(userEntity: userEntity,requestState: RequestStates.success)),
+         );
+      }
+      if(event is ChangeValidationModeEvent)
+        {
+          emit(state.copyWith(loginValidateMode: AutovalidateMode.always));
         }
     });
   }
