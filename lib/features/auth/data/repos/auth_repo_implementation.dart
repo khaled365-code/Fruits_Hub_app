@@ -2,6 +2,8 @@
 
 
 
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruits_commerce_app/core/errors/failure.dart';
@@ -27,6 +29,7 @@ class AuthRepoImplementation extends AuthRepo
       return Right(userModel);
     } catch (e)
     {
+      log('Exception in AuthRepoImplementation.createUserWithEmailAndPasswordService : the exception is ${e.toString()}');
       return Left(Failure.handleFailures(e));
     }
   }
