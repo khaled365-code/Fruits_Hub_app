@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
 import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
 import 'package:fruits_commerce_app/core/widgets/custom_alert_dialog.dart';
 import 'package:fruits_commerce_app/core/widgets/custom_app_bar.dart';
@@ -31,7 +32,7 @@ class ResetPasswordScreen extends StatelessWidget {
                 RealAppBarWidget(title: 'كلمة مرور جديدة',),
                 SpaceWidget(height: 24,),
                 Text('قم بإنشاء كلمة مرور جديدة لتسجيل الدخول',style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  color: AppColors.c0C0D0D
+                  color: AppColors.textColors[ThemeCubit().currentTheme]
                 ),),
                 SpaceWidget(height: 34,),
                 NewPasswordTextFormField(),

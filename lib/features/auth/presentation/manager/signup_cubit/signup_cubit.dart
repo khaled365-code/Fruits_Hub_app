@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:fruits_commerce_app/core/global/constants/app_constants.dart';
+import 'package:fruits_commerce_app/core/global/constants/enums.dart';
 import 'package:fruits_commerce_app/features/auth/domain/entities/user_entity.dart';
 import 'package:fruits_commerce_app/features/auth/domain/repos/auth_repo.dart';
 import 'package:meta/meta.dart';

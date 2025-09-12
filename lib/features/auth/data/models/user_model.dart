@@ -11,6 +11,7 @@ class UserModel extends USerEntity
   const UserModel({required super.name,required super.email,required super.userId});
 
 
+
   factory UserModel.fromFirebaseAuth(User user)
   {
 
@@ -20,6 +21,10 @@ class UserModel extends USerEntity
         userId: user.uid);
 
   }
+
+
+
+
 
 
 

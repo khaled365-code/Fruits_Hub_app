@@ -4,8 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 class CacheService
 {
   CacheService._named();
-  static final instance=CacheService._named();
-  factory CacheService() => instance;
+  static final _instance=CacheService._named();
+  factory CacheService() => _instance;
 
   late SharedPreferences _sharedPreferences;
 
@@ -26,4 +26,18 @@ class CacheService
   }
 
 
+  Future<void>  setString({required String key,required String value}) async
+  {
+    await _sharedPreferences.setString(key, value);
+  }
+
+
+  String? getString({required String key})
+  {
+    return _sharedPreferences.getString(key);
+  }
+
+
 }
+
+

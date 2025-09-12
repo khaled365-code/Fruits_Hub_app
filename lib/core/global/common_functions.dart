@@ -25,12 +25,12 @@ buildSnackBarMessage({required String text,required BuildContext context,bool er
     content: Row(
       children:
       [
-        Text(text,style: Theme.of(context).textTheme.labelLarge?.copyWith(
+        Text(text,style: Theme.of(context).textTheme.headlineSmall?.copyWith(
           color: Colors.white
         ),),
       ],
     ),
-  ));
+  ),);
 
 }
 

@@ -13,14 +13,7 @@ abstract class AppConstants
       fontFamily: 'Cairo',
       color: AppColors.textColors[ThemeCubit().currentTheme]
   );
+  static const String appLanguage='appLanguage';
 
 
-}
-
-enum RequestStates
-{
-  initial,
-  loading,
-  success,
-  error
 }

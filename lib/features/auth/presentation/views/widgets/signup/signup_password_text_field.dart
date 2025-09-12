@@ -42,7 +42,7 @@ class _PasswordSignUpTextFieldState extends State<PasswordSignUpTextField> {
       hintText: 'كلمة المرور',
       contentPadding: EdgeInsetsDirectional.only(start: 20.w,top: 15.h,bottom: 17.h,),
       controller: widget.controller,
-      keyBoardType: TextInputType.text,
+      keyBoardType: TextInputType.visiblePassword,
       suffix: Padding(
         padding: EdgeInsetsDirectional.only(end: 31.w),
         child: GestureDetector(
@@ -52,7 +52,7 @@ class _PasswordSignUpTextFieldState extends State<PasswordSignUpTextField> {
               securedText=!securedText;
             });
           },
-            child: securedText ? SvgPicture.asset(ImageConstants.securedEyePasswordIcon,colorFilter: ColorFilter.mode(AppColors.cC9CECF, BlendMode.srcIn),) : SvgPicture.asset(ImageConstants.passwordEyeIcon)),
+            child: securedText ? SvgPicture.asset(ImageConstants.securedEyePasswordIcon,colorFilter: ColorFilter.mode(AppColors.cC9CECF, BlendMode.srcIn),) : SvgPicture.asset(ImageConstants.eyeVisibleIcon,colorFilter: ColorFilter.mode(AppColors.cC9CECF, BlendMode.srcIn),)),
       ),
     );
   }

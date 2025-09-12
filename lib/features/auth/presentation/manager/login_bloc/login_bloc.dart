@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruits_commerce_app/core/global/constants/app_constants.dart';
+import 'package:fruits_commerce_app/core/global/constants/enums.dart';
 import 'package:fruits_commerce_app/features/auth/domain/entities/user_entity.dart';
 import 'package:fruits_commerce_app/features/auth/domain/repos/auth_repo.dart';
 import 'package:meta/meta.dart';
@@ -35,9 +35,23 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           (userEntity) => emit(state.copyWith(userEntity: userEntity,requestState: RequestStates.success)),
          );
       }
-      if(event is ChangeValidationModeEvent)
+      else if(event is ChangeValidationModeEvent)
         {
           emit(state.copyWith(loginValidateMode: AutovalidateMode.always));
+        }
+      else if (event is SignInWithGoogleEvent)
+        {
+          emit(state.copyWith(requestState: RequestStates.loading));
+          var result = await authRepo.signInWithGoogle();
+          result.fold((failure)=> emit(state.copyWith(errorMessage: failure.callBack,requestState: RequestStates.error))
+          , (userEntity)=>emit(state.copyWith(userEntity: userEntity,requestState: RequestStates.success)));
+        }
+      else if (event is SignInWithFacebookEvent)
+        {
+          emit(state.copyWith(requestState: RequestStates.loading));
+          var result = await authRepo.signInWithFacebook();
+          result.fold((failure)=> emit(state.copyWith(errorMessage: failure.callBack,requestState: RequestStates.error))
+              , (userEntity)=>emit(state.copyWith(userEntity: userEntity,requestState: RequestStates.success)));
         }
     });
   }

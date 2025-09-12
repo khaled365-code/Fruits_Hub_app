@@ -33,6 +33,8 @@ class _OtpContainersRowState extends State<OtpContainersRow> {
           color: AppColors.cE6E9EA),
     ),
   );
+
+
   final focusedPinTheme= PinTheme(
     width: 74.w,
     height: 60.h,

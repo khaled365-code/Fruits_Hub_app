@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruits_commerce_app/core/global/common_functions.dart';
 import 'package:fruits_commerce_app/core/global/constants/app_constants.dart';
+import 'package:fruits_commerce_app/core/localization/localization_cubit/localization_cubit.dart';
 import 'package:fruits_commerce_app/core/routes/routes.dart';
 import 'package:fruits_commerce_app/core/services/cache_service.dart';
 import 'package:fruits_commerce_app/core/utils/app_assets.dart';
@@ -35,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children:
         [
-          Align(alignment: AlignmentDirectional.topEnd, child: SvgPicture.asset(ImageConstants.plantSplashIcon)),
+          Align(alignment: LocalizationCubit().currentLanguage=='ar'? AlignmentDirectional.topEnd:AlignmentDirectional.topStart, child: SvgPicture.asset(ImageConstants.plantSplashIcon)),
           SvgPicture.asset(ImageConstants.appLogoIcon),
           SvgPicture.asset(ImageConstants.pointsCirclesIcon,fit: BoxFit.fitWidth,),
 

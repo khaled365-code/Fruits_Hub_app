@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
 import 'package:fruits_commerce_app/core/utils/app_assets.dart';
 import 'package:fruits_commerce_app/core/widgets/custom_outlined_text_field_widget.dart';
 
@@ -38,7 +39,7 @@ class _PasswordLoginTextFieldState extends State<PasswordLoginTextField> {
       hintText: 'كلمة المرور',
       contentPadding: EdgeInsetsDirectional.only(start: 20.w,top: 15.h,bottom: 17.h,),
       controller: widget.passwordController,
-      keyBoardType: TextInputType.text,
+      keyBoardType: TextInputType.visiblePassword,
       suffix: Padding(
         padding: EdgeInsetsDirectional.only(end: 31.w),
         child: GestureDetector(
@@ -48,7 +49,7 @@ class _PasswordLoginTextFieldState extends State<PasswordLoginTextField> {
                 securedText=!securedText;
               });
             },
-            child: securedText==true?SvgPicture.asset(ImageConstants.securedEyePasswordIcon): SvgPicture.asset(ImageConstants.passwordEyeIcon)),
+            child: securedText==true?SvgPicture.asset(ImageConstants.securedEyePasswordIcon): SvgPicture.asset(ImageConstants.eyeVisibleIcon,colorFilter: ColorFilter.mode(AppColors.cC9CECF, BlendMode.srcIn),)),
       ),
     );
   }

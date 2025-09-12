@@ -13,6 +13,7 @@ class ForgetPassSendNumberTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomOutlinedTextField(
+        textDirection: TextDirection.rtl,
         textAlign: TextAlign.end,
         hintText: 'رقم الهاتف',
         contentPadding: EdgeInsetsDirectional.only(end: 16.w,top: 17.h,bottom: 17.h),

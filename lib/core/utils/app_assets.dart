@@ -33,6 +33,7 @@ class ImageConstants
   static const String checkBigTrueIcon='assets/icons/check_big_true_icon.svg';
   static const String securedEyePasswordIcon='assets/icons/secured_eye_password_icon.svg';
   static const String errorIcon='assets/icons/error_icon.svg';
+  static const String eyeVisibleIcon='assets/icons/eye_visible_icon.svg';
 
 
 

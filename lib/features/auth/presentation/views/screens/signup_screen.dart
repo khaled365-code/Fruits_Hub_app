@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_commerce_app/core/global/common_functions.dart';
-import 'package:fruits_commerce_app/core/global/constants/app_constants.dart';
+import 'package:fruits_commerce_app/core/global/constants/enums.dart';
 import 'package:fruits_commerce_app/core/widgets/custom_app_bar.dart';
 import 'package:fruits_commerce_app/core/widgets/custom_progress_hud_widget.dart';
 import 'package:fruits_commerce_app/core/widgets/real_app_bar_widget.dart';
@@ -21,7 +21,7 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var signUpCubit = context.read<SignupCubit>();
+    SignupCubit signUpCubit = context.read<SignupCubit>();
     return Scaffold(
       appBar: buildCommonAppBar(),
       body: BlocConsumer<SignupCubit,SignupState>(

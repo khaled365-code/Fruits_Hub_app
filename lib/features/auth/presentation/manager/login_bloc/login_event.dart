@@ -25,3 +25,17 @@ final class ChangeValidationModeEvent extends LoginEvent
   List<Object?> get props => [];
 
 }
+
+final class SignInWithGoogleEvent extends LoginEvent
+{
+  @override
+  List<Object?> get props => [];
+
+}
+
+
+final class SignInWithFacebookEvent extends LoginEvent
+{
+  @override
+  List<Object?> get props => [];
+}

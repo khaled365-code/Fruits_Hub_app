@@ -27,7 +27,6 @@ abstract class AppLightTheme
     dialogTheme: _getDialogTheme(themeValue),
     snackBarTheme: _buildSnackBarTheme(),
     progressIndicatorTheme: _getProgressIndicatorThemeData()
-
     );
 
 
@@ -75,7 +74,7 @@ abstract class AppLightTheme
       borderRadius: BorderRadius.circular(4),
       borderSide: BorderSide(
         width: 1,
-        color: themeValue==1?AppColors.cE6E9EA:AppColors.c1e1e1e
+        color:AppColors.cE6E9EA
       )
     );
 
@@ -167,7 +166,7 @@ abstract class AppLightTheme
       elevation: 0,
       surfaceTintColor: Colors.transparent,
       systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor: AppColors.backgroundColors[1]
+          statusBarColor: AppColors.backgroundColors[themeValue]
       )
     );
 
@@ -177,7 +176,6 @@ abstract class AppLightTheme
   {
 
     return DialogThemeData(
-
       backgroundColor: AppColors.backgroundColors[themeValue],
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(4),
@@ -204,9 +202,9 @@ abstract class AppLightTheme
   {
 
     return SnackBarThemeData(
-      insetPadding: EdgeInsets.symmetric(horizontal: 16),
+     insetPadding: EdgeInsets.symmetric(horizontal: 5,vertical: 10),
       elevation: 0,
-      showCloseIcon: true,
+      showCloseIcon: false,
       closeIconColor: Colors.white,
       behavior: SnackBarBehavior.floating,
       backgroundColor: AppColors.primaryColor,

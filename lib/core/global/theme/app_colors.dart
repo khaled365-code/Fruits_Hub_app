@@ -12,8 +12,8 @@ abstract class AppColors {
   ];
 
   static const List<Color> foregroundColors = [
-    Color(0xfff3f5f7), // dark mode
-    Color(0xff171717), // light mode
+    Color(0xff171717), // dark mode
+    Color(0xfff3f5f7), // light mode
   ];
 
 

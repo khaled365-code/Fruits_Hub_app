@@ -1,10 +1,11 @@
 
 
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_commerce_app/core/global/common_functions.dart';
-import 'package:fruits_commerce_app/core/global/constants/app_constants.dart';
+import 'package:fruits_commerce_app/core/global/constants/enums.dart';
 import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
 import 'package:fruits_commerce_app/core/routes/routes.dart';
 import 'package:fruits_commerce_app/core/utils/app_assets.dart';
@@ -31,6 +32,12 @@ class LoginScreen extends StatelessWidget {
     LoginOptionsModel(ImageConstants.appleIcon, 'تسجيل بواسطة أبل'),
     LoginOptionsModel(ImageConstants.facebookIcon, 'تسجيل بواسطة فيسبوك'),
   ];
+
+  static const List<LoginOptionsModel> loginOptionsDataListWithoutApple=
+  [
+    LoginOptionsModel(ImageConstants.googleIcon, 'تسجيل بواسطة جوجل'),
+    LoginOptionsModel(ImageConstants.facebookIcon, 'تسجيل بواسطة فيسبوك'),
+  ];
   @override
   Widget build(BuildContext context) {
     LoginBloc loginBloc=context.read<LoginBloc>();
@@ -54,6 +61,7 @@ class LoginScreen extends StatelessWidget {
           slivers:
           [
 
+
             SliverToBoxAdapter(
               child: Padding(
                 padding: EdgeInsetsDirectional.only(start: 16.w,end: 17.w),
@@ -63,7 +71,11 @@ class LoginScreen extends StatelessWidget {
                   child: Column(
                         children:
                         [
-                          RealAppBarWidget(title: 'تسجيل دخول',canBack: false,),
+
+                          RealAppBarWidget(title: 'تسجيل دخول',onAppBarBtnPressed: ()
+                          {
+                            exit(0);
+                          },),
                           SpaceWidget(height: 24,),
                           EmailLoginTextField(
                           emailController:loginBloc.emailController
@@ -79,7 +91,7 @@ class LoginScreen extends StatelessWidget {
                               GestureDetector(
                                 onTap:()
                                 {
-                                  navigate(route: Routes.forgetPassScreen, context: context,);
+                                  navigate(route: Routes.forgetPassScreen, context: context);
                                 },
                                 child: Text(
                                   'نسيت كلمة المرور؟',style: Theme.of(context).textTheme.titleSmall?.copyWith(
@@ -114,13 +126,20 @@ class LoginScreen extends StatelessWidget {
                           SpaceWidget(height: 49,),
                           OrWithDividersRow(),
                           SpaceWidget(height: 21,),
-                          ...List.generate(3,(index)=>Padding(
+                          ...List.generate(Platform.isAndroid ? 2:3,(index)=>Padding(
                             padding: index==1? EdgeInsetsDirectional.symmetric(vertical: 16.h):EdgeInsets.zero,
                             child: LoginOptionContainer(
-                              loginIcon: loginOptionsDataList[index].loginIcon,
-                              loginOptionText: loginOptionsDataList[index].loginOptionText,
+                              onContainerPressed: index==0? ()
+                              {
+                                loginBloc..add(SignInWithGoogleEvent());
+                              }:index==1?(){}:()
+                              {
+                                loginBloc..add(SignInWithFacebookEvent());
+                              },
+                              loginIcon: Platform.isAndroid? loginOptionsDataListWithoutApple[index].loginIcon:loginOptionsDataList[index].loginIcon,
+                              loginOptionText: Platform.isAndroid? loginOptionsDataListWithoutApple[index].loginOptionText:loginOptionsDataList[index].loginOptionText,
                             ),
-                          ),)
+                          ),),
 
                         ],
                       ),

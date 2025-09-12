@@ -16,6 +16,7 @@ class Failure {
     }
   }
 
+
   static Failure _handleException(Exception e) {
     switch (e) {
       case DioException _:
@@ -73,3 +74,5 @@ class Failure {
     }
   }
 }
+
+

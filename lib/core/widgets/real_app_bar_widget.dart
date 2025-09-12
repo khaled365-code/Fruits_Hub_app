@@ -9,10 +9,11 @@ import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
 import 'package:fruits_commerce_app/core/utils/app_assets.dart';
 
 class RealAppBarWidget extends StatelessWidget {
-  const RealAppBarWidget({super.key,required this.title,this.canBack=true});
+  const RealAppBarWidget({super.key,required this.title,this.canBack=true,this.onAppBarBtnPressed});
 
   final String title;
   final bool canBack;
+  final void Function()? onAppBarBtnPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class RealAppBarWidget extends StatelessWidget {
       children:
       [
         GestureDetector(
-          onTap: ()
+          onTap: onAppBarBtnPressed ?? ()
           {
            canBack? Navigator.pop(context):null;
           },
