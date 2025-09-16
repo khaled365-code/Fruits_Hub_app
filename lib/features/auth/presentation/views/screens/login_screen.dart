@@ -126,20 +126,37 @@ class LoginScreen extends StatelessWidget {
                           SpaceWidget(height: 49,),
                           OrWithDividersRow(),
                           SpaceWidget(height: 21,),
-                          ...List.generate(Platform.isAndroid ? 2:3,(index)=>Padding(
-                            padding: index==1? EdgeInsetsDirectional.symmetric(vertical: 16.h):EdgeInsets.zero,
+                          ...List.generate(2,(index) => Platform.isAndroid? Padding(
+                            padding: index==1? EdgeInsetsDirectional.only(top: 16.h):EdgeInsets.zero,
                             child: LoginOptionContainer(
                               onContainerPressed: index==0? ()
                               {
                                 loginBloc..add(SignInWithGoogleEvent());
-                              }:index==1?(){}:()
+                              } : ()
                               {
                                 loginBloc..add(SignInWithFacebookEvent());
                               },
                               loginIcon: Platform.isAndroid? loginOptionsDataListWithoutApple[index].loginIcon:loginOptionsDataList[index].loginIcon,
                               loginOptionText: Platform.isAndroid? loginOptionsDataListWithoutApple[index].loginOptionText:loginOptionsDataList[index].loginOptionText,
                             ),
-                          ),),
+                            ): Padding(
+                              padding: index==1? EdgeInsetsDirectional.symmetric(vertical: 16.h):EdgeInsets.zero,
+                              child: LoginOptionContainer(
+                                onContainerPressed: index==0? ()
+                                {
+                                  loginBloc..add(SignInWithGoogleEvent());
+                                }:index==1 ? ()
+                                {
+                                  // signIn with Apple code
+                                }: ()
+                                {
+
+                                },
+                                loginIcon: Platform.isAndroid? loginOptionsDataListWithoutApple[index].loginIcon:loginOptionsDataList[index].loginIcon,
+                                loginOptionText: Platform.isAndroid? loginOptionsDataListWithoutApple[index].loginOptionText:loginOptionsDataList[index].loginOptionText,
+                              ),
+                            ),)
+
 
                         ],
                       ),
