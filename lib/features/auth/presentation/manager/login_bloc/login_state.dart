@@ -5,7 +5,7 @@ class LoginState extends Equatable {
 
   final RequestStates requestState;
   final String? errorMessage;
-  final USerEntity? user;
+  final UserEntity? user;
   final AutovalidateMode? loginValidateMode;
 
 
@@ -17,7 +17,7 @@ class LoginState extends Equatable {
 
 
 
-  LoginState copyWith({RequestStates? requestState,String? errorMessage,USerEntity? userEntity,AutovalidateMode? loginValidateMode})
+  LoginState copyWith({RequestStates? requestState,String? errorMessage,UserEntity? userEntity,AutovalidateMode? loginValidateMode})
   {
     return LoginState(
       requestState: requestState??this.requestState,

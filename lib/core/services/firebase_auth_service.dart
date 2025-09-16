@@ -9,12 +9,19 @@ import 'package:google_sign_in/google_sign_in.dart';
 class FirebaseAuthService {
 
 
+
+ Future<void> deleteAccount() async
+ {
+  await FirebaseAuth.instance.currentUser!.delete();
+ }
+
  Future<User> createUserWithEmailAndPasswordService({required String email, required String password,}) async
  {
   try {
    final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
     email: email,
     password: password,
+
    );
 
    return credential.user!;

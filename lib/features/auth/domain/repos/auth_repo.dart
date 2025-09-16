@@ -9,19 +9,28 @@ abstract class AuthRepo
 {
 
   const AuthRepo();
-  Future<Either<Failure,USerEntity>> createUserWithEmailAndPassword({required String email, required String password,required String name});
+  Future<Either<Failure,UserEntity>> createUserWithEmailAndPassword({required String email, required String password,required String name});
 
 
 
-  Future<Either<Failure,USerEntity>> signInUsingEmailAndPassword({required String email,required String password});
+  Future<Either<Failure,UserEntity>> signInUsingEmailAndPassword({required String email,required String password});
 
 
 
-  Future<Either<Failure,USerEntity>> signInWithGoogle();
+  Future<Either<Failure,UserEntity>> signInWithGoogle();
 
 
 
-  Future<Either<Failure,USerEntity>> signInWithFacebook();
+  Future<Either<Failure,UserEntity>> signInWithFacebook();
+
+
+
+  Future<void> addUserDataToDatabase({required UserEntity userEntity});
+
+
+  Future<UserEntity> getUserData({required String userId});
+
+
 
 
 

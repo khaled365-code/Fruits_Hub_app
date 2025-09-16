@@ -5,7 +5,7 @@ final class SignupState extends Equatable
 {
 
  final RequestStates requestState;
- final USerEntity? userEntity;
+ final UserEntity? userEntity;
  final String? errorMessage;
  final AutovalidateMode validateMode;
  final bool termsAndConditionsActive;
@@ -17,7 +17,7 @@ final class SignupState extends Equatable
  List<Object?> get props => [requestState,userEntity,errorMessage,validateMode,termsAndConditionsActive];
 
 
-  SignupState copyWith({RequestStates? requestState,USerEntity? userEntity,String? errorMessage,AutovalidateMode? validateMode,bool? termsAndConditionsActive})
+  SignupState copyWith({RequestStates? requestState,UserEntity? userEntity,String? errorMessage,AutovalidateMode? validateMode,bool? termsAndConditionsActive})
  {
    return SignupState(
        termsAndConditionsActive: termsAndConditionsActive??this.termsAndConditionsActive,
