@@ -11,4 +11,7 @@ abstract class DatabaseService
 
   Future<Map<String,dynamic>> getData({required String path,required String record_id});
 
+
+  Future<bool> checkIfRecordExists({required String path,required String recordId});
+
 }

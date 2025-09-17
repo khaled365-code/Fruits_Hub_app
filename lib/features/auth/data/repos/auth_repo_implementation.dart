@@ -66,8 +66,15 @@ class AuthRepoImplementationUsingFirebase extends AuthRepo
     {
      user=  await firebaseAuthService.signInWithGoogle();
      UserModel userModel=UserModel.fromFirebaseAuth(user);
-     await addUserDataToDatabase(userEntity: userModel);
-     await getUserData(userId: user.uid);
+     bool recordExists = await databaseService.checkIfRecordExists(path: BackendEndPoints.usersCollectionName, recordId: userModel.userId);
+     if(recordExists)
+       {
+         await getUserData(userId: userModel.userId);
+       }
+     else
+       {
+         await addUserDataToDatabase(userEntity: userModel);
+       }
      return Right(userModel);
     } catch (e)
     {
@@ -90,8 +97,15 @@ class AuthRepoImplementationUsingFirebase extends AuthRepo
     {
       user = await firebaseAuthService.signInWithFacebook();
       UserModel userModel=UserModel.fromFirebaseAuth(user);
-      await addUserDataToDatabase(userEntity: userModel);
-      await getUserData(userId: user.uid);
+      bool recordExists = await databaseService.checkIfRecordExists(path: BackendEndPoints.usersCollectionName, recordId: userModel.userId);
+      if(recordExists)
+      {
+        await getUserData(userId: userModel.userId);
+      }
+      else
+      {
+        await addUserDataToDatabase(userEntity: userModel);
+      }
       return Right(userModel);
     } catch (e)
     {

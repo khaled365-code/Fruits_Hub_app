@@ -11,6 +11,7 @@ class Routes
   static const String forgetPassScreen='/forget_pass_screen';
   static const String otpScreen='/otp_screen';
   static const String resetPasswordScreen='/reset_password_screen';
+  static const String homeScreen='/home_screen';
 
 
 

@@ -14,6 +14,7 @@ abstract class AppConstants
       color: AppColors.textColors[ThemeCubit().currentTheme]
   );
   static const String appLanguage='appLanguage';
+  static const String userIsLoggedInAccount='userIsLoggedInAccount';
 
 
 }

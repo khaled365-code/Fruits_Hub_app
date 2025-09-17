@@ -9,6 +9,7 @@ import 'package:fruits_commerce_app/core/global/constants/app_constants.dart';
 import 'package:fruits_commerce_app/core/localization/localization_cubit/localization_cubit.dart';
 import 'package:fruits_commerce_app/core/routes/routes.dart';
 import 'package:fruits_commerce_app/core/services/cache_service.dart';
+import 'package:fruits_commerce_app/core/services/database_service.dart';
 import 'package:fruits_commerce_app/core/utils/app_assets.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -49,9 +50,12 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> delaySplashScreen() async
   {
+
      await Future.delayed(Duration(seconds: 5),()
      {
-       CacheService().getBool(key: AppConstants.onBoardIsOpened)==true?
+       CacheService().getBool(key: AppConstants.userIsLoggedInAccount)==true?
+       navigate(route: Routes.homeScreen, context: context):
+       CacheService().getBool(key: AppConstants.onBoardIsOpened)== true ?
        navigate(route: Routes.loginScreen, context: context):
        navigate(route: Routes.onBoardingScreen, context: context);
     });

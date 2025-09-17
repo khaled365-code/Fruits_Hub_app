@@ -9,6 +9,7 @@ import 'package:fruits_commerce_app/features/auth/presentation/views/screens/log
 import 'package:fruits_commerce_app/features/auth/presentation/views/screens/otp_screen.dart';
 import 'package:fruits_commerce_app/features/auth/presentation/views/screens/reset_password_screen.dart';
 import 'package:fruits_commerce_app/features/auth/presentation/views/screens/signup_screen.dart';
+import 'package:fruits_commerce_app/features/home/presentation/views/screens/home_screen.dart';
 import 'package:fruits_commerce_app/features/onboarding/presentation/views/screens/onboarding_screen.dart';
 import 'package:fruits_commerce_app/features/splash/presentation/views/screens/splash_screen.dart';
 
@@ -37,6 +38,9 @@ class AppRouter {
 
       case Routes.otpScreen:
         return _buildScreen(widget: OtpScreen());
+
+      case Routes.homeScreen:
+        return _buildScreen(widget: HomeScreen());
 
       default:
         return _buildDefaultRoute();

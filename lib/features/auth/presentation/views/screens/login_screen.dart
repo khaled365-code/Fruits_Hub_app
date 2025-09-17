@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_commerce_app/core/global/common_functions.dart';
+import 'package:fruits_commerce_app/core/global/constants/app_constants.dart';
 import 'package:fruits_commerce_app/core/global/constants/enums.dart';
 import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
 import 'package:fruits_commerce_app/core/routes/routes.dart';
@@ -21,6 +22,8 @@ import 'package:fruits_commerce_app/features/auth/presentation/views/widgets/log
 import 'package:fruits_commerce_app/features/auth/presentation/views/widgets/login/login_option_container.dart';
 import 'package:fruits_commerce_app/features/auth/presentation/views/widgets/or_withe_dividers_row.dart';
 import 'package:fruits_commerce_app/features/auth/presentation/views/widgets/login/password_login_text_field.dart';
+
+import '../../../../../core/services/cache_service.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -44,10 +47,12 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       appBar: buildCommonAppBar(),
       body: BlocConsumer<LoginBloc, LoginState>(
-        listener: (context, state) {
+        listener: (context, state) async {
           if(state.requestState==RequestStates.success)
           {
             buildSnackBarMessage(text: 'تم تسجيل الدخول بنجاح', context: context);
+            navigate(route: Routes.homeScreen, context: context,replaced: true);
+            await CacheService().setBool(key: AppConstants.userIsLoggedInAccount, value: true);
           }
           if (state.requestState==RequestStates.error)
           {

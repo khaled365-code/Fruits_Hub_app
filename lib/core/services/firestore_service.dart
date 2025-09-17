@@ -2,9 +2,6 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fruits_commerce_app/core/services/database_service.dart';
-import 'package:fruits_commerce_app/features/auth/domain/entities/user_entity.dart';
-
-import '../../features/auth/data/models/user_model.dart';
 
 class FireStoreService implements DatabaseService
 {
@@ -23,6 +20,13 @@ class FireStoreService implements DatabaseService
     var result= await _firestore.collection(path).doc(record_id).get();
     return result.data() as Map<String,dynamic>;
 
+  }
+
+  @override
+  Future<bool> checkIfRecordExists({required String path, required String recordId}) async
+  {
+    var result = await _firestore.collection(path).doc(recordId).get();
+    return result.exists;
   }
 
 

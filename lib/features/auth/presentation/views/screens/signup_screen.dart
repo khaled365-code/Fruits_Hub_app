@@ -34,6 +34,7 @@ class SignUpScreen extends StatelessWidget {
           if (state.requestState==RequestStates.success)
             {
               buildSnackBarMessage(text: 'تم إنشاء الحساب بنجاح', context: context);
+              Navigator.pop(context);
             }
         },
       builder: (context, state) {
