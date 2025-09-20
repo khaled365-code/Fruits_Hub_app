@@ -19,7 +19,7 @@ class AddProductButton extends StatelessWidget {
       height: 36.h,
       decoration: ShapeDecoration(
         shape: OvalBorder(),
-        color: AppColors.primaryColor,
+        color: ThemeCubit().currentTheme==1?AppColors.primaryColor:AppColors.darkerPrimaryColor,
       ),
       child: Center(
         child: SvgPicture.asset(ImageConstants.plusIcon,colorFilter:
