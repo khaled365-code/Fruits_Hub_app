@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
-import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
+import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 import 'package:fruits_commerce_app/core/widgets/custom_alert_dialog.dart';
 import 'package:fruits_commerce_app/core/widgets/custom_app_bar.dart';
 import 'package:fruits_commerce_app/core/widgets/real_app_bar_widget.dart';

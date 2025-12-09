@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../global/manager/theme_cubit/theme_cubit.dart';
-import '../global/theme/app_colors.dart';
+import '../utils/app_colors.dart';
 import '../utils/app_assets.dart';
 import 'just_circulat_container_nav_bar.dart';
 import 'space_widget.dart';

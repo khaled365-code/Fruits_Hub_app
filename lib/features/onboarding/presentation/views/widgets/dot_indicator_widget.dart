@@ -3,7 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
+import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 
 class DotIndicatorWidget extends StatelessWidget {
   const DotIndicatorWidget({super.key,this.notActive=false});

@@ -7,10 +7,10 @@ import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.
 import 'package:fruits_commerce_app/core/localization/app_localization.dart';
 import 'package:fruits_commerce_app/core/localization/localization_cubit/localization_cubit.dart';
 import 'package:fruits_commerce_app/core/routes/app_router.dart';
-import 'package:fruits_commerce_app/core/service_locator/service_locator.dart';
+import 'package:fruits_commerce_app/core/services/service_locator.dart';
 import 'package:fruits_commerce_app/core/services/cache_service.dart';
 
-import 'core/global/theme/theme_data/app_light_theme.dart';
+import 'core/global/theme/theme_data/app_theme.dart';
 
 class FruitsShopApp extends StatelessWidget {
   const FruitsShopApp({super.key});
@@ -20,10 +20,10 @@ class FruitsShopApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => locator<ThemeCubit>(),
+          create: (context) => ThemeCubit(),
         ),
         BlocProvider(
-          create: (context) => locator<LocalizationCubit>(),
+          create: (context) => LocalizationCubit(),
         ),
       ],
       child: BlocBuilder<LocalizationCubit, String>(
@@ -34,7 +34,7 @@ class FruitsShopApp extends StatelessWidget {
                 designSize: const Size(375, 812),
                 builder: (context, child) =>
                     MaterialApp(
-                      locale: Locale(CacheService().getString(key: AppConstants.appLanguage)??LocalizationCubit().currentLanguage),
+                      locale: Locale(CacheService().getString(key: AppConstants.appLanguage) ?? localState),
                       localizationsDelegates: const
                       [
                         AppLocalizationDelegate(),
@@ -55,7 +55,7 @@ class FruitsShopApp extends StatelessWidget {
                         return supportedLocales.first;
                       },
                       debugShowCheckedModeBanner: false,
-                      theme: AppLightTheme.getAppLightTheme(themeValue: state),
+                      theme: AppTheme.getAppTheme(themeValue: CacheService().getInt(key: AppConstants.currentAppTheme)??state ),
                       title: 'Fruits Hub',
                       onGenerateRoute: AppRouter.onGenerateRoutes,
                     ),

@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
-import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
+import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 
 abstract class AppConstants
 {
@@ -15,6 +15,7 @@ abstract class AppConstants
   );
   static const String appLanguage='appLanguage';
   static const String userIsLoggedInAccount='userIsLoggedInAccount';
+  static const String currentAppTheme='currentAppTheme';
 
 
 }

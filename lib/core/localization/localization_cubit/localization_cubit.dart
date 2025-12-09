@@ -9,8 +9,10 @@ import 'package:meta/meta.dart';
 class LocalizationCubit extends Cubit<String> {
 
   LocalizationCubit._named(): super('ar');
-  static final _instance=LocalizationCubit._named();
-  factory LocalizationCubit() => _instance;
+  static  LocalizationCubit? _instance;
+  factory LocalizationCubit() => _instance??=LocalizationCubit._named();
+
+  // lazy singleton construction
 
 
   String currentLanguage='ar';

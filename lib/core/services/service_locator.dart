@@ -14,11 +14,10 @@ import 'package:get_it/get_it.dart';
 final locator=GetIt.instance;
 
 
+
 setUpLocator()
 {
 
-  locator.registerLazySingleton<ThemeCubit>(() => ThemeCubit(),);
-  locator.registerLazySingleton<LocalizationCubit>(()=>LocalizationCubit());
   locator.registerLazySingleton<FirebaseAuthService>(()=>FirebaseAuthService());
   locator.registerLazySingleton<DatabaseService>(() => FireStoreService(),);
   locator.registerLazySingleton<AuthRepo>(() => AuthRepoImplementationUsingFirebase(
@@ -28,8 +27,5 @@ setUpLocator()
     authRepo: locator.get<AuthRepo>()
   ),);
   locator.registerFactory<SignupCubit>(() => SignupCubit(authRepo: locator.get<AuthRepo>()),);
-
-
-
 
 }

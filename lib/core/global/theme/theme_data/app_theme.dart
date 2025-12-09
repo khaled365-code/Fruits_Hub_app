@@ -3,37 +3,38 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fruits_commerce_app/core/global/constants/app_constants.dart';
-import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
-import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
+import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 
-abstract class AppLightTheme
+abstract class AppTheme
 {
 
+  static ThemeData _selectDarkOrLightTheme(int themeValue)
+  {
+    return themeValue==1?
+    ThemeData.light():ThemeData.dark();
+  }
 
 
-  static ThemeData getAppLightTheme({required int themeValue})
+  static ThemeData getAppTheme({required int themeValue})
   {
 
-    return ThemeData(
-    colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
-    scaffoldBackgroundColor: AppColors.backgroundColors[themeValue],
-    fontFamily: 'Cairo',
-    useMaterial3: true,
-    elevatedButtonTheme: _getElevatedButtonTheme(),
-    inputDecorationTheme: _getInputDecorationTheme(themeValue),
-    textTheme: _getTextTheme(themeValue),
-    appBarTheme: _buildAppBarTheme(themeValue),
-    dialogTheme: _getDialogTheme(themeValue),
-    snackBarTheme: _buildSnackBarTheme(),
-    progressIndicatorTheme: _getProgressIndicatorThemeData()
+    return _selectDarkOrLightTheme(themeValue).copyWith(
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
+        scaffoldBackgroundColor: AppColors.backgroundColors[themeValue],
+        elevatedButtonTheme: _getElevatedButtonTheme(),
+        inputDecorationTheme: _getInputDecorationTheme(themeValue),
+        textTheme: _getTextTheme(themeValue),
+        appBarTheme: _buildAppBarTheme(themeValue),
+        dialogTheme: _getDialogTheme(themeValue),
+        snackBarTheme: _buildSnackBarTheme(),
+        progressIndicatorTheme: _getProgressIndicatorThemeData()
     );
 
 
 
   }
 
-  static _getElevatedButtonTheme()
+  static ElevatedButtonThemeData _getElevatedButtonTheme()
   {
     return ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
@@ -88,70 +89,86 @@ abstract class AppLightTheme
       displayLarge: TextStyle(
         fontSize: 28,
         fontWeight: FontWeight.bold, // bold28
+        fontFamily: 'Cairo',
       ),
       displayMedium: TextStyle(
         fontSize: 26,
         fontWeight: FontWeight.normal, // regular26
+        fontFamily: 'Cairo',
       ),
       displaySmall: TextStyle(
         fontSize: 23,
         fontWeight: FontWeight.bold, // bold23
+        fontFamily: 'Cairo',
          ),
 
       // Section / Page titles
       headlineLarge: TextStyle(
         fontSize: 22,
         fontWeight: FontWeight.normal, // regular22
+        fontFamily: 'Cairo',
+
       ),
       headlineMedium: TextStyle(
         fontSize: 19,
         fontWeight: FontWeight.bold, // bold19
+        fontFamily: 'Cairo',
       ),
       headlineSmall: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.bold, // bold16
+        fontFamily: 'Cairo',
       ),
 
       // Subtitles / AppBar text
       titleLarge: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.w600, // semiBold16
+        fontFamily: 'Cairo',
       ),
       titleMedium: TextStyle(
         fontSize: 15,
         fontWeight: FontWeight.w500, // medium15
+        fontFamily: 'Cairo',
       ),
       titleSmall: TextStyle(
         fontSize: 13,
         fontWeight: FontWeight.w600, // semiBold13
+        fontFamily: 'Cairo',
       ),
 
       // Body text
       bodyLarge: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.normal, // regular16
+        fontFamily: 'Cairo',
       ),
       bodyMedium: TextStyle(
         fontSize: 13,
         fontWeight: FontWeight.w400, // regular13
+        fontFamily: 'Cairo',
       ),
       bodySmall: TextStyle(
         fontSize: 11,
         fontWeight: FontWeight.normal, // regular11
+        fontFamily: 'Cairo',
       ),
 
       // Labels / Buttons
       labelLarge: TextStyle(
         fontSize: 13,
         fontWeight: FontWeight.bold, // bold13
+        fontFamily: 'Cairo',
       ),
       labelMedium: TextStyle(
         fontSize: 11,
         fontWeight: FontWeight.w600, // semiBold11
+        fontFamily: 'Cairo',
       ),
       labelSmall: TextStyle(
         fontSize: 11,
         fontWeight: FontWeight.normal, // regular11 (optional duplicate)
+        fontFamily: 'Cairo',
       ),
     );
 

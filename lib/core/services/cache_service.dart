@@ -4,8 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 class CacheService
 {
   CacheService._named();
-  static final _instance=CacheService._named();
-  factory CacheService() => _instance;
+  static CacheService? _instance;
+  factory CacheService() => _instance ??= CacheService._named(); // lazy singleton construction
 
   late SharedPreferences _sharedPreferences;
 
@@ -37,7 +37,21 @@ class CacheService
     return _sharedPreferences.getString(key);
   }
 
+  Future<void> setInt({required String key,required int value}) async
+  {
+
+    await _sharedPreferences.setInt(key, value);
+
+  }
+
+  int? getInt({required String key})
+  {
+    return _sharedPreferences.getInt(key);
+  }
+
 
 }
+
+
 
 

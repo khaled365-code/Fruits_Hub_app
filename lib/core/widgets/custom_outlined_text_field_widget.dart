@@ -4,7 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fruits_commerce_app/core/global/constants/app_constants.dart';
-import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
+import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 
 class CustomOutlinedTextField extends StatelessWidget {
   const CustomOutlinedTextField({super.key,required this.hintText,required this.controller,this.contentPadding, this.validator, this.textFormatterList,  this.minLines,this.maxLength, required this.keyBoardType, this.onFieldSubmitted, this.inputDataStyle, this.textInputAction,this.obSecureText=false, this.suffix, this.prefix, this.textAlign,this.textDirection});

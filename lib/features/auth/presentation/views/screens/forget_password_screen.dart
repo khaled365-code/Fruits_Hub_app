@@ -4,7 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_commerce_app/core/global/common_functions.dart';
-import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
+import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 import 'package:fruits_commerce_app/core/routes/routes.dart';
 import 'package:fruits_commerce_app/core/widgets/custom_app_bar.dart';
 import 'package:fruits_commerce_app/core/widgets/custom_outlined_text_field_widget.dart';

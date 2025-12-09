@@ -7,7 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruits_commerce_app/core/utils/app_assets.dart';
 
 import '../../../../../core/global/manager/theme_cubit/theme_cubit.dart';
-import '../../../../../core/global/theme/app_colors.dart';
+import '../../../../../core/utils/app_colors.dart';
 
 class AddProductButton extends StatelessWidget {
   const AddProductButton({super.key});

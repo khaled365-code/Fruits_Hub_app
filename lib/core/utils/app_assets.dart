@@ -1,7 +1,7 @@
 
 
 
-class ImageConstants
+abstract class ImageConstants
 {
 
   //images
