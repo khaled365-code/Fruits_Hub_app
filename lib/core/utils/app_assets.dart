@@ -7,6 +7,7 @@ abstract class ImageConstants
   //images
  static const String fruitsOffersImage='assets/images/fruits_offers_image.png';
  static const String fraiseImage='assets/images/fraise_image.png';
+ static const String homeEllipseImage='assets/images/home_ellipse_image.png';
 
 
 
@@ -39,7 +40,6 @@ abstract class ImageConstants
   static const String manProfileImage='assets/images/man_profile_image.png';
   static const String searchIcon='assets/icons/search_icon.svg';
   static const String searchListIcon='assets/icons/search_list_icon.svg';
-  static const String homeOfferEllipseIcon='assets/icons/home_offer_ellipse.svg';
   static const String heartIcon='assets/icons/herat_icon.svg';
   static const String plusIcon='assets/icons/plus_icon.svg';
   static const String homeIcon='assets/icons/home_icon.svg';

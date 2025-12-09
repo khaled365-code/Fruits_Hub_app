@@ -41,20 +41,18 @@ class HomeScreen extends StatelessWidget {
                 ]
               ),
             ),
-            SliverPadding(
-              padding: EdgeInsets.symmetric(horizontal: 17.w, vertical: 12.5),
-              sliver: SliverGrid(
-                delegate: SliverChildBuilderDelegate((context, index) => ProductItemWidget(),
-                  childCount: 8,
-                ),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 163 / 214,
-                  crossAxisSpacing: 16,
-                  mainAxisSpacing: 8,
-                ),
+            SliverGrid(
+              delegate: SliverChildBuilderDelegate((context, index) => ProductItemWidget(),
+                childCount: 8,
+              ),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 163 / 214,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 8,
               ),
             ),
+            SliverToBoxAdapter(child: SpaceWidget(height: 15,),)
           ],
         ),
       ),
