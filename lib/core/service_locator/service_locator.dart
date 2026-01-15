@@ -11,7 +11,7 @@ import 'package:fruits_commerce_app/features/auth/presentation/manager/login_blo
 import 'package:fruits_commerce_app/features/auth/presentation/manager/signup_cubit/signup_cubit.dart';
 import 'package:get_it/get_it.dart';
 
-final locator=GetIt.instance;
+final locator = GetIt.instance;
 
 
 setUpLocator()
@@ -19,15 +19,15 @@ setUpLocator()
 
   locator.registerLazySingleton<ThemeCubit>(() => ThemeCubit(),);
   locator.registerLazySingleton<LocalizationCubit>(()=>LocalizationCubit());
+  locator.registerFactory<SignupCubit>(() => SignupCubit(authRepo: locator()),);
+  locator.registerFactory<LoginBloc>(() => LoginBloc(
+  authRepo: locator()
+  ),);
+  locator.registerLazySingleton<AuthRepo>(() => AuthRepoImplementationUsingFirebase(
+      firebaseAuthService: locator(),
+      databaseService: locator()),);
   locator.registerLazySingleton<FirebaseAuthService>(()=>FirebaseAuthService());
   locator.registerLazySingleton<DatabaseService>(() => FireStoreService(),);
-  locator.registerLazySingleton<AuthRepo>(() => AuthRepoImplementationUsingFirebase(
-  firebaseAuthService: locator.get<FirebaseAuthService>(),
-  databaseService: locator.get<DatabaseService>()),);
-  locator.registerFactory<LoginBloc>(() => LoginBloc(
-    authRepo: locator.get<AuthRepo>()
-  ),);
-  locator.registerFactory<SignupCubit>(() => SignupCubit(authRepo: locator.get<AuthRepo>()),);
 
 
 

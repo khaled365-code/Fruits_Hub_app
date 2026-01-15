@@ -4,8 +4,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 class CacheService
 {
   CacheService._named();
-  static final _instance=CacheService._named();
-  factory CacheService() => _instance;
+  static CacheService? _instance;
+  factory CacheService() => _instance ??= CacheService._named();
+  // lazy singleton construction
+
+
 
   late SharedPreferences _sharedPreferences;
 
@@ -20,13 +23,13 @@ class CacheService
     await _sharedPreferences.setBool(key, value);
   }
 
-  bool getBool({required String key})
+  bool? getBool({required String key})
   {
-    return _sharedPreferences.getBool(key)??false;
+    return _sharedPreferences.getBool(key);
   }
 
 
-  Future<void>  setString({required String key,required String value}) async
+  Future<void> setString({required String key,required String value}) async
   {
     await _sharedPreferences.setString(key, value);
   }
