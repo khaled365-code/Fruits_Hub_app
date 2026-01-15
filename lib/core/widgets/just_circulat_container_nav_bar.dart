@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../global/theme/app_colors.dart';
+import '../utils/app_colors.dart';
 
 class CircularNavBarContainer extends StatelessWidget {
   const CircularNavBarContainer({super.key,required this.child});

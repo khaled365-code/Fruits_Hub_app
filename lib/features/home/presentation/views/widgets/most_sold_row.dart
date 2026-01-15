@@ -3,7 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
-import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
+import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 
 class MostSoldRow extends StatelessWidget {
   const MostSoldRow({super.key});

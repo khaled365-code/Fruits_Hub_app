@@ -40,6 +40,18 @@ class CacheService
     return _sharedPreferences.getString(key);
   }
 
+  Future<void> setInt({required String key,required int value}) async
+  {
+
+    await _sharedPreferences.setInt(key, value);
+
+  }
+
+  int? getInt({required String key})
+  {
+    return _sharedPreferences.getInt(key);
+  }
+
 
 }
 

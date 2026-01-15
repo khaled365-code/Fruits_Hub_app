@@ -2,7 +2,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
+import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 import 'package:fruits_commerce_app/core/widgets/space_widget.dart';
 import 'package:fruits_commerce_app/features/auth/presentation/views/widgets/signup/custom_check_box.dart';
 

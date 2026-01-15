@@ -4,8 +4,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
-import 'package:fruits_commerce_app/core/global/theme/app_colors.dart';
-import 'package:fruits_commerce_app/core/service_locator/service_locator.dart';
+import 'package:fruits_commerce_app/core/utils/app_colors.dart';
+import 'package:fruits_commerce_app/core/services/service_locator.dart';
 import 'package:fruits_commerce_app/core/widgets/custom_outlined_text_field_widget.dart';
 
 class SignUpNameTextField extends StatelessWidget {

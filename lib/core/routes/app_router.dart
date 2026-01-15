@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_commerce_app/core/routes/routes.dart';
-import 'package:fruits_commerce_app/core/service_locator/service_locator.dart';
+import 'package:fruits_commerce_app/core/services/service_locator.dart';
 import 'package:fruits_commerce_app/features/auth/presentation/manager/login_bloc/login_bloc.dart';
 import 'package:fruits_commerce_app/features/auth/presentation/manager/signup_cubit/signup_cubit.dart';
 import 'package:fruits_commerce_app/features/auth/presentation/views/screens/forget_password_screen.dart';
@@ -50,11 +50,11 @@ class AppRouter {
 
   static MaterialPageRoute _buildScreen(
       {required Widget widget, RouteSettings? settings}) =>
-      MaterialPageRoute(builder: (context) => widget, settings: settings);
+      MaterialPageRoute(builder: (_) => widget, settings: settings);
 
 
   static MaterialPageRoute _buildDefaultRoute() =>
-      MaterialPageRoute(builder: (context) =>
+      MaterialPageRoute(builder: (_) =>
           Scaffold(
             body: SafeArea(
               child: Center(

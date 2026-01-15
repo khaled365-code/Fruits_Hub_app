@@ -21,7 +21,6 @@ class FirebaseAuthService {
    final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
     email: email,
     password: password,
-
    );
 
    return credential.user!;
@@ -126,7 +125,10 @@ class FirebaseAuthService {
 
   } on MissingPluginException catch (e)
   {
-   log('Exception in FirebaseAuthService.signInWithFacebook and the exception is ${e.toString()}');
+   if(kDebugMode)
+     {
+       log('Exception in FirebaseAuthService.signInWithFacebook and the exception is ${e.toString()}');
+     }
    throw Exception('تسجيل الدخول عبر فيسبوك غير متالح حاليا');
   } catch (e)
   {
