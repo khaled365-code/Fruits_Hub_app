@@ -17,8 +17,6 @@ final locator = GetIt.instance;
 setUpLocator()
 {
 
-  locator.registerLazySingleton<ThemeCubit>(() => ThemeCubit(),);
-  locator.registerLazySingleton<LocalizationCubit>(()=>LocalizationCubit());
   locator.registerFactory<SignupCubit>(() => SignupCubit(authRepo: locator()),);
   locator.registerFactory<LoginBloc>(() => LoginBloc(
   authRepo: locator()

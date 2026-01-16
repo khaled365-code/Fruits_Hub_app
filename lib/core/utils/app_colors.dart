@@ -7,26 +7,26 @@ abstract class AppColors {
 
   static const List<Color> backgroundColors=
   [
+    Color(0xffffffff),  // light mode
     Color(0xff0d0d0d), // dark mode
-    Color(0xffffffff)  // light mode
   ];
 
   static const List<Color> foregroundColors = [
-    Color(0xff171717), // dark mode
     Color(0xfff3f5f7), // light mode
+    Color(0xff171717), // dark mode
   ];
 
 
   static const List<Color> textColors = [
-    Color(0xffffffff), // dark mode
     Color(0xff0D0D0D),  // light mode
+    Color(0xffffffff), // dark mode
   ];
 
 
   static List<Color> inputDecorationColors =
   [
-    Color(0xff666666).withValues(alpha: 0.2), // dark mode
     Color(0xffF9FAFA), // light mode
+    Color(0xff666666).withValues(alpha: 0.2), // dark mode
   ];
 
   static const Color primaryColor=Color(0xff1B5E37);
@@ -69,5 +69,7 @@ abstract class AppColors {
 
   static const Color cEEEEEE=Color(0xffEEEEEE);
 
-
 }
+
+
+

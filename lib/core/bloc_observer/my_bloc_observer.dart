@@ -14,7 +14,7 @@ class FruitsHubBlocObserver extends BlocObserver
     super.onCreate(bloc);
     if(kDebugMode)
      {
-       log('on created ${bloc.runtimeType}');
+       log('on create --${bloc.runtimeType}');
      }
   }
 
@@ -24,7 +24,7 @@ class FruitsHubBlocObserver extends BlocObserver
     super.onChange(bloc, change);
     if(kDebugMode)
     {
-      log('on change ${bloc.runtimeType} to $change');
+      log('on change --${bloc.runtimeType} to $change');
     }
   }
 
@@ -34,7 +34,7 @@ class FruitsHubBlocObserver extends BlocObserver
     super.onClose(bloc);
     if(kDebugMode)
     {
-      log('${bloc.runtimeType} is closed');
+      log('on close --${bloc.runtimeType}');
     }
   }
 
@@ -44,12 +44,9 @@ class FruitsHubBlocObserver extends BlocObserver
     super.onError(bloc, error, stackTrace);
     if(kDebugMode)
      {
-       log('on Error : ${bloc.runtimeType} with error : $error');
+       log('on Error --${bloc.runtimeType} with error : $error');
      }
   }
 
-
-
-
-
 }
+

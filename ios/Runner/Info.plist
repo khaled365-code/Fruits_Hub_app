@@ -5,7 +5,7 @@
 		<key>CFBundleDevelopmentRegion</key>
 		<string>$(DEVELOPMENT_LANGUAGE)</string>
 		<key>GIDClientID</key>
-        <string>218333851185-o20m6ldithu1rccmac64rgane6rbnodl.apps.googleusercontent.com</string>
+		<string>218333851185-o20m6ldithu1rccmac64rgane6rbnodl.apps.googleusercontent.com</string>
 		<key>CFBundleDisplayName</key>
 		<string>Fruits Hub</string>
 		<key>CFBundleExecutable</key>
@@ -50,17 +50,17 @@
 		<key>UIStatusBarHidden</key>
 		<false/>
 		<key>CFBundleURLTypes</key>
-                <array>
-                	<dict>
-                		<key>CFBundleTypeRole</key>
-                		<string>Editor</string>
-                		<key>CFBundleURLSchemes</key>
-                		<array>
-                			<!-- TODO Replace this value: -->
-                			<!-- Copied from GoogleService-Info.plist key REVERSED_CLIENT_ID -->
-                			<string>com.googleusercontent.apps.218333851185-o20m6ldithu1rccmac64rgane6rbnodl</string>
-                		</array>
-                	</dict>
-                </array>
+		<array>
+			<dict>
+				<key>CFBundleTypeRole</key>
+				<string>Editor</string>
+				<key>CFBundleURLSchemes</key>
+				<array>
+					<!-- TODO Replace this value: -->
+					<!-- Copied from GoogleService-Info.plist key REVERSED_CLIENT_ID -->
+					<string>com.googleusercontent.apps.218333851185-o20m6ldithu1rccmac64rgane6rbnodl</string>
+				</array>
+			</dict>
+		</array>
 	</dict>
 </plist>

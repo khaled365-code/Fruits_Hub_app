@@ -25,7 +25,7 @@ class HomeOffersContainer extends StatelessWidget {
             child: Row(
               children:
               [
-                SvgPicture.asset(ImageConstants.homeOfferEllipseIcon),
+                SvgPicture.asset(ImageConstants.homeEllipseImage),
                 Expanded(child: Image.asset(ImageConstants.fruitsOffersImage,fit: BoxFit.fitHeight,)),
 
               ],

@@ -9,6 +9,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruits_commerce_app/core/errors/failure.dart';
 import 'package:fruits_commerce_app/core/services/database_service.dart';
 import 'package:fruits_commerce_app/core/services/firebase_auth_service.dart';
+import 'package:fruits_commerce_app/features/auth/data/mapper/user_model_to_domain.dart';
 import 'package:fruits_commerce_app/features/auth/data/models/user_model.dart';
 import 'package:fruits_commerce_app/features/auth/domain/entities/user_entity.dart';
 import 'package:fruits_commerce_app/features/auth/domain/repos/auth_repo.dart';
@@ -19,7 +20,7 @@ class AuthRepoImplementationUsingFirebase extends AuthRepo
 
   final FirebaseAuthService firebaseAuthService;
   final DatabaseService databaseService;
-  const AuthRepoImplementationUsingFirebase({required this.firebaseAuthService,required this.databaseService});
+  AuthRepoImplementationUsingFirebase({required this.firebaseAuthService,required this.databaseService});
 
 
   @override
@@ -30,9 +31,9 @@ class AuthRepoImplementationUsingFirebase extends AuthRepo
     {
       user = await firebaseAuthService.createUserWithEmailAndPasswordService(email: email, password: password);
       UserModel userModel=UserModel.fromFirebaseAuth(user);
-      await addUserDataToDatabase(userEntity:
-      UserEntity(name: name, email: userModel.email, userId: userModel.userId));
-      return Right(userModel);
+      UserEntity userEntity=UserModelToDomain.convertUserModelToUserEntity(userModel: userModel);
+      await addUserDataToDatabase(userEntity: userEntity);
+      return Right(userEntity);
     } catch (e)
     {
       if(user!=null)
@@ -73,9 +74,10 @@ class AuthRepoImplementationUsingFirebase extends AuthRepo
        }
      else
        {
-         await addUserDataToDatabase(userEntity: userModel);
+
+         await addUserDataToDatabase(userEntity: UserModelToDomain.convertUserModelToUserEntity(userModel: userModel));
        }
-     return Right(userModel);
+     return Right(UserModelToDomain.convertUserModelToUserEntity(userModel: userModel));
     } catch (e)
     {
       if(user!=null)
@@ -104,9 +106,9 @@ class AuthRepoImplementationUsingFirebase extends AuthRepo
       }
       else
       {
-        await addUserDataToDatabase(userEntity: userModel);
+        await addUserDataToDatabase(userEntity: UserModelToDomain.convertUserModelToUserEntity(userModel: userModel));
       }
-      return Right(userModel);
+      return Right(UserModelToDomain.convertUserModelToUserEntity(userModel: userModel));
     } catch (e)
     {
       if(user!=null)
@@ -127,7 +129,7 @@ class AuthRepoImplementationUsingFirebase extends AuthRepo
   Future<UserEntity> getUserData({required String userId}) async
   {
     var result= await databaseService.getData(path: BackendEndPoints.usersCollectionName,record_id: userId);
-    return UserModel.fromJson(result);
+    return UserModelToDomain.convertUserModelToUserEntity(userModel: UserModel.fromJson(result));
   }
 
 

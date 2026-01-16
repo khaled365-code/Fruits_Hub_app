@@ -10,8 +10,8 @@ abstract class AppTheme
 
   static ThemeData _selectDarkOrLightTheme(int themeValue)
   {
-    return themeValue==1?
-    ThemeData.light():ThemeData.dark();
+    return themeValue==0?
+    ThemeData.light(useMaterial3: true):ThemeData.dark(useMaterial3: true);
   }
 
 
@@ -48,7 +48,7 @@ abstract class AppTheme
     
   }
 
-  static _getInputDecorationTheme(int themeValue)
+  static Object? _getInputDecorationTheme(int themeValue)
   {
 
     return InputDecorationTheme(
@@ -64,7 +64,7 @@ abstract class AppTheme
       fillColor: AppColors.inputDecorationColors[themeValue],
       hintStyle: _getTextTheme(themeValue).labelLarge.copyWith(
         color: AppColors.c949D9E
-      )
+      ),
     );
 
   }
@@ -99,8 +99,7 @@ abstract class AppTheme
       displaySmall: TextStyle(
         fontSize: 23,
         fontWeight: FontWeight.bold, // bold23
-        fontFamily: 'Cairo',
-         ),
+        fontFamily: 'Cairo',),
 
       // Section / Page titles
       headlineLarge: TextStyle(
@@ -179,7 +178,6 @@ abstract class AppTheme
   {
     return AppBarTheme(
       backgroundColor: AppColors.backgroundColors[themeValue],
-      centerTitle: true,
       elevation: 0,
       surfaceTintColor: Colors.transparent,
       systemOverlayStyle: SystemUiOverlayStyle(

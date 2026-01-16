@@ -5,7 +5,7 @@ import 'package:fruits_commerce_app/core/services/cache_service.dart';
 
 class ThemeCubit extends Cubit<int> {
 
-  ThemeCubit._named() : super(1);
+  ThemeCubit._named() : super(0);
   static ThemeCubit? _instance ;
   factory ThemeCubit() => _instance??=ThemeCubit._named();
 
@@ -13,7 +13,7 @@ class ThemeCubit extends Cubit<int> {
 
 
 
-  int currentTheme=1;
+  int currentTheme=0;
 
 
   switchTheme() async

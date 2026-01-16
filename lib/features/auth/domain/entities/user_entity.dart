@@ -18,7 +18,8 @@ class UserEntity extends Equatable
   List<Object?> get props => [name,email,userId];
 
 
-  toJson()=> {
+  toJson() =>
+  {
     DatabaseConstants.name:name,
     DatabaseConstants.email:email,
     DatabaseConstants.userId:userId

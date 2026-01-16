@@ -10,7 +10,7 @@ class LocalizationCubit extends Cubit<String> {
 
   LocalizationCubit._named(): super('ar');
   static  LocalizationCubit? _instance;
-  factory LocalizationCubit() => _instance??=LocalizationCubit._named();
+  factory LocalizationCubit() => _instance ??= LocalizationCubit._named();
 
   // lazy singleton construction
 

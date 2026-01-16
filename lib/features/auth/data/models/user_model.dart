@@ -5,11 +5,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruits_commerce_app/core/global/constants/database_constants.dart';
 import 'package:fruits_commerce_app/features/auth/domain/entities/user_entity.dart';
 
-class UserModel extends UserEntity
+class UserModel
 {
 
+  final String name;
+  final String email;
+  final String userId;
 
-  const UserModel({required super.name,required super.email,required super.userId});
+  const UserModel({required this.name,required this.email,required this.userId});
 
 
 

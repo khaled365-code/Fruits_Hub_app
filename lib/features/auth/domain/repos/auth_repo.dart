@@ -8,7 +8,7 @@ import 'package:fruits_commerce_app/features/auth/domain/entities/user_entity.da
 abstract class AuthRepo
 {
 
-  const AuthRepo();
+
   Future<Either<Failure,UserEntity>> createUserWithEmailAndPassword({required String email, required String password,required String name});
 
 
@@ -32,10 +32,5 @@ abstract class AuthRepo
 
 
 
-
-
-
-
-
-
 }
+

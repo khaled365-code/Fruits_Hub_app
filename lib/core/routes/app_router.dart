@@ -58,12 +58,13 @@ class AppRouter {
           Scaffold(
             body: SafeArea(
               child: Center(
-                child: Text('Wrong Route'),
+                child: Text('No Route Found'),
               ),
             ),
           ),
       );
 
 }
+
 
 
