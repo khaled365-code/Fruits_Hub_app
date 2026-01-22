@@ -7,13 +7,14 @@ import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 import 'package:fruits_commerce_app/core/services/service_locator.dart';
 import 'package:fruits_commerce_app/core/widgets/space_widget.dart';
+import 'package:fruits_commerce_app/features/auth/data/models/login_options_model.dart';
 
 class LoginOptionContainer extends StatelessWidget {
-  const LoginOptionContainer({super.key, required this.loginIcon, required this.loginOptionText,required this.onContainerPressed});
+  const LoginOptionContainer({super.key,required this.loginOptionsModel,required this.onContainerPressed});
 
-  final String loginIcon;
-  final String loginOptionText;
+
   final VoidCallback onContainerPressed;
+  final LoginOptionsModel loginOptionsModel;
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +36,9 @@ class LoginOptionContainer extends StatelessWidget {
         child: Row(
           children:
           [
-            SvgPicture.asset(loginIcon),
+            SvgPicture.asset(loginOptionsModel.loginIcon),
             SpaceWidget(width: 53.w,),
-            Text(loginOptionText,style: Theme.of(context).textTheme.titleLarge?.copyWith(
+            Text(loginOptionsModel.loginOptionText,style: Theme.of(context).textTheme.titleLarge?.copyWith(
               color: AppColors.textColors[ThemeCubit().currentTheme]
             ),)
           ],

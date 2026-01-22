@@ -6,14 +6,10 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 
-class FirebaseAuthService {
+class FirebaseAuthService
+{
 
 
-
- Future<void> deleteAccount() async
- {
-  await FirebaseAuth.instance.currentUser!.delete();
- }
 
  Future<User> createUserWithEmailAndPasswordService({required String email, required String password,}) async
  {
@@ -61,7 +57,10 @@ class FirebaseAuthService {
     );
     return credential.user!;
    } on FirebaseAuthException catch (e) {
-    log('Exception in FireBaseAutService.signInUsingEmailAndPassword : the exception is ${e.toString()} and code is ${e.code}');
+     if(kDebugMode)
+       {
+         log('Exception in FireBaseAutService.signInUsingEmailAndPassword : the exception is ${e.toString()} and code is ${e.code}');
+       }
     if (e.code == 'user-not-found') {
      throw Exception('البريد الإلكتروني أو كلمة المرور غير صحيحة');
     } else if (e.code == 'wrong-password') {
@@ -81,7 +80,10 @@ class FirebaseAuthService {
      }
    } catch (e)
    {
-    log('Exception in FirebaseAuthService.signInUsingEmailAndPassword and the exception is : ${e.toString()}');
+     if(kDebugMode)
+       {
+         log('Exception in FirebaseAuthService.signInUsingEmailAndPassword and the exception is : ${e.toString()}');
+       }
     throw Exception('حدث خطأ ما، حاول مرة أخرى لاحقًا');
    }
 
@@ -90,22 +92,30 @@ class FirebaseAuthService {
 
    Future<User> signInWithGoogle() async
     {
+      try {
+        // Trigger the authentication flow
+        final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
-     // Trigger the authentication flow
-     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+        // Obtain the auth details from the request
+        final GoogleSignInAuthentication? googleAuth = await googleUser
+            ?.authentication;
 
-     // Obtain the auth details from the request
-     final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+        // Create a new credential
+        final credential = GoogleAuthProvider.credential(
+          accessToken: googleAuth?.accessToken,
+          idToken: googleAuth?.idToken,
+        );
 
-     // Create a new credential
-     final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth?.accessToken,
-      idToken: googleAuth?.idToken,
-     );
+        // Once signed in, return the UserCredential
+        var result = await FirebaseAuth.instance.signInWithCredential(credential);
 
-     // Once signed in, return the UserCredential
-     var result = await FirebaseAuth.instance.signInWithCredential(credential);
-     return result.user!;
+        return result.user!;
+
+      } catch (e)
+      {
+        log('Exception in FirebaseAuthService.signInWithGoogle and the exception is ${e.toString()}');
+        throw Exception('حدث خطأ ما , يرجي المحاوله لاحقًا');
+      }
 
 
     }
@@ -135,6 +145,12 @@ class FirebaseAuthService {
    log('Exception in FirebaseAuthService.signInWithFacebook and the exception is ${e.toString()}');
    throw Exception('حدث خطأ ما , يرجي المحاوله لاحقًا');
   }
+ }
+
+
+ Future<void> deleteAccount() async
+ {
+   await FirebaseAuth.instance.currentUser!.delete();
  }
 
 

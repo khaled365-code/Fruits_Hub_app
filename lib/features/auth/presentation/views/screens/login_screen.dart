@@ -51,17 +51,17 @@ class LoginScreen extends StatelessWidget {
           if(state.requestState==RequestStates.success)
           {
             buildSnackBarMessage(text: 'تم تسجيل الدخول بنجاح', context: context);
-            navigate(route: Routes.homeScreen, context: context,replaced: true);
+            navigate(route: Routes.mainLayoutScreen, context: context,replaced: true);
             await CacheService().setBool(key: AppConstants.userIsLoggedInAccount, value: true);
           }
           if (state.requestState==RequestStates.error)
           {
-            buildSnackBarMessage(text: state.errorMessage!, context: context,errorMessage: true);
+            buildSnackBarMessage(text: state.errorMessage, context: context,errorMessage: true);
           }
         },
   builder: (context, state) {
     return CustomProgressHudWidget(
-        isLoading: state.requestState==RequestStates.loading?true:false,
+        isLoading: state.requestState==RequestStates.loading? true:false,
         child: CustomScrollView(
           slivers:
           [
@@ -131,7 +131,8 @@ class LoginScreen extends StatelessWidget {
                           SpaceWidget(height: 49,),
                           OrWithDividersRow(),
                           SpaceWidget(height: 21,),
-                          ...List.generate(2,(index) => Platform.isAndroid? Padding(
+                          ...List.generate(Platform.isAndroid? 2:3,(index) => Platform.isAndroid ?
+                            Padding(
                             padding: index==1? EdgeInsetsDirectional.only(top: 16.h):EdgeInsets.zero,
                             child: LoginOptionContainer(
                               onContainerPressed: index==0? ()
@@ -141,24 +142,27 @@ class LoginScreen extends StatelessWidget {
                               {
                                 loginBloc..add(SignInWithFacebookEvent());
                               },
-                              loginIcon: Platform.isAndroid? loginOptionsDataListWithoutApple[index].loginIcon:loginOptionsDataList[index].loginIcon,
-                              loginOptionText: Platform.isAndroid? loginOptionsDataListWithoutApple[index].loginOptionText:loginOptionsDataList[index].loginOptionText,
+                              loginOptionsModel: loginOptionsDataListWithoutApple[index],
                             ),
-                            ): Padding(
+                            ):
+                            Padding(
                               padding: index==1? EdgeInsetsDirectional.symmetric(vertical: 16.h):EdgeInsets.zero,
                               child: LoginOptionContainer(
-                                onContainerPressed: index==0? ()
+                                loginOptionsModel: loginOptionsDataList[index],
+                                onContainerPressed:
+                                index==0? ()
                                 {
-                                  loginBloc..add(SignInWithGoogleEvent());
-                                }:index==1 ? ()
+                                  loginBloc.add(SignInWithGoogleEvent());
+                                }:
+                                index==1 ?
+                                ()
                                 {
                                   // signIn with Apple code
-                                }: ()
+                                } :
+                                ()
                                 {
-
+                                     loginBloc.add(SignInWithFacebookEvent());
                                 },
-                                loginIcon: Platform.isAndroid? loginOptionsDataListWithoutApple[index].loginIcon:loginOptionsDataList[index].loginIcon,
-                                loginOptionText: Platform.isAndroid? loginOptionsDataListWithoutApple[index].loginOptionText:loginOptionsDataList[index].loginOptionText,
                               ),
                             ),)
 

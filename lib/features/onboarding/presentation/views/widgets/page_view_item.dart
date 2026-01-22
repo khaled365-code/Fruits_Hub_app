@@ -16,6 +16,7 @@ class PageViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return SingleChildScrollView(
+      clipBehavior: Clip.none,
       child: Column(
         children: [
           Stack(
@@ -52,7 +53,8 @@ class PageViewItem extends StatelessWidget {
           Column(
             children:
             [
-              RichText(text: TextSpan(
+              RichText(
+                text: TextSpan(
                   children: [
                     TextSpan(text: 'مرحبًا بك في',style: Theme.of(context).textTheme.displaySmall?.copyWith(
                       color: AppColors.textColors[ThemeCubit().currentTheme]

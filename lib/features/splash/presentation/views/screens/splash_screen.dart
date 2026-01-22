@@ -54,13 +54,12 @@ class _SplashScreenState extends State<SplashScreen> {
      await Future.delayed(Duration(seconds: 5),()
      {
        CacheService().getBool(key: AppConstants.userIsLoggedInAccount)==true?
-       navigate(route: Routes.homeScreen, context: context):
+       navigate(route: Routes.mainLayoutScreen, context: context):
        CacheService().getBool(key: AppConstants.onBoardIsOpened)== true ?
        navigate(route: Routes.loginScreen, context: context):
        navigate(route: Routes.onBoardingScreen, context: context);
     });
-
-
-
   }
+
+
 }

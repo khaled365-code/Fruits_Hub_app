@@ -29,7 +29,7 @@ class SignUpScreen extends StatelessWidget {
         {
           if(state.requestState==RequestStates.error)
             {
-              buildSnackBarMessage(text: state.errorMessage!, context: context,errorMessage: true);
+              buildSnackBarMessage(text: state.errorMessage, context: context,errorMessage: true);
             }
           if (state.requestState==RequestStates.success)
             {
@@ -39,7 +39,7 @@ class SignUpScreen extends StatelessWidget {
         },
       builder: (context, state) {
         return CustomProgressHudWidget(
-         isLoading: state.requestState==RequestStates.loading?true:false,
+         isLoading: state.requestState==RequestStates.loading? true:false,
          child: CustomScrollView(
            slivers:
            [
@@ -81,18 +81,20 @@ class SignUpScreen extends StatelessWidget {
                                      password: signUpCubit.passwordController.text,
                                      name: signUpCubit.nameController.text);
                                }
-                               else {
-                                 buildSnackBarMessage(context: context,
-                                     text: 'الشروط والأحكام يجب الموافقة عليها');
+                               else
+                               {
+                                 buildSnackBarMessage(context: context, text: 'الشروط والأحكام يجب الموافقة عليها');
                                }
                              }
-                             else {
+                             else
+                             {
                                signUpCubit.activateValidateMode();
                              }
                            }),
                        SpaceWidget(height: 26,),
                        HaveAccountQuestionText(
-                         onSecondTextPressed: () {
+                         onSecondTextPressed: ()
+                         {
                            Navigator.pop(context);
                          },
                          firstText: 'تمتلك حساب بالفعل؟',

@@ -37,6 +37,22 @@ class UserModel
 
 
 
+  toJson()
+  {
+    Map<String,dynamic> data={};
+
+    data[DatabaseConstants.name]=name;
+
+    data[DatabaseConstants.email]=email;
+
+    data[DatabaseConstants.userId]=userId;
+
+    return data;
+
+  }
+
+
+
 
 
 

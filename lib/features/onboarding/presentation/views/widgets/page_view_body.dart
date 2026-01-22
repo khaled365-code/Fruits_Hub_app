@@ -49,6 +49,7 @@ class _PageViewBodyState extends State<PageViewBody> {
           children: [
             Expanded(
               child: PageView.builder(
+                clipBehavior: Clip.none,
                 itemCount: 2,
                 controller: pageController,
                 itemBuilder: (context, index) => PageViewItem(currentPageIndex: currentPageIndex,),),),

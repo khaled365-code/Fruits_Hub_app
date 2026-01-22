@@ -22,7 +22,7 @@ class CustomAlertDialog extends StatelessWidget {
           child: FittedBox(
             fit: BoxFit.scaleDown,
             child: Text('تم تغيير الباسورد بنجاح',style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                color: AppColors.backgroundColors[ThemeCubit().currentTheme]
+                color: AppColors.textColors[ThemeCubit().currentTheme]
             ),),
           ),
         ),

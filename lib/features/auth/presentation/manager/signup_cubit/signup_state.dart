@@ -6,15 +6,12 @@ final class SignupState extends Equatable
 
  final RequestStates requestState;
  final UserEntity? userEntity;
- final String? errorMessage;
+ final String errorMessage;
  final AutovalidateMode validateMode;
  final bool termsAndConditionsActive;
 
 
- const SignupState({this.requestState=RequestStates.initial,this.userEntity,this.errorMessage,this.validateMode=AutovalidateMode.disabled,this.termsAndConditionsActive=false});
-
- @override
- List<Object?> get props => [requestState,userEntity,errorMessage,validateMode,termsAndConditionsActive];
+ const SignupState({this.requestState=RequestStates.initial,this.userEntity,this.errorMessage='',this.validateMode=AutovalidateMode.disabled,this.termsAndConditionsActive=false});
 
 
   SignupState copyWith({RequestStates? requestState,UserEntity? userEntity,String? errorMessage,AutovalidateMode? validateMode,bool? termsAndConditionsActive})
@@ -26,6 +23,9 @@ final class SignupState extends Equatable
        userEntity: userEntity??this.userEntity,
        errorMessage: errorMessage??this.errorMessage);
  }
+
+ @override
+ List<Object?> get props => [requestState,userEntity,errorMessage,validateMode,termsAndConditionsActive];
 
 
 }

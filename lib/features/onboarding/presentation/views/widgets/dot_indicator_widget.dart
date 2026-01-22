@@ -8,7 +8,7 @@ import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 class DotIndicatorWidget extends StatelessWidget {
   const DotIndicatorWidget({super.key,this.notActive=false});
 
-  final bool? notActive;
+  final bool notActive;
   @override
   Widget build(BuildContext context) {
     return notActive==true?

@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 
-import '../../../../../core/utils/app_assets.dart';
+import '../utils/app_assets.dart';
 
 class NotificationIconContainer extends StatelessWidget {
   const NotificationIconContainer({

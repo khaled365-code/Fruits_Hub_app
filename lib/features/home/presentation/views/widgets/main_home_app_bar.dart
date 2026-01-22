@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 import 'package:fruits_commerce_app/core/utils/app_assets.dart';
-import 'package:fruits_commerce_app/features/home/presentation/views/widgets/notification_icon_container.dart';
+import 'package:fruits_commerce_app/core/widgets/notification_icon_container.dart';
 
 class MainHomeAppBar extends StatelessWidget {
   const MainHomeAppBar({super.key});

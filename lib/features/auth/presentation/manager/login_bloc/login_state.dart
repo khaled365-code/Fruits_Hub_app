@@ -1,16 +1,16 @@
 part of 'login_bloc.dart';
 
-
-class LoginState extends Equatable {
+@immutable
+final class LoginState extends Equatable {
 
   final RequestStates requestState;
-  final String? errorMessage;
+  final String errorMessage;
   final UserEntity? user;
-  final AutovalidateMode? loginValidateMode;
+  final AutovalidateMode loginValidateMode;
 
 
   const LoginState({this.requestState=RequestStates.initial,
-  this.errorMessage,
+  this.errorMessage='',
   this.user,
   this.loginValidateMode=AutovalidateMode.disabled
   });
@@ -27,13 +27,11 @@ class LoginState extends Equatable {
     );
   }
 
-
-
-
   @override
   List<Object?> get props => [requestState,errorMessage,user,loginValidateMode];
 
-
-
 }
+
+
+
 

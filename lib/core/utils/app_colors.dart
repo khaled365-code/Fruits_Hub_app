@@ -29,6 +29,8 @@ abstract class AppColors {
     Color(0xff666666).withValues(alpha: 0.2), // dark mode
   ];
 
+  static const Color white = Color(0xffffffff);
+
   static const Color primaryColor=Color(0xff1B5E37);
 
   static const Color darkerPrimaryColor=Color(0xff217242);

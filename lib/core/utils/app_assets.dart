@@ -42,10 +42,18 @@ abstract class ImageConstants
   static const String searchListIcon='assets/icons/search_list_icon.svg';
   static const String heartIcon='assets/icons/herat_icon.svg';
   static const String plusIcon='assets/icons/plus_icon.svg';
+
+  // inactive nabv bar icons
   static const String homeIcon='assets/icons/home_icon.svg';
   static const String smallCartIcon='assets/icons/small_cart_icon.svg';
   static const String userIcon='assets/icons/user_icon.svg';
   static const String menuIcon='assets/icons/menu_icon.svg';
+
+  // active nav bar icons
+  static const String activeHomeIcon='assets/icons/active_home_icon.svg';
+  static const String activeMenuIcon='assets/icons/active_menu_icon.svg';
+  static const String activeCartIcon='assets/icons/active_cart_icon.svg';
+  static const String activeUserIcon='assets/icons/active_user_icon.svg';
 
 
 

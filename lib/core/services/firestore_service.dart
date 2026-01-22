@@ -3,7 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fruits_commerce_app/core/services/database_service.dart';
 
-class FireStoreService implements DatabaseService
+class FireStoreService extends DatabaseService
 {
 
   FirebaseFirestore _firestore = FirebaseFirestore.instance;

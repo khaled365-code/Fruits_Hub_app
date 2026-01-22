@@ -7,7 +7,7 @@ import 'package:fruits_commerce_app/core/widgets/custom_app_bar.dart';
 import 'package:fruits_commerce_app/core/widgets/space_widget.dart';
 import 'package:fruits_commerce_app/features/home/presentation/views/widgets/main_home_app_bar.dart';
 import 'package:fruits_commerce_app/features/home/presentation/views/widgets/most_sold_row.dart';
-import 'package:fruits_commerce_app/features/home/presentation/views/widgets/search_text_field_widget.dart';
+import 'package:fruits_commerce_app/core/widgets/search_text_field_widget.dart';
 import '../../../../../core/widgets/common_bottom_nav_bar.dart';
 import '../widgets/offers_list_view_widget.dart';
 import '../widgets/product_item_widget.dart';
@@ -17,10 +17,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: buildCommonAppBar(),
-      bottomNavigationBar: CustomBottomNavBar(),
-      body: Padding(
+    return Padding(
         padding:  EdgeInsets.symmetric(horizontal: 16.w),
         child: CustomScrollView(
           slivers:
@@ -55,7 +52,6 @@ class HomeScreen extends StatelessWidget {
             SliverToBoxAdapter(child: SpaceWidget(height: 15,),)
           ],
         ),
-      ),
-    );
+      );
   }
 }

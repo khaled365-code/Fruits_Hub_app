@@ -23,8 +23,8 @@ class OtpScreen extends StatelessWidget {
       body: CustomScrollView(
         slivers:
         [
-          Form(
-            child: SliverToBoxAdapter(
+          SliverToBoxAdapter(
+            child: Form(
               child: Padding(
                 padding: EdgeInsetsDirectional.only(start: 17.w,end: 16.w),
                 child: Column(
@@ -41,7 +41,8 @@ class OtpScreen extends StatelessWidget {
                     SpaceWidget(height: 29,),
                     SharedButton(
                         btnText: 'تحقق من الرمز',
-                        onPressedBtn: (){
+                        onPressedBtn: ()
+                        {
                           navigate(route: Routes.resetPasswordScreen, context: context);
                         }),
                     SpaceWidget(height: 24,),

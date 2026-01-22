@@ -13,7 +13,7 @@ class CustomProgressHudWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ModalProgressHUD(
-        inAsyncCall: isLoading,
-        child: child);
+    inAsyncCall: isLoading,
+    child: child);
   }
 }

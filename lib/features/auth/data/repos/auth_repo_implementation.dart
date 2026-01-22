@@ -6,6 +6,7 @@ import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:fruits_commerce_app/core/errors/failure.dart';
 import 'package:fruits_commerce_app/core/services/database_service.dart';
 import 'package:fruits_commerce_app/core/services/firebase_auth_service.dart';
@@ -30,31 +31,37 @@ class AuthRepoImplementationUsingFirebase extends AuthRepo
     try
     {
       user = await firebaseAuthService.createUserWithEmailAndPasswordService(email: email, password: password);
-      UserModel userModel=UserModel.fromFirebaseAuth(user);
-      UserEntity userEntity=UserModelToDomain.convertUserModelToUserEntity(userModel: userModel);
-      await addUserDataToDatabase(userEntity: userEntity);
-      return Right(userEntity);
+      UserModel userModel=UserModel.fromFirebaseAuth(user); // fetching user data from firebase auth
+      UserEntity userEntity=UserModelToDomain.convertUserModelToUserEntity(userModel: userModel); // convert user model to user entity
+      await addUserDataToDatabase(userEntity: userEntity.copyWith(name: name));
+      return Right(userEntity.copyWith(name: name));
     } catch (e)
     {
       if(user!=null)
         {
           await firebaseAuthService.deleteAccount();
         }
-      log('Exception in AuthRepoImplementation.createUserWithEmailAndPasswordService : the exception is ${e.toString()}');
+     if(kDebugMode)
+       {
+         log('Exception in AuthRepoImplementation.createUserWithEmailAndPasswordService : the exception is ${e.toString()}');
+       }
       return Left(Failure.handleFailures(e));
     }
   }
 
   @override
   Future<Either<Failure, UserEntity>> signInUsingEmailAndPassword({required String email, required String password}) async {
-    try {
-      User user = await firebaseAuthService.signInUsingEmailAndPassword(
-          email: email, password: password);
+    try
+    {
+      User user = await firebaseAuthService.signInUsingEmailAndPassword(email: email, password: password);
       UserEntity userEntity = await getUserData(userId: user.uid);
       return Right(userEntity);
     } catch (e)
     {
-      log('Exception in AuthRepoImpl.signInUsingEmailAndPassword is : ${e.toString()}');
+      if(kDebugMode)
+        {
+          log('Exception in AuthRepoImpl.signInUsingEmailAndPassword is : ${e.toString()}');
+        }
        return Left(Failure.handleFailures(e));
     }
   }
@@ -84,7 +91,10 @@ class AuthRepoImplementationUsingFirebase extends AuthRepo
         {
           await firebaseAuthService.deleteAccount();
         }
-      log('Exception in AuthRepoImpl.signInWithGoogle the exception is ${e.toString()}');
+     if(kDebugMode)
+       {
+         log('Exception in AuthRepoImpl.signInWithGoogle the exception is ${e.toString()}');
+       }
       return Left(Failure.handleFailures(e));
 
     }
@@ -115,14 +125,18 @@ class AuthRepoImplementationUsingFirebase extends AuthRepo
       {
         await firebaseAuthService.deleteAccount();
       }
-      log('Exception in AuthRepoImpl.signInWithFacebook the exception is ${e.toString()}');
+     if(kDebugMode)
+       {
+         log('Exception in AuthRepoImpl.signInWithFacebook the exception is ${e.toString()}');
+       }
       return Left(Failure.handleFailures(e));
     }
   }
   @override
   Future<void> addUserDataToDatabase({required UserEntity userEntity}) async
   {
-    await databaseService.add(path: BackendEndPoints.usersCollectionName, data: userEntity.toJson(),recordId: userEntity.userId);
+    await databaseService.add(path: BackendEndPoints.usersCollectionName, data:
+    UserModel(name: userEntity.name, email: userEntity.email, userId: userEntity.userId).toJson(),recordId: userEntity.userId);
   }
 
   @override
