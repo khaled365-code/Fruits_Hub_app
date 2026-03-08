@@ -16,7 +16,7 @@ class CustomOutlinedTextField extends StatelessWidget {
   final List<TextInputFormatter>? textFormatterList;
   final int? minLines,maxLength;
   final TextInputType keyBoardType;
-  final Function(String)? onFieldSubmitted;
+  final void Function(String)? onFieldSubmitted;
   final TextStyle? inputDataStyle;
   final TextInputAction? textInputAction;
   final bool obSecureText;
@@ -49,6 +49,7 @@ class CustomOutlinedTextField extends StatelessWidget {
         enabledBorder: Theme.of(context).inputDecorationTheme.enabledBorder,
         focusedBorder: Theme.of(context).inputDecorationTheme.focusedBorder,
         errorBorder: Theme.of(context).inputDecorationTheme.errorBorder,
+        focusedErrorBorder: Theme.of(context).inputDecorationTheme.focusedErrorBorder,
         hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
         filled: true,
         fillColor: Theme.of(context).inputDecorationTheme.fillColor,

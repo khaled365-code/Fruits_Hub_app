@@ -2,6 +2,8 @@
 
 import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
 import 'package:fruits_commerce_app/core/localization/localization_cubit/localization_cubit.dart';
+import 'package:fruits_commerce_app/core/repos/products/products_repo.dart';
+import 'package:fruits_commerce_app/core/repos/products/products_repo_implementation.dart';
 import 'package:fruits_commerce_app/core/services/database_service.dart';
 import 'package:fruits_commerce_app/core/services/firebase_auth_service.dart';
 import 'package:fruits_commerce_app/core/services/firestore_service.dart';
@@ -24,10 +26,9 @@ setUpLocator()
   locator.registerLazySingleton<AuthRepo>(() => AuthRepoImplementationUsingFirebase(
       firebaseAuthService: locator(),
       databaseService: locator()),);
+  locator.registerLazySingleton<ProductsRepo>(()=>ProductsRepoImplementation(
+  databaseService: locator()));
   locator.registerLazySingleton<FirebaseAuthService>(()=>FirebaseAuthService());
   locator.registerLazySingleton<DatabaseService>(() => FireStoreService(),);
-
-
-
 
 }

@@ -150,13 +150,11 @@ class FirebaseAuthService
 
  Future<void> deleteAccount() async
  {
-   await FirebaseAuth.instance.currentUser!.delete();
+   await FirebaseAuth.instance.currentUser?.delete();
  }
 
-
-
-
-
-
-
 }
+
+
+
+

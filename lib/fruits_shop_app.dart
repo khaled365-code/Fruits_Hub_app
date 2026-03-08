@@ -6,8 +6,10 @@ import 'package:fruits_commerce_app/core/global/constants/app_constants.dart';
 import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
 import 'package:fruits_commerce_app/core/localization/app_localization.dart';
 import 'package:fruits_commerce_app/core/localization/localization_cubit/localization_cubit.dart';
+import 'package:fruits_commerce_app/core/repos/products/products_repo.dart';
 import 'package:fruits_commerce_app/core/routes/app_router.dart';
 import 'package:fruits_commerce_app/core/services/cache_service.dart';
+import 'package:fruits_commerce_app/core/services/service_locator.dart';
 import 'package:fruits_commerce_app/features/home/presentation/manager/main_layout_cubit/main_layout_cubit.dart';
 
 import 'core/global/theme/theme_data/app_theme.dart';
@@ -25,7 +27,7 @@ class FruitsShopApp extends StatelessWidget {
         BlocProvider(
           create: (_) => LocalizationCubit(),
         ),
-        BlocProvider(create: (_)=>MainLayoutCubit())
+        BlocProvider(create: (_)=>MainLayoutCubit(productsRepo: locator<ProductsRepo>())..getBestSellingProducts(),lazy: false,)
       ],
       child: BlocBuilder<LocalizationCubit, String>(
         builder: (context, localState) {
@@ -69,6 +71,8 @@ class FruitsShopApp extends StatelessWidget {
 
 
 /*
+
+
 
 
 

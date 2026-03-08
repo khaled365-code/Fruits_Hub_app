@@ -1,7 +1,5 @@
 
-
-
-final Map<String, String> enUs =
+const Map<String, String> enUs =
 {
 
 

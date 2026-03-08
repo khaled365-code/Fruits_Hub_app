@@ -43,7 +43,8 @@ class ResetPasswordScreen extends StatelessWidget {
                     btnText: 'إنشاء كلمة مرور جديدة',
                     onPressedBtn: ()
                     {
-                      showDialog(context: context, builder: (context) => CustomAlertDialog(),);
+                      showDialog(context: context, builder: (_) => CustomAlertDialog(),);
+
                     })
 
               ],

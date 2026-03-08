@@ -111,7 +111,7 @@ class LoginScreen extends StatelessWidget {
                             if(loginBloc.loginFormKey.currentState!.validate())
                               {
                                 loginBloc.loginFormKey.currentState!.save();
-                                loginBloc..add(LoginUsingEmailAndPasswordEvent(
+                                loginBloc.add(LoginUsingEmailAndPasswordEvent(
                                     loginBloc.emailController.text,
                                     loginBloc.passwordController.text));
                               }
@@ -161,7 +161,7 @@ class LoginScreen extends StatelessWidget {
                                 } :
                                 ()
                                 {
-                                     loginBloc.add(SignInWithFacebookEvent());
+                                  loginBloc.add(SignInWithFacebookEvent());
                                 },
                               ),
                             ),)
@@ -181,6 +181,7 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
+
 
 
 

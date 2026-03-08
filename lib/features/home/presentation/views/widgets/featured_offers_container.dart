@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
 import 'package:fruits_commerce_app/core/utils/app_assets.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
-import 'package:fruits_commerce_app/core/widgets/space_widget.dart';
+
 
 class FeaturedOffersContainer extends StatelessWidget {
   const FeaturedOffersContainer({super.key});
@@ -16,11 +16,14 @@ class FeaturedOffersContainer extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 342/158,
       child: ClipRRect(
-      borderRadius: BorderRadius.circular(4.r),
+      borderRadius: BorderRadiusDirectional.only(
+        bottomStart: Radius.circular(4.r),
+        topStart: Radius.circular(4.r),
+      ),
       child: Stack(
         children:
         [
-          Positioned.fill(child: Image.asset(ImageConstants.fruitsOffersImage,fit: BoxFit.fitWidth,)),
+          Positioned.fill(child: Image.asset(ImageConstants.fruitsOffersImage,fit: BoxFit.fill,)),
           Image.asset(ImageConstants.homeEllipseImage,),
           PositionedDirectional(
             top: 25.h,

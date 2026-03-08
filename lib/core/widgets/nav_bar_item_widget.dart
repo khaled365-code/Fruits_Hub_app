@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 import 'package:fruits_commerce_app/features/home/domain/entities/nav_bar_data_entity.dart';
 import 'package:fruits_commerce_app/features/home/presentation/manager/main_layout_cubit/main_layout_cubit.dart';
 
@@ -42,8 +43,9 @@ class NavBarItemWidget extends StatelessWidget {
             child: state.currentScreenIndex == index ?
             ItemSelectedNavBarWidget(
               navBarDataEntity: navBarDataList[index]
-            ) : SizedBox(
-              width: 20,
+            ) : Container(
+              color: Colors.transparent,
+                width: 50,
                 child: SvgPicture.asset(inActiveIconsList[index])));
       },
     );

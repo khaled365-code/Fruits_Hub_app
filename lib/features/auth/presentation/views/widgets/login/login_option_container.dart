@@ -37,7 +37,7 @@ class LoginOptionContainer extends StatelessWidget {
           children:
           [
             SvgPicture.asset(loginOptionsModel.loginIcon),
-            SpaceWidget(width: 53.w,),
+            SpaceWidget(width: 53),
             Text(loginOptionsModel.loginOptionText,style: Theme.of(context).textTheme.titleLarge?.copyWith(
               color: AppColors.textColors[ThemeCubit().currentTheme]
             ),)

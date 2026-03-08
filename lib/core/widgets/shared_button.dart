@@ -9,7 +9,7 @@ class SharedButton extends StatelessWidget {
   const SharedButton({super.key,required this.btnText,required this.onPressedBtn});
 
   final String btnText;
-  final VoidCallback onPressedBtn;
+  final  void Function() onPressedBtn;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(

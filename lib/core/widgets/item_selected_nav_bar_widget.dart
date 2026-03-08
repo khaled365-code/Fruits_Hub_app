@@ -33,7 +33,7 @@ class ItemSelectedNavBarWidget extends StatelessWidget {
             colorFilter:ColorFilter.mode(ThemeCubit().currentTheme==1? AppColors.c0D0D0D:Colors.white, BlendMode.srcIn))),
           SpaceWidget(width: 4,),
           Text(navBarDataEntity.navBarTitle,style: Theme.of(context).textTheme.labelMedium?.copyWith(
-              color: ThemeCubit().currentTheme==0? AppColors.darkerPrimaryColor:AppColors.primaryColor
+              color: ThemeCubit().currentTheme==0? AppColors.primaryColor:AppColors.darkerPrimaryColor
           ),),
           SpaceWidget(width: 7,),
         ],

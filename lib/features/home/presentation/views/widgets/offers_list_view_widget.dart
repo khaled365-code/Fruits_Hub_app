@@ -11,8 +11,8 @@ class OffersListViewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 158.h,
+    return AspectRatio(
+      aspectRatio: 342/158,
       child: ListView.separated(
         padding: EdgeInsetsDirectional.zero,
         itemBuilder: (context,index)=>FeaturedOffersContainer(),

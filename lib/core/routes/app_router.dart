@@ -9,11 +9,10 @@ import 'package:fruits_commerce_app/features/auth/presentation/views/screens/log
 import 'package:fruits_commerce_app/features/auth/presentation/views/screens/otp_screen.dart';
 import 'package:fruits_commerce_app/features/auth/presentation/views/screens/reset_password_screen.dart';
 import 'package:fruits_commerce_app/features/auth/presentation/views/screens/signup_screen.dart';
-import 'package:fruits_commerce_app/features/home/presentation/manager/main_layout_cubit/main_layout_cubit.dart';
 import 'package:fruits_commerce_app/features/home/presentation/views/screens/main_layout_screen.dart';
 import 'package:fruits_commerce_app/features/onboarding/presentation/views/screens/onboarding_screen.dart';
 import 'package:fruits_commerce_app/features/splash/presentation/views/screens/splash_screen.dart';
-
+import '../../features/home/presentation/manager/cart_bloc/cart_bloc.dart';
 import '../../features/home/presentation/views/screens/most_selling_screen.dart';
 
 class AppRouter {
@@ -43,7 +42,10 @@ class AppRouter {
         return _buildScreen(widget: OtpScreen());
 
       case Routes.mainLayoutScreen:
-        return _buildScreen(widget: MainLayoutScreen());
+        return _buildScreen(widget: BlocProvider(
+          create: (_) => CartBloc(),
+          child: MainLayoutScreen(),
+        ),);
 
       case Routes.mostSellingScreen:
         return _buildScreen(widget: MostSellingScreen());

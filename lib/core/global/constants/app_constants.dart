@@ -9,13 +9,17 @@ abstract class AppConstants
   static const String onBoardIsOpened='onBoardIsOpened';
   static TextStyle inputDataTextStyle = TextStyle(
       fontSize: 16,
-      fontWeight: FontWeight.w600, // semiBold16
+      fontWeight: FontWeight.w600,
       fontFamily: 'Cairo',
       color: AppColors.textColors[ThemeCubit().currentTheme]
   );
   static const String appLanguage='appLanguage';
   static const String userIsLoggedInAccount='userIsLoggedInAccount';
   static const String currentAppTheme='currentAppTheme';
+  static const String userData='userData';
 
 
 }
+
+
+

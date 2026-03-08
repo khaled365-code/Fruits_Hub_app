@@ -1,6 +1,6 @@
 
 
-final Map<String, String> arEg =
+const Map<String, String> arEg =
 {
 
 

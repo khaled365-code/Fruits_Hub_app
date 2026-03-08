@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_commerce_app/core/global/constants/app_constants.dart';
 import 'package:fruits_commerce_app/core/services/cache_service.dart';
-import 'package:meta/meta.dart';
 
 
 

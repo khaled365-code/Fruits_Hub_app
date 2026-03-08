@@ -12,7 +12,8 @@ class DotIndicatorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return notActive==true?
-    Container(
+    AnimatedContainer(
+      duration: Duration(seconds: 4),
       width: 9.w,
       height: 9.h,
       decoration: ShapeDecoration(
@@ -20,12 +21,15 @@ class DotIndicatorWidget extends StatelessWidget {
           color:  AppColors.c5DB957
       ),
     ):
-    Container(
-      width: 11.w,
-      height: 11.h,
-      decoration: ShapeDecoration(
-          shape: OvalBorder(),
-        color: AppColors.primaryColor
+    AnimatedContainer(
+      duration: Duration(seconds: 4),
+      child: Container(
+        width: 11.w,
+        height: 11.h,
+        decoration: ShapeDecoration(
+            shape: OvalBorder(),
+          color: AppColors.primaryColor
+        ),
       ),
     );
   }

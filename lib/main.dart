@@ -20,6 +20,5 @@ void main() async
   runApp(const FruitsShopApp());
   Bloc.observer = FruitsHubBlocObserver();
 
-
-
 }
+

@@ -28,6 +28,5 @@ class UserEntity extends Equatable
   }
 
 
-
-
 }
+

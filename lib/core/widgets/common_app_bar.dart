@@ -10,17 +10,20 @@ import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 import 'package:fruits_commerce_app/core/widgets/notification_icon_container.dart';
 
 class CommonAppBar extends StatelessWidget {
-  const CommonAppBar({super.key,this.hasNotification=true,required this.title});
+  const CommonAppBar({super.key,this.hasNotification=true,required this.title,this.hasBackBtn=true});
 
 
   final bool hasNotification;
+  final bool hasBackBtn;
   final String title;
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children:
       [
-         InkWell(
+        hasBackBtn?
+        InkWell(
            onTap: ()
            {
              Navigator.pop(context);
@@ -43,12 +46,14 @@ class CommonAppBar extends StatelessWidget {
                BlendMode.srcIn),),
              ),
            ),
-         ),
+         ):SizedBox.shrink(),
          Spacer(),
          Text(title,style: Theme.of(context).textTheme.headlineMedium?.copyWith(
           color: AppColors.textColors[ThemeCubit().currentTheme]
          ),),
-        Spacer(),
+        hasNotification?
+        Spacer():
+        Spacer(flex: 2,),
         hasNotification?
         NotificationIconContainer():SizedBox.shrink()
 

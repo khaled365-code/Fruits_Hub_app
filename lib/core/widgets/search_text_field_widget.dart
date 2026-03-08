@@ -12,6 +12,7 @@ class SearchTextFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: 13,vertical: 7),
       decoration: BoxDecoration(
         color: ThemeCubit().currentTheme==0?
         Colors.white: AppColors.inputDecorationColors[1],

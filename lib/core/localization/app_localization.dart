@@ -53,3 +53,6 @@ extension LocalizationExtension on String
   String tr(BuildContext context) =>
       AppLocalization.of(context).getString(this);
 }
+
+
+

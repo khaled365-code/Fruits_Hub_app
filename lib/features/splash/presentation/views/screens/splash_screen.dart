@@ -42,6 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
           SvgPicture.asset(ImageConstants.pointsCirclesIcon,fit: BoxFit.fitWidth,),
 
 
+
         ],
       ),
     ),);
@@ -61,5 +62,7 @@ class _SplashScreenState extends State<SplashScreen> {
     });
   }
 
-
 }
+
+
+

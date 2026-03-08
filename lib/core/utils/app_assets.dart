@@ -8,6 +8,7 @@ abstract class ImageConstants
  static const String fruitsOffersImage='assets/images/fruits_offers_image.png';
  static const String fraiseImage='assets/images/fraise_image.png';
  static const String homeEllipseImage='assets/images/home_ellipse_image.png';
+ static const String avocadoImage='assets/images/avocado_image.png';
 
 
 
@@ -43,7 +44,7 @@ abstract class ImageConstants
   static const String heartIcon='assets/icons/herat_icon.svg';
   static const String plusIcon='assets/icons/plus_icon.svg';
 
-  // inactive nabv bar icons
+  // inactive nav bar icons
   static const String homeIcon='assets/icons/home_icon.svg';
   static const String smallCartIcon='assets/icons/small_cart_icon.svg';
   static const String userIcon='assets/icons/user_icon.svg';
@@ -54,6 +55,8 @@ abstract class ImageConstants
   static const String activeMenuIcon='assets/icons/active_menu_icon.svg';
   static const String activeCartIcon='assets/icons/active_cart_icon.svg';
   static const String activeUserIcon='assets/icons/active_user_icon.svg';
+  static const String filterVerticalIcon='assets/icons/filter_vertical_icon.svg';
+  static const String smallTrashIcon='assets/icons/small_trash_icon.svg';
 
 
 

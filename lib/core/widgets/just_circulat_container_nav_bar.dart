@@ -15,8 +15,7 @@ class CircularNavBarContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 30.w,
-      height: 30.h,
+      padding: EdgeInsetsDirectional.all(7.w),
       decoration: ShapeDecoration(
         color: AppColors.primaryColor,
           shape: OvalBorder()),

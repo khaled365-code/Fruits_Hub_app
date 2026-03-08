@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruits_commerce_app/core/global/common_functions.dart';
 import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 import 'package:fruits_commerce_app/core/utils/app_assets.dart';
@@ -26,7 +27,7 @@ class MainHomeAppBar extends StatelessWidget {
       title: Text('صباح الخير !..',style: Theme.of(context).textTheme.bodyLarge?.copyWith(
         color: AppColors.c949D9E
       ),),
-      subtitle: Text('أحمد مصطفي',style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+      subtitle: Text(getUserData().name,style: Theme.of(context).textTheme.headlineSmall?.copyWith(
           color: AppColors.textColors[ThemeCubit().currentTheme]
       ),),
       trailing: NotificationIconContainer(),

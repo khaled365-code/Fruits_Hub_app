@@ -3,18 +3,23 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 import 'package:fruits_commerce_app/core/utils/app_assets.dart';
 import 'package:fruits_commerce_app/core/widgets/space_widget.dart';
+import 'package:fruits_commerce_app/features/home/domain/entities/product_entity.dart';
+import 'package:fruits_commerce_app/features/home/presentation/manager/cart_bloc/cart_bloc.dart';
 
 import 'add_product_button.dart';
 
 class ProductItemWidget extends StatelessWidget {
-  const ProductItemWidget({super.key});
+  const ProductItemWidget({super.key,this.productEntity});
 
+
+  final ProductEntity? productEntity;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -30,18 +35,34 @@ class ProductItemWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children:
               [
-                Center(child:Image.asset(ImageConstants.fraiseImage)),
+                productEntity?.imageUrl==null?
+                Container(
+                 color: Colors.grey,
+                 height: 99,
+                 width: 131
+                ) :
+                Center(child:Image.network(productEntity!.imageUrl,height: 99,width: 131,)),
                 Spacer(),
-                Text('فراولة',style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                Text(productEntity?.name??"فراوله",style: Theme.of(context).textTheme.titleSmall?.copyWith(
                     color: AppColors.textColors[ThemeCubit().currentTheme]
                 ),),
                 Row(
                   children: [
-                    Text('30جنية / الكيلو',style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    Text('${productEntity?.price ?? 100} جنية / ',style: Theme.of(context).textTheme.titleSmall?.copyWith(
                         color: AppColors.secondaryColor
                     ),),
+                    Text('الكيلو',style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                        color: AppColors.lightSecondaryColor
+                    ),),
                     Spacer(),
-                    AddProductButton()
+                    AddProductButton(
+                      onAddProductPressed: ()
+                      {
+                        productEntity!=null?
+                        context.read<CartBloc>().add(AddCartItemEvent(productEntity: productEntity!)):null;
+                        
+                      },
+                    ),
                   ],
                 ),
                 SpaceWidget(height: 16,)

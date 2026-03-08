@@ -1,16 +1,13 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 import 'package:fruits_commerce_app/core/widgets/common_app_bar.dart';
 import 'package:fruits_commerce_app/core/widgets/custom_app_bar.dart';
 import 'package:fruits_commerce_app/core/widgets/space_widget.dart';
-import 'package:fruits_commerce_app/features/home/presentation/manager/main_layout_cubit/main_layout_cubit.dart';
 import 'package:fruits_commerce_app/features/home/presentation/views/widgets/product_item_widget.dart';
-
 import '../../../../../core/widgets/common_bottom_nav_bar.dart';
 
 class MostSellingScreen extends StatelessWidget {
@@ -39,10 +36,9 @@ class MostSellingScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SliverGrid(
-              delegate: SliverChildBuilderDelegate(
-              (context, index) => ProductItemWidget(),
-              childCount: 12),
+            SliverGrid.builder(
+              itemBuilder: (context,index)=>ProductItemWidget(),
+              itemCount: 12,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   mainAxisSpacing: 8,
