@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
+import 'package:fruits_commerce_app/core/localization/app_localization.dart';
 import 'package:fruits_commerce_app/core/utils/app_assets.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 
@@ -33,11 +34,11 @@ class FeaturedOffersContainer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children:
               [
-                Text('عروض العيد',style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                Text('eidOffers'.tr(context),style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     color: AppColors.textColors[ThemeCubit().currentTheme==0?1:0]
                 ),),
                 Spacer(),
-                Text('خصم 25%',style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                Text('discount25'.tr(context),style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                     color: AppColors.textColors[ThemeCubit().currentTheme==0?1:0]
                 ),),
                 Padding(
@@ -50,7 +51,7 @@ class FeaturedOffersContainer extends StatelessWidget {
                               borderRadius: BorderRadius.circular(4.r)
                           )
                       ),
-                      child: Text('تسوق الان',style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                      child: Text('shopNow'.tr(context),style: Theme.of(context).textTheme.labelLarge?.copyWith(
                           color:ThemeCubit().currentTheme==0? AppColors.darkerPrimaryColor:AppColors.primaryColor
                       ),)),
                 ),

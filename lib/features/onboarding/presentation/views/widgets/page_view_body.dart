@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_commerce_app/core/global/common_functions.dart';
 import 'package:fruits_commerce_app/core/global/constants/app_constants.dart';
+import 'package:fruits_commerce_app/core/localization/app_localization.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 import 'package:fruits_commerce_app/core/routes/routes.dart';
 import 'package:fruits_commerce_app/core/services/cache_service.dart';
@@ -78,7 +79,7 @@ class _PageViewBodyState extends State<PageViewBody> {
               maintainState: true,
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
-                child: SharedButton(btnText: 'ابدأ الان', onPressedBtn: () async
+                child: SharedButton(btnText: 'startNow'.tr(context), onPressedBtn: () async
                 {
                   navigate(route: Routes.loginScreen,context: context,replaced: true);
                   await CacheService().setBool(key:AppConstants.onBoardIsOpened,value: true);
@@ -100,7 +101,7 @@ class _PageViewBodyState extends State<PageViewBody> {
               await CacheService().setBool(key:AppConstants.onBoardIsOpened,value: true);
 
             },
-            child: Text('تخط',style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+            child: Text('skip'.tr(context),style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                 color: AppColors.c949D9E
             ),),
           ),):

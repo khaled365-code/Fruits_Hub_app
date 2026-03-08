@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
+import 'package:fruits_commerce_app/core/localization/app_localization.dart';
 import 'package:fruits_commerce_app/core/utils/app_assets.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 import 'package:fruits_commerce_app/core/widgets/space_widget.dart';
@@ -43,7 +44,7 @@ class ProductCartItem extends StatelessWidget {
                       color: AppColors.textColors[ThemeCubit().currentTheme]
                   ),),
 
-                  subtitle: Text('${cartItemEntity.itemCount} كم ',style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  subtitle: Text('${cartItemEntity.itemCount} ${'kilo'.tr(context)} ',style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: AppColors.secondaryColor
                   ),),
                   trailing: GestureDetector(
@@ -75,7 +76,7 @@ class ProductCartItem extends StatelessWidget {
                     },
                     ),
                     Spacer(),
-                    Text('${cartItemEntity.calculateTotalPrice()} جنيه ',style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                    Text('${cartItemEntity.calculateTotalPrice()} ${'pound'.tr(context)} ',style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                         color: AppColors.secondaryColor
                     ),)
 

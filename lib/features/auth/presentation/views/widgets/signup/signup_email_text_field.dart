@@ -5,6 +5,7 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruits_commerce_app/core/localization/app_localization.dart';
 import 'package:fruits_commerce_app/core/widgets/custom_outlined_text_field_widget.dart';
 
 class SignupEmailTextField extends StatelessWidget {
@@ -18,18 +19,18 @@ class SignupEmailTextField extends StatelessWidget {
       {
         if(value!.isEmpty)
           {
-            return 'البريد الإلكتروني مطلوب';
+            return 'emailRequired'.tr(context);
           }
         else if (EmailValidator.validate(value)==false)
           {
-            return 'البريد الإلكتروني غير صحيح';
+            return 'emailInvalid'.tr(context);
           }
         else
           {
             return null;
           }
       },
-        hintText: 'البريد الإلكتروني',
+        hintText: 'email'.tr(context),
         contentPadding: EdgeInsetsDirectional.only(start: 20.w,top: 15.h,bottom: 17.h),
         controller: controller,
         keyBoardType: TextInputType.emailAddress,

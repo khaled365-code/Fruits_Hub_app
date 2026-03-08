@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
+import 'package:fruits_commerce_app/core/localization/app_localization.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 
 class OrWithDividersRow extends StatelessWidget {
@@ -24,7 +25,7 @@ class OrWithDividersRow extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsetsDirectional.symmetric(horizontal: 19.w),
-          child: Text('أو',style: Theme.of(context).textTheme.titleLarge?.copyWith(
+          child: Text('or'.tr(context),style: Theme.of(context).textTheme.titleLarge?.copyWith(
               color: AppColors.textColors[ThemeCubit().currentTheme]
           ),),
         ),

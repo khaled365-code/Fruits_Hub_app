@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
+import 'package:fruits_commerce_app/core/localization/app_localization.dart';
 import 'package:fruits_commerce_app/core/utils/app_assets.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 
@@ -16,7 +17,7 @@ class OurProductsFilterRow extends StatelessWidget {
     return Row(
       children:
       [
-         Text('منتجاتنا',style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+         Text('ourProducts'.tr(context),style: Theme.of(context).textTheme.headlineSmall?.copyWith(
            color: AppColors.textColors[ThemeCubit().currentTheme]
          ),),
         Spacer(),

@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
+import 'package:fruits_commerce_app/core/localization/app_localization.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 import 'package:fruits_commerce_app/core/services/service_locator.dart';
 import 'package:fruits_commerce_app/core/widgets/custom_outlined_text_field_widget.dart';
@@ -19,14 +20,14 @@ class SignUpNameTextField extends StatelessWidget {
         {
           if(value!.isEmpty)
             {
-              return 'الاسم مطلوب';
+              return 'nameRequired'.tr(context);
             }
           else
             {
               return null;
             }
         },
-        hintText: 'الاسم كامل',
+        hintText: 'fullName'.tr(context),
         contentPadding: EdgeInsetsDirectional.only(start: 20.w,top: 15.h,bottom: 17.h),
         controller: controller,
         keyBoardType: TextInputType.name,

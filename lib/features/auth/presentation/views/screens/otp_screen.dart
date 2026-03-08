@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_commerce_app/core/global/common_functions.dart';
+import 'package:fruits_commerce_app/core/localization/app_localization.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 import 'package:fruits_commerce_app/core/routes/routes.dart';
 import 'package:fruits_commerce_app/core/widgets/custom_app_bar.dart';
@@ -31,23 +32,23 @@ class OtpScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children:
                   [
-                    RealAppBarWidget(title: 'التحقق من الرمز',),
+                    RealAppBarWidget(title: 'verifyCode'.tr(context),),
                     SpaceWidget(height: 24,),
-                    Text('أدخل الرمز الذي أرسلناه إلى عنوان بريد التالي Maxxx@email.com',style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                    Text('verifyCodeSubtitle'.tr(context),style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       color: AppColors.c616A6B
                     ),),
                     SpaceWidget(height: 29,),
                     OtpContainersRow(),
                     SpaceWidget(height: 29,),
                     SharedButton(
-                        btnText: 'تحقق من الرمز',
+                        btnText: 'checkCode'.tr(context),
                         onPressedBtn: ()
                         {
                           navigate(route: Routes.resetPasswordScreen, context: context);
                         }),
                     SpaceWidget(height: 24,),
                     Center(
-                      child: Text('إعادة إرسال الرمز',style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      child: Text('resendCode'.tr(context),style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         color: AppColors.lightPrimaryColor
                       ),),
                     )

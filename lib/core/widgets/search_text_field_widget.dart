@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
+import 'package:fruits_commerce_app/core/localization/app_localization.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 import 'package:fruits_commerce_app/core/utils/app_assets.dart';
 
@@ -33,7 +34,7 @@ class SearchTextFieldWidget extends StatelessWidget {
          prefixIcon: SizedBox(
              width: 20,
              child: Center(child: SvgPicture.asset(ImageConstants.searchIcon))),
-         hintText: 'ابحث عن.......',
+         hintText: 'search'.tr(context),
          hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
            color: AppColors.c949D9E
          ),

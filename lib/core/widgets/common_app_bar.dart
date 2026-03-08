@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
+import 'package:fruits_commerce_app/core/localization/localization_cubit/localization_cubit.dart';
 import 'package:fruits_commerce_app/core/utils/app_assets.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 import 'package:fruits_commerce_app/core/widgets/notification_icon_container.dart';
@@ -41,7 +42,11 @@ class CommonAppBar extends StatelessWidget {
              ),
              ),
              child: Center(
-               child: SvgPicture.asset(ImageConstants.arrowBackIcon,colorFilter: ColorFilter.mode(
+               child: LocalizationCubit().currentLanguage=='en'?
+               Transform.rotate(angle: 3.1415926536,child: SvgPicture.asset(ImageConstants.arrowBackIcon,colorFilter: ColorFilter.mode(
+               ThemeCubit().currentTheme==0?AppColors.c0C0D0D : AppColors.white,
+               BlendMode.srcIn),),):
+               SvgPicture.asset(ImageConstants.arrowBackIcon,colorFilter: ColorFilter.mode(
                ThemeCubit().currentTheme==0?AppColors.c0C0D0D : AppColors.white,
                BlendMode.srcIn),),
              ),

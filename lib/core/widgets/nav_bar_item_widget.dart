@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fruits_commerce_app/core/localization/app_localization.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 import 'package:fruits_commerce_app/features/home/domain/entities/nav_bar_data_entity.dart';
 import 'package:fruits_commerce_app/features/home/presentation/manager/main_layout_cubit/main_layout_cubit.dart';
@@ -14,14 +15,7 @@ class NavBarItemWidget extends StatelessWidget {
   final MainLayoutCubit mainLayoutCubit;
   final int index;
 
-  static const List<NavBarDataEntity> navBarDataList=
-  [
-    NavBarDataEntity(navBarIcon: ImageConstants.activeHomeIcon, navBarTitle: 'الرئيسية'),
-    NavBarDataEntity(navBarIcon: ImageConstants.activeMenuIcon, navBarTitle: 'المنتجات'),
-    NavBarDataEntity(navBarIcon: ImageConstants.activeCartIcon, navBarTitle: 'سلة التسوق'),
-    NavBarDataEntity(navBarIcon: ImageConstants.activeUserIcon, navBarTitle: 'حسابي')
 
-  ];
 
   static const List<String> inActiveIconsList=
   [
@@ -33,6 +27,14 @@ class NavBarItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<NavBarDataEntity> navBarDataList=
+    [
+      NavBarDataEntity(navBarIcon: ImageConstants.activeHomeIcon, navBarTitle: 'home'.tr(context)),
+      NavBarDataEntity(navBarIcon: ImageConstants.activeMenuIcon, navBarTitle: 'products'.tr(context)),
+      NavBarDataEntity(navBarIcon: ImageConstants.activeCartIcon, navBarTitle: 'cart'.tr(context)),
+      NavBarDataEntity(navBarIcon: ImageConstants.activeUserIcon, navBarTitle: 'myAccount'.tr(context))
+
+    ];
     return BlocBuilder<MainLayoutCubit,MainLayoutState>(
       builder: (context, state) {
         return GestureDetector(

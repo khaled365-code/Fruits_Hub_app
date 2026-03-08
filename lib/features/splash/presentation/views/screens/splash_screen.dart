@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children:
         [
-          Align(alignment: LocalizationCubit().currentLanguage=='ar'? AlignmentDirectional.topEnd:AlignmentDirectional.topStart, child: SvgPicture.asset(ImageConstants.plantSplashIcon)),
+          Align(alignment:  AlignmentDirectional.topStart , child: SvgPicture.asset(ImageConstants.plantSplashIcon)),
           SvgPicture.asset(ImageConstants.appLogoIcon),
           SvgPicture.asset(ImageConstants.pointsCirclesIcon,fit: BoxFit.fitWidth,),
 

@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_commerce_app/core/global/common_functions.dart';
 import 'package:fruits_commerce_app/core/global/constants/app_constants.dart';
 import 'package:fruits_commerce_app/core/global/constants/enums.dart';
+import 'package:fruits_commerce_app/core/localization/app_localization.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 import 'package:fruits_commerce_app/core/routes/routes.dart';
 import 'package:fruits_commerce_app/core/utils/app_assets.dart';
@@ -29,20 +30,21 @@ class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
 
-  static const List<LoginOptionsModel> loginOptionsDataList=
-  [
-    LoginOptionsModel(ImageConstants.googleIcon, 'تسجيل بواسطة جوجل'),
-    LoginOptionsModel(ImageConstants.appleIcon, 'تسجيل بواسطة أبل'),
-    LoginOptionsModel(ImageConstants.facebookIcon, 'تسجيل بواسطة فيسبوك'),
-  ];
 
-  static const List<LoginOptionsModel> loginOptionsDataListWithoutApple=
-  [
-    LoginOptionsModel(ImageConstants.googleIcon, 'تسجيل بواسطة جوجل'),
-    LoginOptionsModel(ImageConstants.facebookIcon, 'تسجيل بواسطة فيسبوك'),
-  ];
   @override
   Widget build(BuildContext context) {
+    List<LoginOptionsModel> loginOptionsDataList=
+    [
+      LoginOptionsModel(ImageConstants.googleIcon, 'signInWithGoogle'.tr(context)),
+      LoginOptionsModel(ImageConstants.appleIcon, 'signInWithApple'.tr(context)),
+      LoginOptionsModel(ImageConstants.facebookIcon, 'signInWithFacebook'.tr(context)),
+    ];
+
+      List<LoginOptionsModel> loginOptionsDataListWithoutApple=
+    [
+      LoginOptionsModel(ImageConstants.googleIcon, 'signInWithGoogle'.tr(context)),
+      LoginOptionsModel(ImageConstants.facebookIcon, 'signInWithFacebook'.tr(context)),
+    ];
     LoginBloc loginBloc=context.read<LoginBloc>();
     return Scaffold(
       appBar: buildCommonAppBar(),
@@ -50,7 +52,7 @@ class LoginScreen extends StatelessWidget {
         listener: (context, state) async {
           if(state.requestState==RequestStates.success)
           {
-            buildSnackBarMessage(text: 'تم تسجيل الدخول بنجاح', context: context);
+            buildSnackBarMessage(text: 'signInSuccess'.tr(context), context: context);
             navigate(route: Routes.mainLayoutScreen, context: context,replaced: true);
             await CacheService().setBool(key: AppConstants.userIsLoggedInAccount, value: true);
           }
@@ -77,7 +79,7 @@ class LoginScreen extends StatelessWidget {
                         children:
                         [
 
-                          RealAppBarWidget(title: 'تسجيل دخول',onAppBarBtnPressed: ()
+                          RealAppBarWidget(title: 'signIn'.tr(context),onAppBarBtnPressed: ()
                           {
                             exit(0);
                           },),
@@ -99,14 +101,14 @@ class LoginScreen extends StatelessWidget {
                                   navigate(route: Routes.forgetPassScreen, context: context);
                                 },
                                 child: Text(
-                                  'نسيت كلمة المرور؟',style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                                  'forgotPassword'.tr(context),style: Theme.of(context).textTheme.titleSmall?.copyWith(
                                     color: AppColors.lightPrimaryColor
                                 ),),
                               ),
                             ],
                           ),
                           SpaceWidget(height: 33,),
-                          SharedButton(btnText: 'تسجيل دخول', onPressedBtn: ()
+                          SharedButton(btnText: 'signIn'.tr(context), onPressedBtn: ()
                           {
                             if(loginBloc.loginFormKey.currentState!.validate())
                               {
@@ -126,8 +128,8 @@ class LoginScreen extends StatelessWidget {
                             {
                               navigate(route: Routes.signUpScreen, context: context,);
                             },
-                            firstText: 'لا تمتلك حساب؟',
-                            secondText: 'قم بإنشاء حساب',),
+                            firstText: 'dontHaveAccount'.tr(context),
+                            secondText: 'createAccount'.tr(context),),
                           SpaceWidget(height: 49,),
                           OrWithDividersRow(),
                           SpaceWidget(height: 21,),

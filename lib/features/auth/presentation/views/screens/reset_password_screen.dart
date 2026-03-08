@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
+import 'package:fruits_commerce_app/core/localization/app_localization.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 import 'package:fruits_commerce_app/core/widgets/custom_alert_dialog.dart';
 import 'package:fruits_commerce_app/core/widgets/custom_app_bar.dart';
@@ -29,9 +30,9 @@ class ResetPasswordScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children:
               [
-                RealAppBarWidget(title: 'كلمة مرور جديدة',),
+                RealAppBarWidget(title: 'newPassword'.tr(context),),
                 SpaceWidget(height: 24,),
-                Text('قم بإنشاء كلمة مرور جديدة لتسجيل الدخول',style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                Text('newPasswordSubtitle'.tr(context),style: Theme.of(context).textTheme.titleLarge?.copyWith(
                   color: AppColors.textColors[ThemeCubit().currentTheme]
                 ),),
                 SpaceWidget(height: 34,),
@@ -40,7 +41,7 @@ class ResetPasswordScreen extends StatelessWidget {
                 ConfirmNewPasswordTextField(),
                 SpaceWidget(height: 24,),
                 SharedButton(
-                    btnText: 'إنشاء كلمة مرور جديدة',
+                    btnText: 'createNewPassword'.tr(context),
                     onPressedBtn: ()
                     {
                       showDialog(context: context, builder: (_) => CustomAlertDialog(),);

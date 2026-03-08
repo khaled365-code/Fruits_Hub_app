@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
+import 'package:fruits_commerce_app/core/localization/app_localization.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 import 'package:fruits_commerce_app/core/utils/app_assets.dart';
 import 'package:fruits_commerce_app/core/widgets/space_widget.dart';
@@ -56,7 +57,7 @@ class PageViewItem extends StatelessWidget {
               RichText(
                 text: TextSpan(
                   children: [
-                    TextSpan(text: 'مرحبًا بك في',style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                    TextSpan(text: 'welcomeTitle'.tr(context),style: Theme.of(context).textTheme.displaySmall?.copyWith(
                       color: AppColors.textColors[ThemeCubit().currentTheme]
                     )),
                     TextSpan(text: ' ',style: Theme.of(context).textTheme.displaySmall),
@@ -75,7 +76,7 @@ class PageViewItem extends StatelessWidget {
                 padding: EdgeInsetsDirectional.symmetric(horizontal: 37.w),
                 child: Text(
                   textAlign: TextAlign.center,
-                  'اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية.',
+                  'discoverExperience'.tr(context),
                   style: Theme.of(context).textTheme.titleSmall?.copyWith(
                     color: AppColors.c4E5556
                   ),),
@@ -85,13 +86,13 @@ class PageViewItem extends StatelessWidget {
           Column(
             children:
             [
-              Text('ابحث وتسوق',style: Theme.of(context).textTheme.displaySmall?.copyWith(
+              Text('searchAndShop'.tr(context),style: Theme.of(context).textTheme.displaySmall?.copyWith(
                   color: AppColors.textColors[ThemeCubit().currentTheme]
               ),),
               SpaceWidget(height: 24,),
               Padding(
                 padding:  EdgeInsetsDirectional.symmetric(horizontal: 40.w),
-                child: Text('نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية',
+                child: Text('bestFruitsDescription'.tr(context),
                 style: Theme.of(context).textTheme.titleSmall?.copyWith(
                     color: AppColors.c4E5556
                 ), textAlign: TextAlign.center,),

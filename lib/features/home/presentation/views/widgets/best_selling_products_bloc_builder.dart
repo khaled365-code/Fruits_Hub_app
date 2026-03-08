@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_commerce_app/core/global/constants/enums.dart';
+import 'package:fruits_commerce_app/core/localization/app_localization.dart';
 import 'package:fruits_commerce_app/features/home/presentation/manager/main_layout_cubit/main_layout_cubit.dart';
 import 'package:fruits_commerce_app/features/home/presentation/views/widgets/product_item_widget.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -36,11 +37,11 @@ class BestSellingProductsBlocBuilder extends StatelessWidget {
         else if (state.getBestSellingProductsRequestState==RequestStates.success &&
             state.bestSellingProductsList?.isEmpty==true)
         {
-          return SliverToBoxAdapter(child: Text('Empty data'));
+          return SliverToBoxAdapter(child: Center(child: Text('emptyData'.tr(context))));
         }
         else if (state.getBestSellingProductsRequestState==RequestStates.error)
         {
-          return SliverToBoxAdapter(child: Text(state.fetchAllProductsErrorM));
+          return SliverToBoxAdapter(child: Center(child: Text(state.fetchAllProductsErrorM)));
         }
         else
         {

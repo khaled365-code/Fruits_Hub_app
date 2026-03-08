@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_commerce_app/core/global/common_functions.dart';
 import 'package:fruits_commerce_app/core/global/constants/enums.dart';
+import 'package:fruits_commerce_app/core/localization/app_localization.dart';
 import 'package:fruits_commerce_app/core/widgets/custom_app_bar.dart';
 import 'package:fruits_commerce_app/core/widgets/custom_progress_hud_widget.dart';
 import 'package:fruits_commerce_app/core/widgets/real_app_bar_widget.dart';
@@ -33,7 +34,7 @@ class SignUpScreen extends StatelessWidget {
             }
           if (state.requestState==RequestStates.success)
             {
-              buildSnackBarMessage(text: 'تم إنشاء الحساب بنجاح', context: context);
+              buildSnackBarMessage(text: 'signUpSuccess'.tr(context), context: context);
               Navigator.pop(context);
             }
         },
@@ -54,7 +55,7 @@ class SignUpScreen extends StatelessWidget {
                      children:
                      [
 
-                       RealAppBarWidget(title: 'حساب جديد',),
+                       RealAppBarWidget(title: 'newAccount'.tr(context),),
                        SpaceWidget(height: 24,),
                        SignUpNameTextField(
                          controller: signUpCubit.nameController,),
@@ -68,7 +69,7 @@ class SignUpScreen extends StatelessWidget {
                        ConditionsAcceptanceRow(),
                        SpaceWidget(height: 30,),
                        SharedButton(
-                           btnText: 'إنشاء حساب جديد',
+                           btnText: 'createNewAccount'.tr(context),
                            onPressedBtn: ()
                            {
                              if (signUpCubit.signupFormKey.currentState!.validate())
@@ -83,7 +84,7 @@ class SignUpScreen extends StatelessWidget {
                                }
                                else
                                {
-                                 buildSnackBarMessage(context: context, text: 'الشروط والأحكام يجب الموافقة عليها');
+                                 buildSnackBarMessage(context: context, text: 'termsAndConditionsRequired'.tr(context));
                                }
                              }
                              else
@@ -97,8 +98,8 @@ class SignUpScreen extends StatelessWidget {
                          {
                            Navigator.pop(context);
                          },
-                         firstText: 'تمتلك حساب بالفعل؟',
-                         secondText: 'تسجيل دخول',
+                         firstText: 'alreadyHaveAccount'.tr(context),
+                         secondText: 'signIn'.tr(context),
                        ),
 
 

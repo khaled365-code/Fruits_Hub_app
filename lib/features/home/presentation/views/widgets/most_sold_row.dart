@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_commerce_app/core/global/common_functions.dart';
 import 'package:fruits_commerce_app/core/global/manager/theme_cubit/theme_cubit.dart';
+import 'package:fruits_commerce_app/core/localization/app_localization.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 
 import '../../../../../core/routes/routes.dart';
@@ -16,7 +17,7 @@ class MostSoldRow extends StatelessWidget {
     return Row(
       children:
       [
-        Text('الاكثر مبيعا',style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+        Text('bestSelling'.tr(context),style: Theme.of(context).textTheme.headlineSmall?.copyWith(
           color: AppColors.textColors[ThemeCubit().currentTheme])),
         Spacer(),
         GestureDetector(
@@ -24,7 +25,7 @@ class MostSoldRow extends StatelessWidget {
           {
              navigate(route: Routes.mostSellingScreen, context: context);
           },
-          child: Text('المزيد',style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+          child: Text('more'.tr(context),style: Theme.of(context).textTheme.bodyMedium?.copyWith(
             color: AppColors.c949D9E
           ),),
         )

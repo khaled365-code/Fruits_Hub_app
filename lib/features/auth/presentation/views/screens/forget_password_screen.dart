@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_commerce_app/core/global/common_functions.dart';
+import 'package:fruits_commerce_app/core/localization/app_localization.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 import 'package:fruits_commerce_app/core/routes/routes.dart';
 import 'package:fruits_commerce_app/core/widgets/custom_app_bar.dart';
@@ -30,15 +31,15 @@ class ForgetPasswordScreen extends StatelessWidget {
               child: Column(
                 children:
                 [
-                  RealAppBarWidget(title: 'نسيان كلمة المرور',),
+                  RealAppBarWidget(title: 'forgotPasswordTitle'.tr(context),),
                   SpaceWidget(height: 24,),
-                  Text('لا تقلق ، ما عليك سوى كتابة رقم هاتفك وسنرسل رمز التحقق.',style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  Text('forgotPasswordSubtitle'.tr(context),style: Theme.of(context).textTheme.titleLarge?.copyWith(
                     color: AppColors.c616A6B
                   ),),
                   SpaceWidget(height: 31,),
                   ForgetPassSendNumberTextField(),
                   SpaceWidget(height: 30,),
-                  SharedButton(btnText: 'نسيت كلمة المرور', onPressedBtn: ()
+                  SharedButton(btnText: 'forgotPassword'.tr(context), onPressedBtn: ()
                   {
                     navigate(route: Routes.otpScreen, context: context);
                   }),

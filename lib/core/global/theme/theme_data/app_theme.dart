@@ -87,85 +87,85 @@ abstract class AppTheme
     return  TextTheme(
     // Large / Hero text
       displayLarge: TextStyle(
-        fontSize: 28,
+        fontSize: 30,
         fontWeight: FontWeight.bold, // bold28
         fontFamily: 'Cairo',
       ),
       displayMedium: TextStyle(
-        fontSize: 26,
+        fontSize: 28,
         fontWeight: FontWeight.normal, // regular26
         fontFamily: 'Cairo',
       ),
       displaySmall: TextStyle(
-        fontSize: 23,
+        fontSize: 25,
         fontWeight: FontWeight.bold, // bold23
         fontFamily: 'Cairo',),
 
       // Section / Page titles
       headlineLarge: TextStyle(
-        fontSize: 22,
+        fontSize: 23,
         fontWeight: FontWeight.normal, // regular22
         fontFamily: 'Cairo',
 
       ),
       headlineMedium: TextStyle(
-        fontSize: 19,
+        fontSize: 21,
         fontWeight: FontWeight.bold, // bold19
         fontFamily: 'Cairo',
       ),
       headlineSmall: TextStyle(
-        fontSize: 16,
+        fontSize: 18,
         fontWeight: FontWeight.bold, // bold16
         fontFamily: 'Cairo',
       ),
 
       // Subtitles / AppBar text
       titleLarge: TextStyle(
-        fontSize: 16,
+        fontSize: 18,
         fontWeight: FontWeight.w600, // semiBold16
         fontFamily: 'Cairo',
       ),
       titleMedium: TextStyle(
-        fontSize: 15,
+        fontSize: 17,
         fontWeight: FontWeight.w500, // medium15
         fontFamily: 'Cairo',
       ),
       titleSmall: TextStyle(
-        fontSize: 13,
+        fontSize: 15,
         fontWeight: FontWeight.w600, // semiBold13
         fontFamily: 'Cairo',
       ),
 
       // Body text
       bodyLarge: TextStyle(
-        fontSize: 16,
+        fontSize: 18,
         fontWeight: FontWeight.normal, // regular16
         fontFamily: 'Cairo',
       ),
       bodyMedium: TextStyle(
-        fontSize: 13,
+        fontSize: 15,
         fontWeight: FontWeight.w400, // regular13
         fontFamily: 'Cairo',
       ),
       bodySmall: TextStyle(
-        fontSize: 11,
+        fontSize: 13,
         fontWeight: FontWeight.normal, // regular11
         fontFamily: 'Cairo',
       ),
 
       // Labels / Buttons
       labelLarge: TextStyle(
-        fontSize: 13,
+        fontSize: 15,
         fontWeight: FontWeight.bold, // bold13
         fontFamily: 'Cairo',
       ),
       labelMedium: TextStyle(
-        fontSize: 11,
+        fontSize: 13,
         fontWeight: FontWeight.w600, // semiBold11
         fontFamily: 'Cairo',
       ),
       labelSmall: TextStyle(
-        fontSize: 11,
+        fontSize: 13,
         fontWeight: FontWeight.normal, // regular11 (optional duplicate)
         fontFamily: 'Cairo',
       ),

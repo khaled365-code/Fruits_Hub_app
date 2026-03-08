@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fruits_commerce_app/core/localization/app_localization.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 import 'package:fruits_commerce_app/core/utils/app_assets.dart';
 import 'package:fruits_commerce_app/core/widgets/custom_outlined_text_field_widget.dart';
@@ -28,7 +29,7 @@ class _PasswordLoginTextFieldState extends State<PasswordLoginTextField> {
       {
         if(value!.isEmpty)
           {
-            return 'كلمة المرور مطلوبة';
+            return 'passwordRequired'.tr(context);
           }
         else
           {
@@ -36,7 +37,7 @@ class _PasswordLoginTextFieldState extends State<PasswordLoginTextField> {
           }
       },
       obSecureText: securedText,
-      hintText: 'كلمة المرور',
+      hintText: 'password'.tr(context),
       contentPadding: EdgeInsetsDirectional.only(start: 20.w,top: 15.h,bottom: 17.h,),
       controller: widget.passwordController,
       keyBoardType: TextInputType.visiblePassword,

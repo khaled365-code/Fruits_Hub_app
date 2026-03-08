@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fruits_commerce_app/core/localization/app_localization.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 import 'package:fruits_commerce_app/core/utils/app_assets.dart';
 import 'package:fruits_commerce_app/core/widgets/custom_outlined_text_field_widget.dart';
@@ -35,7 +36,7 @@ class _ConfirmNewPasswordTextFieldState extends State<ConfirmNewPasswordTextFiel
             child: securedText? SvgPicture.asset(ImageConstants.securedEyePasswordIcon,colorFilter: ColorFilter.mode(AppColors.cC9CECF, BlendMode.srcIn),) : SvgPicture.asset(ImageConstants.eyeVisibleIcon,colorFilter: ColorFilter.mode(AppColors.cC9CECF, BlendMode.srcIn),),
           ),
         ),
-        hintText: 'أعد إدخال كلمة المرور',
+        hintText: 'reEnterPassword'.tr(context),
         controller: TextEditingController(),
         keyBoardType: TextInputType.visiblePassword);;
   }

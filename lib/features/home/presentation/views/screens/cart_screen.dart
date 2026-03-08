@@ -4,6 +4,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_commerce_app/core/localization/app_localization.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 import 'package:fruits_commerce_app/core/widgets/common_app_bar.dart';
 import 'package:fruits_commerce_app/core/widgets/shared_button.dart';
@@ -26,7 +27,7 @@ class CartScreen extends StatelessWidget {
             [
               Padding(
                 padding: const EdgeInsetsDirectional.only(start: 16),
-                child: CommonAppBar(title: 'السلة',hasNotification: false,),
+                child: CommonAppBar(title: 'cart'.tr(context),hasNotification: false,),
               ),
               const SpaceWidget(height: 16,),
               ItemsInCartCount(),
@@ -78,7 +79,7 @@ class PayForCartsBtn extends StatelessWidget {
         alignment: AlignmentDirectional.bottomCenter,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 67),
-          child: SharedButton(btnText: 'الدفع  ${context.watch<CartBloc>().carts.calculateAllCartsPrice()}جنيه',
+          child: SharedButton(btnText: '  ${'checkout'.tr(context)} ${context.watch<CartBloc>().carts.calculateAllCartsPrice()} ${'pound'.tr(context)}',
               onPressedBtn: (){}),
         ),
       ),
