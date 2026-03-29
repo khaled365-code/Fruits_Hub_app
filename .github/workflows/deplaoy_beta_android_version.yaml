@@ -1,0 +1,48 @@
+name: Android Fastlane Firebase App Distribution deployment
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  distribution_to_firebase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout My Repository
+        uses: actions/checkout@v2
+
+      - name: Setup JDK 11
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.9'
+          bundler-cache: false # Disable bundler-cache to manage dependencies manually
+
+      - name: Update Gemfile.lock platforms
+        run: |
+          cd android
+          bundle lock --add-platform x86_64-linux
+          bundle lock --add-platform ruby
+
+      - name: Install Ruby Dependencies
+        run: |
+          cd android
+          bundle install
+
+      - name: Flutter Build Android App And Upload To Firebase
+        env:
+          FIREBASE_CLI_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
+        run: |
+          cd android
+          bundle exec fastlane android distribute

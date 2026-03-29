@@ -7,10 +7,10 @@ import 'package:fruits_commerce_app/core/global/constants/app_constants.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 
 class CustomOutlinedTextField extends StatelessWidget {
-  const CustomOutlinedTextField({super.key,required this.hintText,required this.controller,this.contentPadding, this.validator, this.textFormatterList,  this.minLines,this.maxLength, required this.keyBoardType, this.onFieldSubmitted, this.inputDataStyle, this.textInputAction,this.obSecureText=false, this.suffix, this.prefix, this.textAlign,this.textDirection});
+  const CustomOutlinedTextField({super.key,required this.hintText,this.controller,this.contentPadding, this.validator, this.textFormatterList,  this.minLines,this.maxLength, required this.keyBoardType, this.onFieldSubmitted, this.inputDataStyle, this.textInputAction,this.obSecureText=false, this.suffix, this.prefix, this.textAlign,this.textDirection, this.onSaved});
 
   final String hintText;
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final EdgeInsetsGeometry? contentPadding;
   final String? Function(String?)? validator;
   final List<TextInputFormatter>? textFormatterList;
@@ -24,6 +24,7 @@ class CustomOutlinedTextField extends StatelessWidget {
   final Widget? prefix;
   final TextAlign? textAlign;
   final TextDirection? textDirection;
+  final void Function(String?)? onSaved;
 
 
   @override
@@ -39,6 +40,7 @@ class CustomOutlinedTextField extends StatelessWidget {
     inputFormatters: textFormatterList,
     validator: validator,
     controller: controller,
+    onSaved: onSaved,
     style: inputDataStyle ?? AppConstants.inputDataTextStyle,
       textInputAction: textInputAction,
       obscureText: obSecureText,

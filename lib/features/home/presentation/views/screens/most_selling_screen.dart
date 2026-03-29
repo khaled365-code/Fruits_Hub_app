@@ -23,12 +23,12 @@ class MostSellingScreen extends StatelessWidget {
         child: CustomScrollView(
           slivers:
           [
+            CommonAppBar(title: 'الأكثر مبيعًا'),
             SliverToBoxAdapter(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children:
                 [
-                  CommonAppBar(title: 'الأكثر مبيعًا'),
                   const SpaceWidget(height: 24,),
                   Text('الأكثر مبيعًا',style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                   color: AppColors.textColors[ThemeCubit().currentTheme]),),

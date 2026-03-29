@@ -21,13 +21,32 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.fruits_commerce_app"
+        applicationId = "com.example.fruits_commerce_app" //play store and firebase
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+    }
+
+    flavorDimensions += "default"
+    productFlavors {
+        create("Development") {
+            dimension = "default"
+            applicationIdSuffix = ".development"
+            resValue(
+                type = "string",
+                name = "app_name",
+                value = "Fruits Development")
+        }
+        create("Production") {
+            dimension = "default"
+            resValue(
+                type = "string",
+                name = "app_name",
+                value = "Fruits Production")
+        }
     }
 
     buildTypes {

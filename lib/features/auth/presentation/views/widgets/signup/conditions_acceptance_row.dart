@@ -19,27 +19,29 @@ class ConditionsAcceptanceRow extends StatelessWidget {
       [
         CustomCheckBox(),
         SpaceWidget(width: 16,),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children:
-          [
-
-            RichText(
-              text: TextSpan(
-              children:
-              [
-                TextSpan(text: 'agreeToTerms'.tr(context),style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                  color: AppColors.c949D9E
-                ),),
-                TextSpan(text:' ${'terms'.tr(context)}',style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                  color: AppColors.lightPrimaryColor
-                ))
-              ]
-            ),),
-            Text('andConditions'.tr(context),style: Theme.of(context).textTheme.titleSmall?.copyWith(
-              color: AppColors.lightPrimaryColor
-            ),)
-          ],
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children:
+            [
+          
+              RichText(
+                text: TextSpan(
+                children:
+                [
+                  TextSpan(text: 'agreeToTerms'.tr(context),style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    color: AppColors.c949D9E
+                  ),),
+                  TextSpan(text:' ${'terms'.tr(context)}',style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    color: AppColors.lightPrimaryColor
+                  )),
+                  TextSpan(text:'andConditions'.tr(context), style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                      color: AppColors.lightPrimaryColor
+                  ),),
+                ]
+              ),),
+            ],
+          ),
         )
 
 

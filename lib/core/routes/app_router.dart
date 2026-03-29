@@ -9,6 +9,14 @@ import 'package:fruits_commerce_app/features/auth/presentation/views/screens/log
 import 'package:fruits_commerce_app/features/auth/presentation/views/screens/otp_screen.dart';
 import 'package:fruits_commerce_app/features/auth/presentation/views/screens/reset_password_screen.dart';
 import 'package:fruits_commerce_app/features/auth/presentation/views/screens/signup_screen.dart';
+import 'package:fruits_commerce_app/features/checkout/presentation/manager/place_order_bloc.dart';
+import 'package:fruits_commerce_app/features/checkout/presentation/views/screens/address_screen.dart';
+import 'package:fruits_commerce_app/features/checkout/presentation/views/screens/charging_screen.dart';
+import 'package:fruits_commerce_app/features/checkout/presentation/views/screens/payment_options_screen.dart';
+import 'package:fruits_commerce_app/features/checkout/presentation/views/screens/payment_revision_screen.dart';
+import 'package:fruits_commerce_app/features/checkout/presentation/views/screens/success_payment_screen.dart';
+import 'package:fruits_commerce_app/features/checkout/presentation/views/screens/track_order_screen.dart';
+import 'package:fruits_commerce_app/features/checkout/presentation/views/widgets/charging_screen/payment_options_section.dart';
 import 'package:fruits_commerce_app/features/home/presentation/views/screens/main_layout_screen.dart';
 import 'package:fruits_commerce_app/features/onboarding/presentation/views/screens/onboarding_screen.dart';
 import 'package:fruits_commerce_app/features/splash/presentation/views/screens/splash_screen.dart';
@@ -34,6 +42,27 @@ class AppRouter {
         ));
       case Routes.forgetPassScreen:
         return _buildScreen(widget: ForgetPasswordScreen());
+
+      case Routes.chargingScreen:
+        return _buildScreen(widget: ChargingScreen(), settings: settings);
+
+      case Routes.addressScreen:
+        return _buildScreen(widget: AddressScreen(), settings: settings);
+
+      case Routes.paymentOptionsScreen:
+        return _buildScreen(widget: PaymentOptionsScreen(), settings: settings);
+
+      case Routes.paymentRevisionScreen:
+        return _buildScreen(widget: BlocProvider(
+          create: (context) => locator<PlaceOrderBloc>(),
+          child: PaymentRevisionScreen(),
+        ), settings: settings);
+
+      case Routes.successPaymentScreen:
+        return _buildScreen(widget: SuccessPaymentScreen());
+
+      case Routes.trackOrderScreen:
+        return _buildScreen(widget: TrackOrderScreen());
 
       case Routes.resetPasswordScreen:
         return _buildScreen(widget: ResetPasswordScreen());

@@ -44,68 +44,64 @@ class _PageViewBodyState extends State<PageViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return  Stack(
-      children: [
-        Column(
-          children: [
-            Expanded(
-              child: PageView.builder(
-                clipBehavior: Clip.none,
-                itemCount: 2,
-                controller: pageController,
-                itemBuilder: (context, index) => PageViewItem(currentPageIndex: currentPageIndex,),),),
-            SpaceWidget(height: 64,),
-            currentPageIndex==0?
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(2, (index)=> index==1?
-                const DotIndicatorWidget(notActive: true,) : Padding(
-                  padding:  EdgeInsetsDirectional.only(end: 10.w),
-                  child:  DotIndicatorWidget(),
-                ))
-            ):
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(2, (index)=> Padding(
-                  padding:  EdgeInsetsDirectional.only(end: 10.w),
-                  child: const DotIndicatorWidget(),
-                ),)
-            ),
-            SpaceWidget(height: 29,),
-            Visibility(
-              visible: currentPageIndex==1,
-              maintainSize: true,
-              maintainAnimation: true,
-              maintainState: true,
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.w),
-                child: SharedButton(btnText: 'startNow'.tr(context), onPressedBtn: () async
-                {
-                  navigate(route: Routes.loginScreen,context: context,replaced: true);
-                  await CacheService().setBool(key:AppConstants.onBoardIsOpened,value: true);
-
-                }),
+    return  CustomScrollView(
+      slivers: [
+        SliverFillRemaining(
+          child: Column(
+            children: [
+              Expanded(
+                  child: PageView.builder(
+                  clipBehavior: Clip.none,
+                  itemCount: 2,
+                  controller: pageController,
+                  itemBuilder: (context, index) => PageViewItem(currentPageIndex: currentPageIndex,),),
               ),
-            ),
-            SpaceWidget(height: 43,),
-
-          ],
+            ],
+          ),
         ),
-        currentPageIndex==0?
-        Padding(
-          padding: EdgeInsetsDirectional.only(start: 20.w,top: 39.h),
-          child: GestureDetector(
-            onTap:() async
-            {
-              navigate(route: Routes.loginScreen,context: context,replaced: true);
-              await CacheService().setBool(key:AppConstants.onBoardIsOpened,value: true);
+        SliverToBoxAdapter(
+         child: Column(
+           children:
+           [
+             SpaceWidget(height: 64,),
+             currentPageIndex==0?
+             Row(
+                 mainAxisAlignment: MainAxisAlignment.center,
+                 children: List.generate(2, (index)=> index==1?
+                 const DotIndicatorWidget(notActive: true,) : Padding(
+                   padding:  EdgeInsetsDirectional.only(end: 10.w),
+                   child:  DotIndicatorWidget(),
+                 ))
+             ):
+             Row(
+                 mainAxisAlignment: MainAxisAlignment.center,
+                 children: List.generate(2, (index)=> Padding(
+                   padding:  EdgeInsetsDirectional.only(end: 10.w),
+                   child: const DotIndicatorWidget(),
+                 ),)
+             ),
+             SpaceWidget(height: 29,),
+             Visibility(
+               visible: currentPageIndex==1,
+               maintainSize: true,
+               maintainAnimation: true,
+               maintainState: true,
+               child: Padding(
+                 padding: EdgeInsets.symmetric(horizontal: 16.w),
+                 child: SharedButton(btnText: 'startNow'.tr(context), onPressedBtn: () async
+                 {
+                   navigate(route: Routes.loginScreen,context: context,replaced: true);
+                   await CacheService().setBool(key:AppConstants.onBoardIsOpened,value: true);
 
-            },
-            child: Text('skip'.tr(context),style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: AppColors.c949D9E
-            ),),
-          ),):
-        SizedBox.shrink(),
+                 }),
+               ),
+             ),
+             SpaceWidget(height: 43,),
+
+           ],
+         ),
+       )
+
       ],
     );
   }

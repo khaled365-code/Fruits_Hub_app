@@ -3,12 +3,12 @@
 import 'package:fruits_commerce_app/features/home/domain/entities/cart_item_entity.dart';
 import 'package:fruits_commerce_app/features/home/domain/entities/product_entity.dart';
 
-class CartsEntityList
+class CartsEntity
 {
 
    final List<CartItemEntity> cartsList;
 
-   const CartsEntityList({required this.cartsList});
+   const CartsEntity({required this.cartsList});
 
 
 

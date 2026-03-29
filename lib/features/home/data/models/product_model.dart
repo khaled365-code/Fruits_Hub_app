@@ -20,6 +20,7 @@ class ProductModel extends Equatable
   final bool isFeatured;
   final int ratingCount;
   final num averageRate;
+  final String code;
   final List<ReviewModel> reviewsModelList;
 
   ProductModel({
@@ -29,7 +30,7 @@ class ProductModel extends Equatable
     required this.calories, required this.caloriesUnits,
     required this.isOrganic, required this.isFeatured,
     required this.ratingCount, required this.averageRate,
-    required this.reviewsModelList});
+    required this.reviewsModelList, required this.code});
 
 
   factory ProductModel.fromJson(Map<String,dynamic> json)
@@ -44,6 +45,7 @@ class ProductModel extends Equatable
         caloriesUnits: json[BackendEndPoints.unitOfCalories],
         isOrganic: json[BackendEndPoints.isOrganic],
         isFeatured: json[BackendEndPoints.isFeatured],
+        code: json[BackendEndPoints.code],
         ratingCount: List.from(json[BackendEndPoints.reviews].map((item)=>ReviewModel.fromJson(item))).length,
         averageRate: getAvgRate(reviews : List.from(json[BackendEndPoints.reviews].map((item)=>ReviewModel.fromJson(item)))),
         reviewsModelList: List.from(json[BackendEndPoints.reviews].map((item)=>ReviewModel.fromJson(item))));
@@ -66,6 +68,7 @@ class ProductModel extends Equatable
         isFeatured: proEntity.isFeatured,
         ratingCount: proEntity.ratingCount,
         averageRate: proEntity.averageRate,
+        code: proEntity.code,
         reviewsModelList: List.from(proEntity.reviewsEntityList.map((item)=>ReviewModel.fromEntity(item))));
   }
 
@@ -75,6 +78,29 @@ class ProductModel extends Equatable
     expMonths,calories,caloriesUnits,
     isOrganic,isFeatured,ratingCount,
     averageRate,reviewsModelList];
+
+
+  Map<String,dynamic> toJson()
+  {
+    return {
+      BackendEndPoints.name:name,
+      BackendEndPoints.imageUrl:image,
+      BackendEndPoints.price:price,
+      BackendEndPoints.description:description,
+      BackendEndPoints.expirationMonths:expMonths,
+      BackendEndPoints.calories:calories,
+      BackendEndPoints.unitOfCalories:caloriesUnits,
+      BackendEndPoints.isOrganic:isOrganic,
+      BackendEndPoints.isFeatured:isFeatured,
+      BackendEndPoints.ratingCount:ratingCount,
+      BackendEndPoints.averageRate:averageRate,
+      BackendEndPoints.reviews:reviewsModelList.map<Map<String,dynamic>>((item)=>item.toMap()).toList(),
+
+
+    };
+
+
+  }
 
 
 

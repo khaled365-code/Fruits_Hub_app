@@ -31,6 +31,10 @@ abstract class AppColors {
 
   static const Color white = Colors.white;
 
+  static const Color black = Colors.black;
+
+  static const Color transparent = Colors.transparent;
+
   static const Color primaryColor=Color(0xff1B5E37);
 
   static const Color darkerPrimaryColor=Color(0xff217242);
@@ -78,6 +82,20 @@ abstract class AppColors {
   static const Color cEBF9F1=Color(0xffEBF9F1);
 
   static const Color c979899=Color(0xff979899);
+
+  static const Color cF2F3F3=Color(0xffF2F3F3);
+
+  static const Color cAAAAAA=Color(0xffAAAAAA);
+
+  static const Color cD9D9D9=Color(0xffD9D9D9);
+
+  static const Color c3A8B33=Color(0xff3A8B33);
+
+  static const Color cD6DCE5=Color(0xffD6DCE5);
+
+  static const Color cB7B7B7=Color(0xffB7B7B7);
+
+  static const Color c1434CB=Color(0xff1434CB);
 
 }
 

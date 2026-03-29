@@ -21,6 +21,7 @@ abstract class ProductModelToEntity
         unitOfCalories: productModel.caloriesUnits,
         ratingCount: productModel.ratingCount,
         averageRate: productModel.averageRate,
+        code: productModel.code,
         reviewsEntityList: List.from(productModel.reviewsModelList.map((item) =>
             ReviewModelToEntity.convertReviewModelToEntity(
                 reviewModel: item))));

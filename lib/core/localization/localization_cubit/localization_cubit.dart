@@ -7,14 +7,14 @@ import 'package:fruits_commerce_app/core/services/cache_service.dart';
 
 class LocalizationCubit extends Cubit<String> {
 
-  LocalizationCubit._named(): super('en');
+  LocalizationCubit._named(): super('ar');
   static  LocalizationCubit? _instance;
   factory LocalizationCubit() => _instance ??= LocalizationCubit._named();
 
   // lazy singleton construction
 
 
-  String currentLanguage='en';
+  String currentLanguage='ar';
 
 
   switchLanguage() async

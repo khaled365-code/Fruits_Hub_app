@@ -26,13 +26,13 @@ class ProductsScreen extends StatelessWidget {
       child: CustomScrollView(
         slivers:
         [
-           SliverToBoxAdapter(
+          CommonAppBar(title: 'products'.tr(context),hasBackBtn: false,),
+          SliverToBoxAdapter(
              child: Padding(
                padding: EdgeInsetsDirectional.symmetric(horizontal: 16),
                child: Column(
                  children:
                  [
-                   CommonAppBar(title: 'products'.tr(context)),
                    const SpaceWidget(height: 16,),
                    SearchTextFieldWidget(),
                    const SpaceWidget(height: 16,),

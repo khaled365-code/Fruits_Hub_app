@@ -14,6 +14,8 @@ abstract class DatabaseService
 
   Future<List<Map<String,dynamic>>> getFilteredCollectionData({required String path,required Map<String,dynamic> filter});
 
+  Stream<List<Map<String,dynamic>>> getStreamCollectionData({required String path});
+
 }
 
 

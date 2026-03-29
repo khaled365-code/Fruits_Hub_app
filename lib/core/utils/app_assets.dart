@@ -57,6 +57,22 @@ abstract class ImageConstants
   static const String activeUserIcon='assets/icons/active_user_icon.svg';
   static const String filterVerticalIcon='assets/icons/filter_vertical_icon.svg';
   static const String smallTrashIcon='assets/icons/small_trash_icon.svg';
+  static const String checkIcon='assets/icons/check_icon.svg';
+
+  static const String visaIcon='assets/icons/visa_icon.svg';
+  static const String masterCardIcon='assets/icons/mastercard_icon.svg';
+  static const String paypalIcon='assets/icons/paypal_icon.svg';
+  static const String applePayIcon='assets/icons/apple_pay_icon.svg';
+  static const String editIcon='assets/icons/edit_icon.svg';
+  static const String locationIcon='assets/icons/location_icon.svg';
+  static const String cubicIcon='assets/icons/cubic_icon.svg';
+
+  static const String boxIcon='assets/icons/box_icon.svg';
+  static const String orderDeliveredIcon='assets/icons/order_delivered_icon.svg';
+  static const String trackIcon='assets/icons/track_icon.svg';
+  static const String orderInCharge='assets/icons/order_in_charge.svg';
+  static const String acceptOrderIcon='assets/icons/accept_order_icon.svg';
+
 
 
 

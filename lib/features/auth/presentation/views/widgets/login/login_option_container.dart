@@ -22,7 +22,6 @@ class LoginOptionContainer extends StatelessWidget {
       onTap: onContainerPressed,
       child: Container(
         padding: EdgeInsetsDirectional.only(start: 17.5.w,bottom: 17,top: 17),
-        height: 56.h,
         width: MediaQuery.sizeOf(context).width,
         decoration: ShapeDecoration(
             color: AppColors.backgroundColors[ThemeCubit().currentTheme],

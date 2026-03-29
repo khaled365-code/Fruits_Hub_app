@@ -4,7 +4,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_commerce_app/core/global/common_functions.dart';
 import 'package:fruits_commerce_app/core/localization/app_localization.dart';
+import 'package:fruits_commerce_app/core/routes/routes.dart';
+import 'package:fruits_commerce_app/core/services/logger_service.dart';
 import 'package:fruits_commerce_app/core/utils/app_colors.dart';
 import 'package:fruits_commerce_app/core/widgets/common_app_bar.dart';
 import 'package:fruits_commerce_app/core/widgets/shared_button.dart';
@@ -21,14 +24,13 @@ class CartScreen extends StatelessWidget {
     return CustomScrollView(
       slivers:
       [
+
+        CommonAppBar(title: 'cart'.tr(context),hasNotification: false,),
         SliverToBoxAdapter(
           child: Column(
             children:
             [
-              Padding(
-                padding: const EdgeInsetsDirectional.only(start: 16),
-                child: CommonAppBar(title: 'cart'.tr(context),hasNotification: false,),
-              ),
+
               const SpaceWidget(height: 16,),
               ItemsInCartCount(),
               const SpaceWidget(height: 24,),
@@ -56,7 +58,7 @@ class CartScreen extends StatelessWidget {
           thickness: 1,
           color: AppColors.cF1F1F5,
         )),
-        PayForCartsBtn(),
+        PayForCartsBtn(cartBloc: context.watch<CartBloc>(),),
 
 
 
@@ -69,7 +71,9 @@ class CartScreen extends StatelessWidget {
   }
 }
 class PayForCartsBtn extends StatelessWidget {
-  const PayForCartsBtn({super.key});
+  const PayForCartsBtn({super.key,required this.cartBloc});
+
+  final CartBloc cartBloc;
 
   @override
   Widget build(BuildContext context) {
@@ -79,8 +83,13 @@ class PayForCartsBtn extends StatelessWidget {
         alignment: AlignmentDirectional.bottomCenter,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 67),
-          child: SharedButton(btnText: '  ${'checkout'.tr(context)} ${context.watch<CartBloc>().carts.calculateAllCartsPrice()} ${'pound'.tr(context)}',
-              onPressedBtn: (){}),
+          child: SharedButton(
+              btnText: '  ${'checkout'.tr(context)} ${cartBloc.carts.calculateAllCartsPrice()} ${'pound'.tr(context)}',
+              onPressedBtn: ()
+              {
+                  navigate(route: Routes.chargingScreen, context: context,args: cartBloc.carts);
+                  LoggerService().logDebug('Total cart price : ${cartBloc.carts.calculateAllCartsPrice()}');
+              }),
         ),
       ),
     );

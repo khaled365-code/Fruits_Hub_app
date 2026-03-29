@@ -22,6 +22,7 @@ class ProductEntity extends Equatable
   final int unitOfCalories;
   final int ratingCount;
   final num averageRate;
+  final String code;
   final List<ReviewEntity> reviewsEntityList;
 
 
@@ -38,7 +39,7 @@ class ProductEntity extends Equatable
         required this.unitOfCalories,
         required this.ratingCount,
         required this.averageRate,
-        required this.reviewsEntityList,
+        required this.reviewsEntityList, required this.code,
 
       });
 
@@ -52,6 +53,7 @@ class ProductEntity extends Equatable
     int? unitOfCalories,
     int? ratingCount,
     num? averageRate,
+    String? code,
     List<ReviewEntity>? reviewsEntityList
   })
   {
@@ -67,6 +69,7 @@ class ProductEntity extends Equatable
         unitOfCalories: unitOfCalories??this.unitOfCalories,
         averageRate: averageRate??this.averageRate,
         ratingCount: ratingCount??this.ratingCount,
+        code: code ?? this.code,
         reviewsEntityList: reviewsEntityList ?? this.reviewsEntityList
     );
   }
@@ -74,7 +77,7 @@ class ProductEntity extends Equatable
   @override
   List<Object?> get props => [
     name,description,price,isFeatured,imageUrl,
-    expirationMonths,calories,isOrganic,unitOfCalories,averageRate,ratingCount,reviewsEntityList
+    expirationMonths,calories,isOrganic,unitOfCalories,averageRate,ratingCount,reviewsEntityList,code
   ];
 
 

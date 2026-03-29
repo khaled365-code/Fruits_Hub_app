@@ -17,6 +17,10 @@ abstract class AppConstants
   static const String userIsLoggedInAccount='userIsLoggedInAccount';
   static const String currentAppTheme='currentAppTheme';
   static const String userData='userData';
+  static const int shippingPrice=30;
+  static const String appCurrentCurrency='USD';
+  static const String temporaryPostalCode='21505';
+  static const String temporaryCountryCode='EG';
 
 
 }

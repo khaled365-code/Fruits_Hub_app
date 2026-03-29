@@ -12,7 +12,7 @@ class CartItemEntity extends Equatable
 
   num calculateTotalPrice()
   {
-    return productEntity.price  * itemCount;
+    return (productEntity.price)  * itemCount;
   }
 
   num calculateTotalWeight()

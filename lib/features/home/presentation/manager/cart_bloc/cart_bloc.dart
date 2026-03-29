@@ -3,14 +3,14 @@ import 'package:fruits_commerce_app/features/home/domain/entities/cart_item_enti
 import 'package:fruits_commerce_app/features/home/domain/entities/product_entity.dart';
 import 'package:meta/meta.dart';
 
-import '../../../domain/entities/carts_entity_list.dart';
+import '../../../domain/entities/carts_entity.dart';
 
 part 'cart_event.dart';
 part 'cart_state.dart';
 
 class CartBloc extends Bloc<CartEvent, CartState> {
 
-  CartsEntityList carts=CartsEntityList(cartsList: []);
+  CartsEntity carts=CartsEntity(cartsList: []);
   CartBloc() : super(CartInitial()) {
     on<CartEvent>((event, emit) async {
 

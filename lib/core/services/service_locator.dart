@@ -11,6 +11,9 @@ import 'package:fruits_commerce_app/features/auth/data/repos/auth_repo_implement
 import 'package:fruits_commerce_app/features/auth/domain/repos/auth_repo.dart';
 import 'package:fruits_commerce_app/features/auth/presentation/manager/login_bloc/login_bloc.dart';
 import 'package:fruits_commerce_app/features/auth/presentation/manager/signup_cubit/signup_cubit.dart';
+import 'package:fruits_commerce_app/features/checkout/data/repos/checkout_repo_implementation.dart';
+import 'package:fruits_commerce_app/features/checkout/domain/repos/checkout_repo.dart';
+import 'package:fruits_commerce_app/features/checkout/presentation/manager/place_order_bloc.dart';
 import 'package:get_it/get_it.dart';
 
 final locator = GetIt.instance;
@@ -20,9 +23,11 @@ setUpLocator()
 {
 
   locator.registerFactory<SignupCubit>(() => SignupCubit(authRepo: locator()),);
+  locator.registerFactory<PlaceOrderBloc>(()=>PlaceOrderBloc(checkoutRepo: locator()));
   locator.registerFactory<LoginBloc>(() => LoginBloc(
   authRepo: locator()
   ),);
+  locator.registerLazySingleton<CheckoutRepo>(() => CheckoutRepoImplementation(databaseService: locator()),);
   locator.registerLazySingleton<AuthRepo>(() => AuthRepoImplementationUsingFirebase(
       firebaseAuthService: locator(),
       databaseService: locator()),);

@@ -1,6 +1,7 @@
 
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fruits_commerce_app/core/global/constants/database_constants.dart';
 import 'package:fruits_commerce_app/core/services/database_service.dart';
 import 'package:fruits_commerce_app/core/services/logger_service.dart';
 
@@ -95,6 +96,25 @@ class FireStoreService extends DatabaseService
       throw Exception('Failed to fetch for your data');
     }
 
+  }
+
+  @override
+  Stream<List<Map<String,dynamic>>> getStreamCollectionData({required String path}) async*
+  {
+    try
+    {
+      final result=_firestore.collection(path).snapshots();
+      await for(var item in result)
+        {
+          yield item.docs.map((doc)=>doc.data()).toList() ;
+        }
+
+    }
+    catch (e)
+    {
+      LoggerService().logDebug('Exception in FireStoreService.getStreamCollectionData and the exception : $e ');
+      throw Exception('Failed to fetch stream data');
+    }
   }
 
 

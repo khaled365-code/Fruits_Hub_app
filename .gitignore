@@ -43,3 +43,6 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 /.env
+
+
+D:\flutterprojects\fruits_commerce_app\lib\core\global\constants\app_scret_keys.dart

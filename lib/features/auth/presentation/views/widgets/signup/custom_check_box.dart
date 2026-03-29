@@ -22,8 +22,8 @@ class CustomCheckBox extends StatelessWidget {
             signupCubit.changeTermsAndConditions();
           },
           child: Container(
-            width: 24.w,
-            height: 24.h,
+            width: 24,
+            height: 24,
             decoration: ShapeDecoration(
                 color: state.termsAndConditionsActive == true ? AppColors.primaryColor : AppColors
                     .backgroundColors[ThemeCubit().currentTheme],

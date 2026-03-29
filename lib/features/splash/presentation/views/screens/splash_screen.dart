@@ -37,7 +37,16 @@ class _SplashScreenState extends State<SplashScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children:
         [
-          Align(alignment:  AlignmentDirectional.topStart , child: SvgPicture.asset(ImageConstants.plantSplashIcon)),
+          Align(alignment: LocalizationCubit().currentLanguage=='ar'?
+          AlignmentDirectional.topEnd :
+          AlignmentDirectional.bottomEnd,
+          child:  LocalizationCubit().currentLanguage=='en'?
+          Transform.translate(
+            offset: Offset(0,10),
+            child: Transform.rotate(angle:
+            1.5707963268 ,child: SvgPicture.asset(ImageConstants.plantSplashIcon),),
+          )
+          : SvgPicture.asset(ImageConstants.plantSplashIcon)),
           SvgPicture.asset(ImageConstants.appLogoIcon),
           SvgPicture.asset(ImageConstants.pointsCirclesIcon,fit: BoxFit.fitWidth,),
 
@@ -45,7 +54,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
         ],
       ),
-    ),);
+    ),
+    );
   }
 
 

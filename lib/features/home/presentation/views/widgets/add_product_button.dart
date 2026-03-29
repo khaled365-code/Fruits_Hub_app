@@ -18,12 +18,14 @@ class AddProductButton extends StatelessWidget {
     return GestureDetector(
       onTap: onAddProductPressed,
       child: Container(
-       padding: EdgeInsetsDirectional.all(10),
+        width: 36,
+       height: 36,
         decoration: ShapeDecoration(
           shape: OvalBorder(),
           color: ThemeCubit().currentTheme==0?AppColors.primaryColor:AppColors.darkerPrimaryColor,
         ),
-        child: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(3.0),
           child: SvgPicture.asset(ImageConstants.plusIcon,colorFilter:
           ColorFilter.mode(AppColors.backgroundColors[ThemeCubit().currentTheme],BlendMode.srcIn),),
         ),
