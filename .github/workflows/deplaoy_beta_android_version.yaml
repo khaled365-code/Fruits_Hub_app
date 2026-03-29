@@ -12,7 +12,7 @@ jobs:
       - name: Checkout My Repository
         uses: actions/checkout@v2
 
-      - name: Setup JDK 11
+      - name: Setup JDK 17
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
@@ -29,11 +29,11 @@ jobs:
           ruby-version: '3.4.9'
           bundler-cache: false # Disable bundler-cache to manage dependencies manually
 
-      - name: Update Gemfile.lock platforms
-        run: |
-          cd android
-          bundle lock --add-platform x86_64-linux
-          bundle lock --add-platform ruby
+       # - name: Update Gemfile.lock platforms
+         # run: |
+         # cd android
+         #  bundle lock --add-platform x86_64-linux
+         # bundle lock --add-platform ruby
 
       - name: Install Ruby Dependencies
         run: |

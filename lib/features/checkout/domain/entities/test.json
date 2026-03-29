@@ -1,0 +1,45 @@
+
+
+[
+    {
+    "amount": {
+      "total": "70",
+      "currency": "USD",
+      "details": {
+        "subtotal": "70",
+        "shipping": "0",
+        "shipping_discount": 0
+    }
+   },
+    "description": "The payment transaction description.",
+    "item_list": {
+      "items": [
+    {
+      "name": "Apple",
+      "quantity": 4,
+      "price": "5",
+      "currency": "USD"
+    },
+    {
+      "name": "Pineapple",
+      "quantity": 5,
+      "price": "10",
+      "currency": "USD"
+    }
+  ],
+      "shipping_address": {
+     "recipient_name": "tharwat",
+     "line1": "Alexandria",
+     "line2": "",
+     "city": "Alexandria",
+     "country_code": "EG",
+     "postal_code": "21505",
+     "phone": "+00000000",
+     "state": "Alexandria"
+     }
+  }
+ }
+
+
+
+]
