@@ -28,7 +28,9 @@ class CartItemEntity extends Equatable
 
   decreaseItemCount()
   {
-     itemCount--;
+     if (itemCount > 1) {
+       itemCount--;
+     }
   }
   @override
   List<Object?> get props => [productEntity];
