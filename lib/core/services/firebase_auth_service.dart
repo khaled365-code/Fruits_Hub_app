@@ -6,6 +6,11 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:fruits_commerce_app/core/localization/localization_cubit/localization_cubit.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+class FacebookLoginCancelledException implements Exception {
+  @override
+  String toString() => '';
+}
+
 class FirebaseAuthService {
 
   String _getMessage(String arMessage, String enMessage) {
@@ -129,12 +134,19 @@ class FirebaseAuthService {
   Future<User> signInWithFacebook() async {
     try {
       final LoginResult loginResult = await FacebookAuth.instance.login();
+
+      if (loginResult.status == LoginStatus.cancelled) {
+        throw FacebookLoginCancelledException();
+      }
+
       final OAuthCredential facebookAuthCredential =
       FacebookAuthProvider.credential(
           loginResult.accessToken!.tokenString);
       var result =
       await FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
       return result.user!;
+    } on FacebookLoginCancelledException {
+      rethrow;
     } on MissingPluginException catch (e) {
       if (kDebugMode) {
         log('Exception in FirebaseAuthService.signInWithFacebook : ${e.toString()}');

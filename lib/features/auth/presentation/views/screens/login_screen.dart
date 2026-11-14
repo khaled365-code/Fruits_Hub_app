@@ -56,7 +56,7 @@ class LoginScreen extends StatelessWidget {
             navigate(route: Routes.mainLayoutScreen, context: context,replaced: true);
             await CacheService().setBool(key: AppConstants.userIsLoggedInAccount, value: true);
           }
-          if (state.requestState==RequestStates.error)
+          if (state.requestState==RequestStates.error && state.errorMessage.isNotEmpty)
           {
             buildSnackBarMessage(text: state.errorMessage, context: context,errorMessage: true);
           }
@@ -183,8 +183,6 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
-
-
 
 
 
